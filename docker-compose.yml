@@ -1,0 +1,13 @@
+version: '3'
+services:
+  webserver:
+    image: mysite
+    ports:
+      - "8866:8866"
+
+  clidownload:
+    image: appropriate/curl
+    links:
+      - webserver
+    entrypoint: sh -c  "sleep 5 && curl -s 192.168.20.2:8866"
+    
