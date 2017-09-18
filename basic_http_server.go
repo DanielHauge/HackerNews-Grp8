@@ -15,7 +15,7 @@ type Person struct {
 
 func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 	
-		fmt.Fprintln(w, "Hello Static website - og mere") 
+		fmt.Fprintln(w, "Hello Static website - og mere --") 
 	
 
 	
