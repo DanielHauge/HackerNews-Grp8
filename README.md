@@ -52,19 +52,6 @@ The vagrant scripts will create two new Ubuntu 16.04.3 x64 droplets (smallest ma
 - And what name you have given the SSH key on Digital Ocean
 - Digital Ocean API key
 ```ruby
-$script = <<SCRIPT
-sudo apt-get update
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
-sudo apt-get update
-apt-cache policy docker-engine
-sudo apt-get install -y docker-engine
-sudo usermod -aG docker $(whoami)
-
-curl --remote-name https://raw.githubusercontent.com/praqma-training/code-infra/jenkinsdocker/containers/jenkinsdocker/start.sh
-chmod u+x ./start.sh
-./start.sh
-SCRIPT
 
 Vagrant.configure(2) do |config|
   config.vm.box = 'digital_ocean'
