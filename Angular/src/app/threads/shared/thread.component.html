@@ -1,0 +1,18 @@
+<section>
+<div>
+
+<a [routerLink]="['/threads', thread.id]"><h4>{{thread.post_title}}</h4></a>
+    <p>Id {{thread.id}}, Title {{thread.post_title}} , Username {{thread.username}}</p>
+
+</div>
+<!--div class="actions">
+    <button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
+    <button type="button" (click)="showComments = !showComments">Comments ({{thread.comments.length}})</button>
+</div>
+<div class="comments" *ngIf="showComments">
+    <div class="comment" *ngFor="let comment of thread.comments">
+        <p><strong>{{comment.name}}</strong> {{comment.comment}}</p>
+    </div>
+    <app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
+</div-->
+</section>
