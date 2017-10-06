@@ -1,0 +1,40 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-16.04"
+
+  config.vm.network "private_network", type: "dhcp"
+
+  config.vm.define "APPSERVER", primary: true do |server|
+    server.vm.network "private_network", ip: "192.168.20.2"
+    server.vm.network "forwarded_port", guest: 8866, host: 8866
+    server.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = "1"
+    end
+    server.vm.hostname = "APPSERVER"
+    server.vm.provision "shell", inline: <<-SHELL
+      curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+	  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+	  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+	  sudo apt-get update
+	  sudo apt-get install -y dotnet-sdk-2.0.0
+	  sudo apt-get upgrade -y
+	  sudo apt-get install -y dotnet-dev-1.1.4
+	  sudo apt-get install -y build-essential libssl-dev
+	  sudo curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+	  bash install_nvm.sh
+	  sudo nvm install 8.5.0
+	  sudo nvm alias default 8.5.0
+	  sudo nvm use default
+	  npm install -g express
+	  npm link express
+	  
+	  sudo npm install -g yo bower
+	  sudo npm install -g generator-aspnet
+	  
+	  sudo apt-get install -y nginx
+	  sudo service nginx start
+	  
+    SHELL
+  end
+
+end
