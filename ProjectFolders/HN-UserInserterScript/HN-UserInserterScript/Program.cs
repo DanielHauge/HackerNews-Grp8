@@ -14,7 +14,7 @@ namespace HN_UserInserterScript
     {
         static void Main(string[] args)
         {
-            IEnumerable<string[]> lines = LoadCsvData(@"C:\Users\Animc\Desktop\users.csv", ',');
+            IEnumerable<string[]> lines = LoadCsvData(@"/root/users.csv", ',');
             Console.WriteLine("Reader Started");
 
 
