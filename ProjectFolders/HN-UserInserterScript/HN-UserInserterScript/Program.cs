@@ -19,14 +19,14 @@ namespace HN_UserInserterScript
 
 
 
-            using (MySqlConnection connection = new MySqlConnection("server=46.101.103.163;user id=myuser;database=HackerNewsDB;persistsecurityinfo=True;allowuservariables=True;Pwd=HackerNews8"))
+            using (MySqlConnection connection = new MySqlConnection("server=46.101.103.163;user id=myuser;database=HackerNewsDB;SslMode=none;persistsecurityinfo=True;allowuservariables=True;Pwd=HackerNews8"))
             {
                 MySqlCommand cmd = new MySqlCommand(
                     "INSERT INTO User (Name, Password, KarmaPoints) VALUES (@Name, @Password, @KarmaPoints)");
 
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
-
+                
                 Console.WriteLine("SQLCOMMAND PROCEDURE STATED!");
                 connection.Open();
                 Console.WriteLine("CONNECTION OPENED!");
