@@ -1,0 +1,10 @@
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\bin\Debug\netcoreapp1.1\HN-UserInserterScript.deps.json
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\bin\Debug\netcoreapp1.1\HN-UserInserterScript.runtimeconfig.json
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\bin\Debug\netcoreapp1.1\HN-UserInserterScript.runtimeconfig.dev.json
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\bin\Debug\netcoreapp1.1\HN-UserInserterScript.dll
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\bin\Debug\netcoreapp1.1\HN-UserInserterScript.pdb
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\obj\Debug\netcoreapp1.1\HN-UserInserterScript.csprojResolveAssemblyReference.cache
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\obj\Debug\netcoreapp1.1\HN-UserInserterScript.csproj.CoreCompileInputs.cache
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\obj\Debug\netcoreapp1.1\HN-UserInserterScript.AssemblyInfo.cs
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\obj\Debug\netcoreapp1.1\HN-UserInserterScript.dll
+C:\Users\Animc\Desktop\Repos\HackerNews-Grp8\ProjectFolders\HN-UserInserterScript\HN-UserInserterScript\obj\Debug\netcoreapp1.1\HN-UserInserterScript.pdb
