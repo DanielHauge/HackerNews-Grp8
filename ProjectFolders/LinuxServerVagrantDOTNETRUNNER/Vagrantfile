@@ -19,24 +19,13 @@ Vagrant.configure(2) do |config|
 	server.vm.hostname = "CRunner"
 	server.vm.provision "shell", inline: <<-SHELL
 		curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-	  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-	  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-	  sudo apt-get update
-	  sudo apt-get install -y dotnet-sdk-2.0.0
-	  sudo apt-get upgrade -y
-	  sudo apt-get install -y dotnet-dev-1.1.4
-	  sudo apt-get install -y build-essential libssl-dev
-	  sudo curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
-	  bash install_nvm.sh
-	  sudo nvm install 8.5.0
-	  sudo nvm alias default 8.5.0
-	  sudo nvm use default
-	  npm install -g express
-	  npm link express
-	  
-	  sudo npm install -g yo bower
-	  sudo npm install -g generator-aspnet
-
+		sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+		sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+		sudo apt-get update
+		sudo apt-get install -y dotnet-sdk-2.0.0
+		sudo apt-get upgrade -y
+		sudo apt-get install -y dotnet-dev-1.1.4
+		sudo apt-get install -y build-essential libssl-dev
 		sudo chmod 700 ~/.ssh
 		sudo echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDoqHjzR547kAzN2HsRxwuiipeLpAbyM9ZN8JMDg0DzzxsExqKZJC2txil//kKqsYRLEbK3ZoqXIaIYRkYmMYoFt7CQk34ZFY0WEA66lu+sKCFfCtk0pweRJCxkNY5nqb6aI/R7ON6aqtAtXlbTp4HGwwllVsuA7Ap4x5EMjo+RuIUdkhsKo6rTl+ty55i86mMTdxdY5pOsCZDLDqEV6zkyRfkYU7pxnfJLL0zFreEFtbH3JAN9d++RuVoKK5HKPlHpn0VjdmMs8xCrS45GmIQybC8P0t+//jLk9JBd48jWUL269JuthOUDZKaZD+XdULrvoIg4fLkPr74miKxfOA9TiSKMDTiInt9mnYVV26ce+JKg7tWFZ3Gnb+6WUBdwkS2IhGmw/NcpaMuSq2Ru7JXHJGO9EcQhjTg5ALX45Cv++mYzOZgis5EYzaZHBVw+sOphq2K7DosKc1Cv0XK1dvT1cfs2/0EQ+hb7IerP5NNV3Y+lrDPdo1AK+LPd3wX73ZCNhs3crJOJcApzPKlaOdGhG3Y+20wOGRAZYG8k4MPiCnW2vomhrgLY7fXjd1l+Pf4G+MLw2yHUPu3ILRFNaCGc83UJdP+TamkFU7yKisZXmjrNK2Is7GJxtpRJtEHKg6YZc/MJ6UwfNST3pW8SRxUTh5PEQlcTrj6XYRKc90RK2w== Animcuil@gmail.com\n">> ~/.ssh/authorized_keys
 		sudo cat "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDSKf3TBR0jDrqGQNMeZVJGs/oOTnO7ILVX3T56kumpmYxIzaMFrGENx/cxKcY2sE599LMvYPI2oYidqoGq/NJg2X0IdnC5B3XMJcx0vSPtrDYYGzwWcG6uEvdqG8+jjFR+oXGspGc8ys3sUTJe9sGEVIUPNuwZvsXiFpHgVIbnZNmW+yrzS4+3ZUu/KZSEaqc/T5FvJbEdjUtjeGNWy5vbokCsj/HGjvTAJVgLYh6bgzStjljIlmhMNa1k23sxIpD/QImvOZeNq2oXySWW3wCxTDfMZlaMvZPFD2EvuFuD6rku9qUuL/+12WdYZViDufXE+WOKqQHMe/XA1vY8A9rVI+7BAlxcAo9O49xnFAScY69d41k0DQwXotX73RM1Q70Mq/Wdz0d0aKePhiQmuGSCUaG6miPkF2kfTpYrp9Iqg6VYpEgw1SpOjAAx+M1vXnGSkpjRLPe2nu+fR4ouipXQFQHFDSpRUfZOKP+7fQOWB25iyciYWssekdAJfnlJ176kPN6zFMdqVp5bgxP4taloHQV4evrenzNFrz2iq/oZkrmkLMVG+300IBA8T1DPAoBuUtRlMde9D9xqOCoCdz8MqsjpbwWmT0P+uGbTR0SFBWiC2dylXqXATUsCZBjYOBjhAmtVCGYYtW9/BobfnGcjhKHOGY6jZP6TDI6TCFBVdQ== Animcuil@gmail.com\n">> ~/.ssh/authorized_keys
@@ -45,6 +34,29 @@ Vagrant.configure(2) do |config|
 		sudo echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/ap5l5R1kNFcVFw7fjREW+S08W1Bb7H4QeWSpOXMm4AKqh1Gtoj6ROwcvBBRZxzEwKNsYwZ9W8AxFtwVDyDJdGWL1zjaBp6Y1iNYe09EjWZdITCT5ETDKjpuKs7iYy6W9bWWwoEWhe06jAXjS/r/TomZn6kcfkkeh/P6mNTWf2tGHJceUJb7tqj/k0o8TafI+LLA9PVWnbgZQGTteEvbxQVsDjlGMMzAQaTMzlKHLJHbqDTBssflEuoRJQZRqeyQt/dH1P63o0xhBluUucpGAUg/H9YjFpn9FahZCAUAIxtmd9gA17TQxfS43hAP+0X42fAIZnSQ9swtxsZRiJpNZ reape@LAPTOP-RNIGIGP9\n">> ~/.ssh/authorized_keys
 		sudo chmod 600 ~/.ssh/authorized_keys
 
+		sudo wget https://github.com/DanielHauge/HackerNews-Grp8/raw/master/ProjectFolders/UserInsertScript.tar
+		sudo chmod u+x UserInsertScript.tar
+		sudo tar -xvf UserInsertScript.tar
+		wget https://github.com/datsoftlyngby/soft2017fall-lsd-teaching-material/raw/master/assignments/users.csv.bz2
+		sudo chmod u+x users.csv.bz2
+		sudo bzip2 -d users.csv.bz2
+		
+		cat > HN-UserInsertScript.service <<EOF
+		[Unit]
+		Description=Demo service
+		After=network.target
+
+		[Service]
+		ExecStart=/usr/bin/dotnet $(pwd)/UserInsertScript/HN-UserInsertScript.dll
+
+		[Install]
+		WantedBy=multi-user.target
+		EOF
+		
+		sudo cp HN-UserInsertScript.service /lib/systemd/system
+		sudo systemctl daemon-reload 
+		sudo systemctl enable HN-UserInsertScript
+		sudo systemctl start HN-UserInsertScript
 	  
     SHELL
   end
