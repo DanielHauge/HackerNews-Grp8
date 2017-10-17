@@ -6,7 +6,7 @@ RUN go get "github.com/go-sql-driver/mysql"
 RUN go get github.com/gorilla/mux
 
 # Set the working directory
-WORKDIR /src
+WORKDIR /src/
 
 # Copy the server code into the container
 COPY Handlers.go Handlers.go
