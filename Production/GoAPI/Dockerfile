@@ -3,7 +3,7 @@ FROM golang:jessie
 # Install any needed dependencies...
 # RUN go get ...
 RUN go get "github.com/go-sql-driver/mysql"
-RUN go get go get “github.com/gorilla/mux”
+RUN go get “github.com/gorilla/mux”
 
 # Set the working directory
 WORKDIR /src
