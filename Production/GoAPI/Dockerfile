@@ -5,8 +5,7 @@ FROM golang:jessie
 RUN go get "github.com/go-sql-driver/mysql"
 RUN go get github.com/gorilla/mux
 
-# Set the working directory
-WORKDIR /src/
+
 
 # Copy the server code into the container
 COPY Handlers.go Handlers.go
@@ -22,5 +21,5 @@ COPY Todo.go Todo.go
 EXPOSE 8787
 
 # Build and run the server when the container is started
-RUN go build /src/.
+RUN go build .
 ENTRYPOINT ./GoAPI
