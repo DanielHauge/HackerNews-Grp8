@@ -23,7 +23,7 @@ func GetUserID(username string)string {
 func FindLatest()string{
 
 	hanid := ""
-	row := DB.QueryRow("select MAX(Han_ID) from Comment FULL OUTER JOIN Thread")
+	row := DB.QueryRow("SELECT IFNULL(MAX(Han_ID), 0) Han_ID FROM (SELECT Han_ID FROM HackerNewsDB.Comment UNION ALL SELECT Han_ID FROM HackerNewsDB.Thread) a")
 	err := row.Scan(&hanid); if err != nil{
 		fmt.Print(err.Error())
 	}
