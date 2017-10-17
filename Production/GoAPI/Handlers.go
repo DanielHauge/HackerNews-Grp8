@@ -37,7 +37,8 @@ func TodoShow(w http.ResponseWriter, r *http.Request) {
 func GetLatest(w http.ResponseWriter, r *http.Request){
 
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprint(w, FindLatest())
+	input := FindLatest()
+	fmt.Fprintln(w, input)
 
 }
 
