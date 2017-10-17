@@ -20,6 +20,4 @@ COPY Todo.go Todo.go
 # Make port 8787 available to the host
 EXPOSE 8787
 
-# Build and run the server when the container is started
-RUN go build .
-ENTRYPOINT ./GoAPI
+ENTRYPOINT go run Main.go Logger.go Handlers.go MySQLHandler.go PostClass.go Router.go Routes.go Todo.go
