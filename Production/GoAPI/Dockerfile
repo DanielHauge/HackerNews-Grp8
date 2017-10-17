@@ -11,7 +11,7 @@ WORKDIR /src
 # Copy the server code into the container
 COPY Handlers.go Handlers.go
 COPY Logger.go Logger.go
-COPY main.go main.go
+COPY Main.go Main.go
 COPY MySQLHandler.go MySQLHandler.go
 COPY PostClass.go PostClass.go
 COPY Router.go Router.go
