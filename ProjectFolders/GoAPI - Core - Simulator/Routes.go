@@ -18,18 +18,8 @@ var routes = Routes{
 		"/",
 		Index,
 	},
-	Route{
-		"TodoIndex",
-		"GET",
-		"/todos",
-		TodoIndex,
-	},
-	Route{
-		"TodoShow",
-		"GET",
-		"/todos/{todoId}",
-		TodoShow,
-	},
+
+
 	Route{
 		"post",
 		"POST",
@@ -39,5 +29,11 @@ var routes = Routes{
 		"latest",
 		"GET",
 		"/latest", GetLatest,
+	},
+	Route{
+		"status",
+		"GET",
+		"/status",
+		GetStatus,
 	},
 }
