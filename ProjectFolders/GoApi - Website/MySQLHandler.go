@@ -48,4 +48,51 @@ func VerifyUser(usr UserLogin)bool {
 	return result
 }
 
+func QueryLatestStories(dex int, dexto int)LatestStories{
+	results := LatestStories{}
 
+	rows, err := DB.Query("SELECT Name, UserID, Time, Post_URL FROM HackerNewsDB.Thread ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for rows.Next() {
+		var Name string
+		var UserID int
+		var Time DateType
+		var Post_URL string
+
+		if err := rows.Scan(&Name, &UserID, &Time, &Post_URL); err != nil {
+			log.Fatal(err)
+		}
+		results.Stories = append(results.Stories, Story{Name,UserID, Time,Post_URL})
+	}
+	return results
+}
+
+func QueryAllComments(T_id int, Han_ID int)AllComments{
+	results := AllComments{}
+	var id int
+	var where string
+	if Han_ID == 0{
+		id = T_id
+		where = "ThreadID"
+	}else { id = Han_ID; where = "ParentID" }
+
+	rows, err := DB.Query("SELECT Name, UserID, CommentKarma, Time FROM HackerNewsDB.Comment WHERE ? LIKE ? ORDER BY ID DESC", where, id)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for rows.Next() {
+		var Name string
+		var UserID int
+		var CommentKarma int
+		var Time DateType
+
+		if err := rows.Scan(&Name, &UserID, &CommentKarma, &Time); err != nil {
+			log.Fatal(err)
+		}
+		results.Comments = append(results.Comments, Comment{Name,UserID,CommentKarma,Time})
+	}
+	return results
+}

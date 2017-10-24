@@ -1,5 +1,6 @@
 package main
 
+import "time"
 
 type PostRequest struct {
 	Username string `json:"username"`
@@ -24,5 +25,39 @@ type UserLogin struct {
 }
 
 type LatestStories struct {
-	Stories []PostRequest `json:"stories"`
+	Stories []Story `json:"stories"`
+}
+
+type Story struct {
+	Title string `json:"title"`
+	UserID int `json:"user_id"`
+	Time DateType `json:"time"`
+	Url string `json:"url"`
+}
+
+type AllComments struct {
+	Comments []Comment `json:"comments"`
+}
+
+type Comment struct {
+	Comment string `json:"comment"`
+	Userid int `json:"userid"`
+	Points int `json:"points"`
+	Time DateType `json:"time"`
+}
+
+type StoryRequest struct {
+	Dex int `json:"dex"`
+	DexTo int `json:"dex_to"`
+}
+
+type CommentsRequest struct {
+	ThreadID int `json:"thread_id"`
+	Han_id int `json:"han_id"`
+}
+
+type DateType time.Time
+
+func (t DateType) String() string {
+	return time.Time(t).String()
 }

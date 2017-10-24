@@ -8,7 +8,6 @@ import (
 	"io"
 	"github.com/streadway/amqp"
 	"github.com/gorilla/mux"
-	"strconv"
 )
 
 func setheader (w http.ResponseWriter, r *http.Request){
@@ -198,7 +197,7 @@ func GetStoryByID(w http.ResponseWriter, r *http.Request){
 
 func GetLatestStories(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
-
+	var AllStories LatestStories
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
 		panic(err)
@@ -206,19 +205,16 @@ func GetLatestStories(w http.ResponseWriter, r *http.Request){
 	if err := r.Body.Close(); err != nil {
 		panic(err)
 	}
-	resp := LatestStories{}
-	sx := string(body)
-	amount, err := strconv.ParseInt(sx, 10, 64)
-	/// Query data base and
-
-	for i:=0; i<50 ;i++  {
-		/// set information based on query correct yes!!!
-		apost := PostRequest{Username:"Hej",Post_type:"story",Post_parrent:-1,Post_text:"",Post_title:"HELLO!",Pwd_hash:"d421d",Hanesst_id:2003}
-		resp.Stories = append(resp.Stories, apost)
-
+	var req StoryRequest
+	if err := json.Unmarshal(body, &req); err != nil {
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		if err := json.NewEncoder(w).Encode(err); err != nil {
+			panic(err)
+		}
 	}
-
-	fmt.Fprint(w, amount)
+	AllStories = QueryLatestStories(req.Dex,req.DexTo)
+	msgs, err := json.Marshal(AllStories); if err != nil{ panic(err) }
+	fmt.Fprint(w, string(msgs))
 }
 
 func GetComments(w http.ResponseWriter, r *http.Request){
@@ -229,3 +225,4 @@ func GetComments(w http.ResponseWriter, r *http.Request){
 	id := vars["storyid"]
 	fmt.Fprint(w, id)
 }
+

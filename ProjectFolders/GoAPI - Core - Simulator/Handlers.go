@@ -78,6 +78,7 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 		SendToRabbit(props, Post_Q.Name)
 
 	}()
+	fmt.Fprint(w, "Publishing to RQ for DB Insertion")
 }
 
 func GetStatus(w http.ResponseWriter, r *http.Request){

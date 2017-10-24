@@ -28,7 +28,7 @@ func main() {
 
 
 	log.Println("Initializing Database Connection.")
-	db, err := sql.Open("mysql", "myuser:HackerNews8@tcp(46.101.103.163:3306)/HackerNewsDB")
+	db, err := sql.Open("mysql", "myuser:HackerNews8@tcp(46.101.103.163:3306)/HackerNewsDB?parseTime=True")
 	if err != nil {
 		fmt.Print(err.Error())
 	}
