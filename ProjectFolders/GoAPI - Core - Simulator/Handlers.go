@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"io"
 	"github.com/streadway/amqp"
+	"log"
 )
 
 
@@ -52,12 +53,12 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 	} else { w.Header().Set("Access-Control-Allow-Origin", "*")}
 
-	go func() {
 		var request PostRequest
 
 		body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 		if err != nil {
 			panic(err)
+			log.Printf(err.Error())
 		}
 		if err := r.Body.Close(); err != nil {
 			panic(err)
@@ -75,9 +76,11 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 			ContentType: "application/json; charset=UTF-8",
 			Body:        body,
 		}
+		go func() {
 		SendToRabbit(props, Post_Q.Name)
+		}()
 
-	}()
+
 	fmt.Fprint(w, "Publishing to RQ for DB Insertion")
 }
 
