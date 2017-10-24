@@ -53,30 +53,25 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 	} else { w.Header().Set("Access-Control-Allow-Origin", "*")}
 
-		var request PostRequest
+
 
 		body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 		if err != nil {
 			panic(err)
 			log.Printf(err.Error())
 		}
+
 		if err := r.Body.Close(); err != nil {
 			panic(err)
 		}
-		if err := json.Unmarshal(body, &request); err != nil {
-			w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-			w.WriteHeader(422)
-			if err := json.NewEncoder(w).Encode(err); err != nil {
-				panic(err)
-			}
-		}
 
+		go func() {
 		/// Implement MySQL
 		props := amqp.Publishing{
 			ContentType: "application/json; charset=UTF-8",
 			Body:        body,
 		}
-		go func() {
+
 		SendToRabbit(props, Post_Q.Name)
 		}()
 
