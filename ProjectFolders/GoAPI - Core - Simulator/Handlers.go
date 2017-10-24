@@ -1,10 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"net/http"
-
 	"io/ioutil"
 	"io"
 	"github.com/streadway/amqp"
