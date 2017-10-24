@@ -1,0 +1,12 @@
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\DB_Inserter_Slave.exe.config
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\DB_Inserter_Slave.exe
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\DB_Inserter_Slave.pdb
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\MySql.Data.dll
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\RabbitMQ.Client.dll
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\MySql.Data.xml
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\bin\Debug\RabbitMQ.Client.xml
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\obj\Debug\DB_Inserter_Slave.csprojResolveAssemblyReference.cache
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\obj\Debug\DB_Inserter_Slave.exe
+C:\Users\reape\Desktop\GIT\HackerNews-Grp8\DB_Inserter_Slave\DB_Inserter_Slave\obj\Debug\DB_Inserter_Slave.pdb
