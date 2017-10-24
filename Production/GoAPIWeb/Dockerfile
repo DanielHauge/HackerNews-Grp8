@@ -19,8 +19,9 @@ COPY RabbitManager.go RabbitManager.go
 COPY Data.go Data.go
 COPY Router.go Router.go
 COPY Routes.go Routes.go
+COPY GmailMailAPI.go GmailMailAPI.go
 
 # Make port 9191 available to the host
 EXPOSE 9191
 
-ENTRYPOINT go run Main.go Logger.go Handlers.go MySQLHandler.go Data.go Router.go Routes.go RabbitManager.go
+ENTRYPOINT go run Main.go Logger.go Handlers.go MySQLHandler.go Data.go Router.go Routes.go RabbitManager.go GmailMailAPI.go
