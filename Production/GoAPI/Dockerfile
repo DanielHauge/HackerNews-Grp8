@@ -4,7 +4,7 @@ FROM golang:jessie
 # RUN go get ...
 RUN go get "github.com/go-sql-driver/mysql"
 RUN go get github.com/gorilla/mux
-RUN go get get github.com/streadway/amqp
+RUN go get github.com/streadway/amqp
 
 
 
