@@ -23,12 +23,14 @@ var routes = Routes{
 	Route{
 		"post",
 		"POST",
-		"/post", PostStory,
+		"/post",
+		PostStory,
 	},
 	Route{
 		"latest",
 		"GET",
-		"/latest", GetLatest,
+		"/latest",
+		GetLatest,
 	},
 	Route{
 		"status",
@@ -60,6 +62,25 @@ var routes = Routes{
 		"/stories/{storyid}",
 		GetStoryByID,
 	},
+	Route{
+		"GetComments",
+		"GET",
+		"/comments/{storyid}",
+		GetComments,
+	},
+	Route{
+		"Recover",
+		"POST",
+		"/recover",
+		StartRecovery,
+	},
+	Route{
+		"UpdatePassword",
+		"POST",
+		"/update",
+		UpdatePassword,
+	},
+
 
 	Route{
 		"index2exp",

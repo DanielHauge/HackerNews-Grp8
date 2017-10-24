@@ -24,11 +24,18 @@ type UserLogin struct {
 	Password string `json:"password"`
 }
 
+type PasswordChangeData struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+	NewPassword string `json:"new_password"`
+}
+
 type LatestStories struct {
 	Stories []Story `json:"stories"`
 }
 
 type Story struct {
+	Id int `json:"id"`
 	Title string `json:"title"`
 	UserID int `json:"user_id"`
 	Time DateType `json:"time"`
