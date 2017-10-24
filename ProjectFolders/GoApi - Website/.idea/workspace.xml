@@ -14,12 +14,12 @@
       <file leaf-file-name="Handlers.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Handlers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="571">
+              <caret line="89" column="18" lean-forward="false" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
               <folding>
-                <element signature="e#14#303#0" expanded="true" />
+                <element signature="e#14#321#0" expanded="true" />
                 <element signature="n#!!block;n#setheader#0" expanded="false" />
-                <element signature="n#!!block;n#Index2#0" expanded="false" />
+                <element signature="n#!!block;n#Index#0" expanded="false" />
                 <element signature="n#!!block;n#GetLatest#0" expanded="false" />
                 <element signature="n#!!block;n#PostStory#0" expanded="false" />
                 <element signature="n#!!block;n#GetStatus#0" expanded="false" />
@@ -28,6 +28,8 @@
                 <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
                 <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
                 <element signature="n#!!block;n#GetComments#0" expanded="false" />
+                <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+                <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -46,8 +48,8 @@
       <file leaf-file-name="Data.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state relative-caret-position="323">
+              <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding>
                 <element signature="e#14#27#0" expanded="true" />
                 <element signature="n#!!block;n#String#0" expanded="false" />
@@ -78,30 +80,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQLHandler.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MySQLHandler.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#14#74#0" expanded="true" />
-                <marker date="1508850644462" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-                <marker date="1508850644462" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-                <marker date="1508850644462" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-                <marker date="1508850644462" expanded="true" signature="598:638" ph="select Passw... User" />
-                <marker date="1508850644462" expanded="true" signature="900:988" ph="SELECT Name,... " />
-                <marker date="1508850644462" expanded="true" signature="1560:1631" ph="SELECT Name,... " />
-                <marker date="1508850644462" expanded="true" signature="1560:1657" ph="SELECT Name,... " />
+                <element signature="n#!!block;n#FindLatest#0" expanded="false" />
+                <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
+                <element signature="n#!!block;n#GetUserID#0" expanded="false" />
+                <element signature="n#!!block;n#VerifyUser#0" expanded="false" />
+                <element signature="n#!!block;n#GetRecoveryInformation#0" expanded="false" />
+                <element signature="n#!!block;n#QueryLatestStories#0" expanded="false" />
+                <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
+                <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Routes.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GmailMailAPI.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GmailMailAPI.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <element signature="e#14#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Routes.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Routes.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+            <state relative-caret-position="510">
+              <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -110,8 +125,8 @@
       <file leaf-file-name="Main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+            <state relative-caret-position="979">
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -119,16 +134,25 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" path="C:\Go" />
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/RabbitManager.go" />
         <option value="$PROJECT_DIR$/PostClass.go" />
+        <option value="$PROJECT_DIR$/client_secret.json.json" />
+        <option value="$PROJECT_DIR$/Main.go" />
         <option value="$PROJECT_DIR$/Data.go" />
         <option value="$PROJECT_DIR$/MySQLHandler.go" />
+        <option value="$PROJECT_DIR$/GmailMailAPI.go" />
         <option value="$PROJECT_DIR$/Handlers.go" />
-        <option value="$PROJECT_DIR$/Main.go" />
         <option value="$PROJECT_DIR$/Routes.go" />
       </list>
     </option>
@@ -139,11 +163,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="-19" />
-    <option name="width" value="2576" />
-    <option name="height" value="1416" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="298" />
+    <option name="y" value="-11" />
+    <option name="width" value="1932" />
+    <option name="height" value="1173" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -160,8 +184,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,10 +195,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GoAPI - Core - Simulator" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -209,15 +234,15 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="7" />
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25198728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25596184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299611" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299611" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299611" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -236,19 +261,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Handlers.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1309">
+          <caret line="89" column="18" lean-forward="false" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
           <folding>
-            <element signature="e#14#303#0" expanded="true" />
+            <element signature="e#14#321#0" expanded="true" />
             <element signature="n#!!block;n#setheader#0" expanded="false" />
-            <element signature="n#!!block;n#Index2#0" expanded="false" />
+            <element signature="n#!!block;n#Index#0" expanded="false" />
             <element signature="n#!!block;n#GetLatest#0" expanded="false" />
             <element signature="n#!!block;n#PostStory#0" expanded="false" />
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
@@ -257,6 +282,204 @@
             <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
+            <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Logger.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#27#0" expanded="true" />
+            <element signature="n#!!block;n#String#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RabbitManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#74#0" expanded="true" />
+            <element signature="n#!!block;n#FindLatest#0" expanded="false" />
+            <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
+            <element signature="n#!!block;n#GetUserID#0" expanded="false" />
+            <element signature="n#!!block;n#VerifyUser#0" expanded="false" />
+            <element signature="n#!!block;n#GetRecoveryInformation#0" expanded="false" />
+            <element signature="n#!!block;n#QueryLatestStories#0" expanded="false" />
+            <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
+            <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GmailMailAPI.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Routes.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#321#0" expanded="true" />
+            <element signature="n#!!block;n#setheader#0" expanded="false" />
+            <element signature="n#!!block;n#Index#0" expanded="false" />
+            <element signature="n#!!block;n#GetLatest#0" expanded="false" />
+            <element signature="n#!!block;n#PostStory#0" expanded="false" />
+            <element signature="n#!!block;n#GetStatus#0" expanded="false" />
+            <element signature="n#!!block;n#CreateUser#0" expanded="false" />
+            <element signature="n#!!block;n#Login#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
+            <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
+            <element signature="n#!!block;n#GetComments#0" expanded="false" />
+            <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Logger.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="e#14#27#0" expanded="true" />
+            <element signature="n#!!block;n#String#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RabbitManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Routes.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <element signature="e#14#74#0" expanded="true" />
+            <element signature="n#!!block;n#FindLatest#0" expanded="false" />
+            <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
+            <element signature="n#!!block;n#GetUserID#0" expanded="false" />
+            <element signature="n#!!block;n#VerifyUser#0" expanded="false" />
+            <element signature="n#!!block;n#GetRecoveryInformation#0" expanded="false" />
+            <element signature="n#!!block;n#QueryLatestStories#0" expanded="false" />
+            <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
+            <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#321#0" expanded="true" />
+            <element signature="n#!!block;n#setheader#0" expanded="false" />
+            <element signature="n#!!block;n#Index#0" expanded="false" />
+            <element signature="n#!!block;n#GetLatest#0" expanded="false" />
+            <element signature="n#!!block;n#PostStory#0" expanded="false" />
+            <element signature="n#!!block;n#GetStatus#0" expanded="false" />
+            <element signature="n#!!block;n#CreateUser#0" expanded="false" />
+            <element signature="n#!!block;n#Login#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
+            <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
+            <element signature="n#!!block;n#GetComments#0" expanded="false" />
+            <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -304,13 +527,14 @@
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#14#74#0" expanded="true" />
-            <marker date="1508850644462" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1508850644462" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1508850644462" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1508850644462" expanded="true" signature="598:638" ph="select Passw... User" />
-            <marker date="1508850644462" expanded="true" signature="900:988" ph="SELECT Name,... " />
-            <marker date="1508850644462" expanded="true" signature="1560:1631" ph="SELECT Name,... " />
-            <marker date="1508850644462" expanded="true" signature="1560:1657" ph="SELECT Name,... " />
+            <element signature="n#!!block;n#FindLatest#0" expanded="false" />
+            <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
+            <element signature="n#!!block;n#GetUserID#0" expanded="false" />
+            <element signature="n#!!block;n#VerifyUser#0" expanded="false" />
+            <element signature="n#!!block;n#GetRecoveryInformation#0" expanded="false" />
+            <element signature="n#!!block;n#QueryLatestStories#0" expanded="false" />
+            <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
+            <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -331,14 +555,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Router.go">
+    <entry file="file://$USER_HOME$/go/src/golang.org/x/oauth2/google/default.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="1696" column="0" lean-forward="false" selection-start-line="1696" selection-start-column="0" selection-end-line="1696" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/go/src/golang.org/x/oauth2/oauth2.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="142" column="5" lean-forward="true" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_secret.json" />
     <entry file="file://$PROJECT_DIR$/Logger.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -349,12 +588,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Data.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        <state relative-caret-position="323">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
             <element signature="e#14#27#0" expanded="true" />
             <element signature="n#!!block;n#String#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GmailMailAPI.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Routes.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="979">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -368,31 +641,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="e#14#74#0" expanded="true" />
-            <marker date="1508850644462" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1508850644462" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1508850644462" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1508850644462" expanded="true" signature="598:638" ph="select Passw... User" />
-            <marker date="1508850644462" expanded="true" signature="900:988" ph="SELECT Name,... " />
-            <marker date="1508850644462" expanded="true" signature="1560:1631" ph="SELECT Name,... " />
-            <marker date="1508850644462" expanded="true" signature="1560:1657" ph="SELECT Name,... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Handlers.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="571">
+          <caret line="89" column="18" lean-forward="false" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
           <folding>
-            <element signature="e#14#303#0" expanded="true" />
+            <element signature="e#14#321#0" expanded="true" />
             <element signature="n#!!block;n#setheader#0" expanded="false" />
-            <element signature="n#!!block;n#Index2#0" expanded="false" />
+            <element signature="n#!!block;n#Index#0" expanded="false" />
             <element signature="n#!!block;n#GetLatest#0" expanded="false" />
             <element signature="n#!!block;n#PostStory#0" expanded="false" />
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
@@ -401,23 +657,27 @@
             <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
+            <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.go">
+    <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="38" column="30" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Routes.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#74#0" expanded="true" />
+            <element signature="n#!!block;n#FindLatest#0" expanded="false" />
+            <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
+            <element signature="n#!!block;n#GetUserID#0" expanded="false" />
+            <element signature="n#!!block;n#VerifyUser#0" expanded="false" />
+            <element signature="n#!!block;n#GetRecoveryInformation#0" expanded="false" />
+            <element signature="n#!!block;n#QueryLatestStories#0" expanded="false" />
+            <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
+            <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

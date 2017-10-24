@@ -70,10 +70,11 @@ func main() {
 	CH = ch
 	CONN = conn
 
-
 	log.Println("Initializing Server!.")
 	log.Fatal(http.ListenAndServe(":9191", handler))
 	log.Println("Server running on port 9191.")
+
+
 
 }
 

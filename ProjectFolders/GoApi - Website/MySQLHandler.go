@@ -31,6 +31,16 @@ func SqlStatus() bool{
 	return alive
 }
 
+func GetUserID(username string)int {
+
+	uid := 0
+	row := DB.QueryRow("select ID from User where Name = ?;", username)
+	err := row.Scan(&uid); if err != nil{
+		fmt.Print(err.Error())
+	}
+	return uid
+}
+
 func VerifyUser(usr UserLogin)bool {
 	result := false
 
@@ -48,10 +58,24 @@ func VerifyUser(usr UserLogin)bool {
 	return result
 }
 
+func GetRecoveryInformation(username string)(string,string){
+
+	pwd := ""
+	email := ""
+
+	row := DB.QueryRow("select Password, Email  from User where Name = ?;", username)
+	err := row.Scan(&pwd, &email);
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+	return pwd, email
+
+}
+
 func QueryLatestStories(dex int, dexto int)LatestStories{
 	results := LatestStories{}
 
-	rows, err := DB.Query("SELECT Name, UserID, Time, Post_URL FROM HackerNewsDB.Thread ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
+	rows, err := DB.Query("SELECT ID, Name, UserID, Time, Post_URL FROM HackerNewsDB.Thread ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -60,25 +84,21 @@ func QueryLatestStories(dex int, dexto int)LatestStories{
 		var UserID int
 		var Time DateType
 		var Post_URL string
+		var ID int
 
-		if err := rows.Scan(&Name, &UserID, &Time, &Post_URL); err != nil {
+		if err := rows.Scan(&ID ,&Name, &UserID, &Time, &Post_URL); err != nil {
 			log.Fatal(err)
 		}
-		results.Stories = append(results.Stories, Story{Name,UserID, Time,Post_URL})
+		results.Stories = append(results.Stories, Story{ID,Name,UserID, Time,Post_URL})
 	}
 	return results
 }
 
-func QueryAllComments(T_id int, Han_ID int)AllComments{
+func QueryAllComments(T_id int)AllComments{
 	results := AllComments{}
 	var id int
-	var where string
-	if Han_ID == 0{
-		id = T_id
-		where = "ThreadID"
-	}else { id = Han_ID; where = "ParentID" }
 
-	rows, err := DB.Query("SELECT Name, UserID, CommentKarma, Time FROM HackerNewsDB.Comment WHERE ? LIKE ? ORDER BY ID DESC", where, id)
+	rows, err := DB.Query("SELECT Name, UserID, CommentKarma, Time FROM HackerNewsDB.Comment WHERE ID LIKE ? ORDER BY ID DESC", id)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -95,4 +115,19 @@ func QueryAllComments(T_id int, Han_ID int)AllComments{
 		results.Comments = append(results.Comments, Comment{Name,UserID,CommentKarma,Time})
 	}
 	return results
+}
+
+func ChangePassword(newpwd string, id int)error{
+
+	stmt, err := DB.Prepare("UPDATE HackerNewsDB.User SET Password = ? WHERE ID = ?;")
+	if err != nil{
+		fmt.Print(err.Error())
+	}
+
+	_, err = stmt.Exec(newpwd, id)
+	if err != nil{
+		fmt.Print(err.Error())
+	}
+
+	return err
 }
