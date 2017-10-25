@@ -1,6 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login';
-import { ThreadListComponent, ThreadComponent, ThreadService, ThreadCommentFormComponent , ThreadDetailsComponent } from './threads';
+import { AuthguardGuard  } from './authguard.guard';
+
+import { ThreadListComponent, ThreadComponent, ThreadService, ThreadCommentFormComponent , ThreadDetailsComponent, ThreadSubmitComponent } from './threads';
 
 // Route config let's you map routes to components
 const routes: Routes = [
@@ -18,6 +20,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },  
+  {
+    path: 'submit',
+	canActivate: [AuthguardGuard],
+    component: ThreadSubmitComponent,
   },
   
   // map '/' to '/persons' as our default route

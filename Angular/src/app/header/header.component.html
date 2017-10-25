@@ -1,4 +1,4 @@
-<!-- <nav class="dropdownmenu">
+<nav class="dropdownmenu">
 	<ul>
 		<li><a class="link" href="#">Hacker News</a></li>
 		<li><a href="#">news</a></li>
@@ -8,14 +8,7 @@
 		<li><a href="#">ask</a></li>
 		<li><a href="#">jobs</a></li>
 		<li><a class="link" [routerLink]="['/submit']">submit</a></li>
-		<li><a href="#">([username])</a></li>
-		<li><a class="link" [routerLink]="['/login']">login/logout</a></li>
+		<li *ngIf="getUserName()" ><a href="#">{{getUserName()}}</a></li>
+		<li><a class="link" [routerLink]="['/login']">{{getUserNameText()}}</a></li>
 	</ul>
-</nav>  -->
-<app-header></app-header>
-<br> 
-
-<br> 
-<router-outlet></router-outlet>
-
-<!--app-thread-list></app-thread-list-->
+</nav>

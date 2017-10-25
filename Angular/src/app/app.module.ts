@@ -6,10 +6,13 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { appRouterModule } from "./app.routes";
 
-import { LoginComponent } from './login';
-import { ThreadListComponent, ThreadComponent, ThreadService, ThreadCommentFormComponent, ThreadDetailsComponent } from './threads';
+import { UserService, LoginComponent } from './login';
+import { ThreadListComponent, ThreadComponent, ThreadService, ThreadCommentFormComponent, ThreadDetailsComponent, ThreadSubmitComponent } from './threads';
 
 import { InMemoryThreadService } from './backend';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { AuthguardGuard } from './authguard.guard';
 
 
 @NgModule({
@@ -20,14 +23,15 @@ import { InMemoryThreadService } from './backend';
         appRouterModule,
         InMemoryWebApiModule.forRoot(InMemoryThreadService)
     ],
-    providers: [ ThreadService ],
+    providers: [ ThreadService , UserService, AuthguardGuard],
     declarations: [
         AppComponent, 
         ThreadComponent,
         ThreadListComponent,
         ThreadCommentFormComponent,
         ThreadDetailsComponent,
-        LoginComponent,
+		ThreadSubmitComponent, 
+        LoginComponent, HeaderComponent, FooterComponent,
     ],
     bootstrap: [AppComponent]
 })

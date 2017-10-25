@@ -1,0 +1,30 @@
+
+<form (submit)="onSubmit()" #submitThreadForm="ngForm" novalidate>
+    <div>
+        <label for="thread_title">Title</label>
+        <input type="text" name="thread_title" [(ngModel)]="thread_title" required minlength="30" #threadTitleField="ngModel" />
+        <div class="alert alert-danger" *ngIf="(submitThreadForm.submitted || threadTitleField.dirty || threadTitleField.touched) && threadTitleField.errors">
+            <div [hidden]="!threadTitleField.errors.required">Title is required</div>
+            <div [hidden]="!threadTitleField.errors.minlength">Title must be a minimum of 3 characters long</div>
+        </div>
+    </div>    
+    <div>
+        <label for="thread_url">URL</label>
+		<input type="text" name="thread_url" [(ngModel)]="thread_url" required minlength="4" #threadUrlField="ngModel" />
+        <div class="alert alert-danger" *ngIf="(submitThreadForm.submitted || threadUrlField.dirty || threadUrlField.touched) && threadUrlField.errors">
+            <div [hidden]="!threadUrlField.errors.required">URL is required</div>
+            <div [hidden]="!threadUrlField.errors.minlength">URL must be a minimum of 3 characters long</div>
+        </div>
+    </div>    
+	<div>
+        <label for="thread_text">Text</label>
+        <textarea name="thread_text" [(ngModel)]="thread_text" required minlength="3" #threadTextField="ngModel"></textarea>
+        <div class="alert alert-danger" *ngIf="(submitThreadForm.submitted || threadTextField.dirty || threadTextField.touched) && threadTextField.errors">
+            <div [hidden]="!threadTextField.errors.required">Text is required</div>
+            <div [hidden]="!threadTextField.errors.minlength">Text must be a minimum of 3 characters long</div>
+        </div>
+    </div>
+    <div>
+        <button>Submit</button>
+    </div>
+</form>

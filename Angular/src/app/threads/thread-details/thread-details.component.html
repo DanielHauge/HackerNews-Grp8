@@ -1,10 +1,20 @@
 <section *ngIf="thread">
-    <h2>You selected:  {{thread.id}}</h2>
-    <p>Id {{thread.id}}</p>
-    <p>Title {{thread.post_title}}</p>
-    <p>Text {{thread.post_text}}</p>
-    <p>Type {{thread.post_type}}</p>
-    <p>Parent {{thread.post_parent}}</p>
-    <p>Username {{thread.username}}</p>
-    
-  </section>
+	<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
+	<h2>You selected:  {{thread.id}}</h2>
+	<p>Id {{thread.id}}</p>
+	<p>Title {{thread.post_title}}</p>
+	<p>Text {{thread.post_text}}</p>
+	<p>Type {{thread.post_type}}</p>
+	<p>Parent {{thread.post_parent}}</p>
+	<p>Username {{thread.username}}</p>
+	<div class="actions">
+		<button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
+		<button type="button" (click)="showComments = !showComments">Comments ({{thread.comments.length}})</button>
+	</div>
+	<!-- <div class="comments" *ngIf="showComments"> -->
+	<div class="comments" >
+		<div class="comment" *ngFor="let comment of thread.comments">
+			<p><strong>{{comment.name}}</strong> {{comment.comment}}</p>
+		</div>
+	</div>  
+</section>

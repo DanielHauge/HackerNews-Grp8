@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { UserService } from './shared/user.service';
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -7,16 +9,24 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']  
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent{
 
+    username: string = "";
+    password: string = "";
+     @ViewChild('loginForm') loginForm: NgForm;
+	
+	    constructor(private userService: UserService, private router:Router) {
 
-  constructor(private route:ActivatedRoute) { }
+    }
 
-  ngOnInit() {
-    
-
-  }
-
-  ngOnDestroy(): void {
-  }
+	onSubmit(loginForm: NgForm) {
+       // if (this.loginForm.invalid) return;
+        let user = { username: this.username, password: this.password };
+        this.userService.loginUser(user)
+            .then(() => {
+                    this.loginForm.resetForm();
+					this.router.navigate(['/threads']);
+					
+            });
+    }
 }

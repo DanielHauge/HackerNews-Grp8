@@ -20,6 +20,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
+    "@angular/cli": "^1.4.5",
     "@types/core-js": "0.9.35",
     "@types/node": "6.0.59",
     "angular2-template-loader": "0.6.0",

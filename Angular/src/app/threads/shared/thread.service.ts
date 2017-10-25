@@ -12,6 +12,10 @@ export class ThreadService {
     addComment(threadId: number, comment: { name: string; comment: string; }) {
         return this.http.post(`/app/threads/${threadId}/comments`, comment)
             .toPromise();
+    }    
+	addThread(threadId: number, comment: { name: string; comment: string; }) {
+        return this.http.post(`/app/threads/${threadId}/comments`, comment)
+            .toPromise();
     }
 
     getEntries(): Promise<Thread[]> {

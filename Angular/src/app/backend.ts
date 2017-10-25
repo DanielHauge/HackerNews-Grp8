@@ -48,7 +48,18 @@ export class InMemoryThreadService implements InMemoryDbService {
                 post_type: 'story',
                 post_text: 'text...',
                 post_parent: 'parent',
-                comments: []
+                comments:[
+                    {
+                        id: 2,
+                        name: 'Kyle Jones',
+                        comment: 'Nice!'
+                    },
+                    {
+                        id: 3,
+                        name: 'Alecia Clark',
+                        comment: 'All the greens make this amazing.'
+                    }
+                ]
             },
             {
                 id: 4,
