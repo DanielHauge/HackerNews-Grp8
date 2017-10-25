@@ -69,7 +69,7 @@ namespace DB_Inserter_Slave
                     else if (jsonmessage.post_type == "comment")
                     {
                         MySqlConnection sqlConnection = new MySqlConnection(sqlString);
-                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = " + jsonmessage.username, sqlConnection);
+                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name LIKE '" + jsonmessage.username+"';", sqlConnection);
                         sqlConnection.Open();
                         MySqlDataReader reader = command.ExecuteReader();
                         int userID = 0;
