@@ -15,11 +15,11 @@ namespace DB_Inserter_Slave
         {
             sqlString = "server = 46.101.103.163; user id = admin; password = hackernews8; database = HackerNewsDB; allowuservariables = True; persistsecurityinfo = True";
         }
-        public void InsertMessage(string message)
+        public void InsertMessage(MySqlCommand command)
         {
             MySqlConnection sqlConnection = new MySqlConnection(sqlString);
-            MySqlCommand command = new MySqlCommand(message, sqlConnection);
             sqlConnection.Open();
+            command.Connection = sqlConnection;
             command.ExecuteNonQuery();
             sqlConnection.Close();
             sqlConnection.Dispose();
@@ -64,7 +64,7 @@ namespace DB_Inserter_Slave
                         Threads thread = new Threads { Name = jsonmessage.post_title, UserID = userID, Post_URL = jsonmessage.post_url, Han_ID = jsonmessage.harnesst_id, Time = DateTime.Now };
                         string message = "Insert into HackerNewsDB.Thread(Name,UserID,Time,Han_ID,Post_URL) values(" + thread.Name + "," + thread.UserID + "," + thread.Time + "," + thread.Han_ID + "," + thread.Post_URL + ")";
                         Console.WriteLine("Thread get");
-                        InsertMessage(message);
+                        //InsertMessage(""NEWSQLCOMMAND"");
                     }
                     else if (jsonmessage.post_type == "comment")
                     {
@@ -81,14 +81,15 @@ namespace DB_Inserter_Slave
                         sqlConnection.Close();
                         sqlConnection.Dispose();
                         Comment comment = new Comment { UserID = userID, ThreadID = jsonmessage.post_parent, ParentID = jsonmessage.post_parent, Han_ID = jsonmessage.harnesst_id, Time = DateTime.Now };
-                        string message = "Insert into HackerNewsDB.Comment (ThreadID,Name,UserID,CommentKarma,Time,Han_ID,ParentID) values (@parentID,@Name,@UserID,0,@Time,@Han_ID,@parentID)";
-                        command.Parameters.AddWithValue("@parentID", comment.ParentID);
-                        command.Parameters.AddWithValue("@Name", comment.Name);
-                        command.Parameters.AddWithValue("@UserID", comment.UserID);
-                        command.Parameters.AddWithValue("@Time", comment.Time);
-                        command.Parameters.AddWithValue("@Han_ID", comment.Han_ID);
+                        MySqlCommand InsertCommand = new MySqlCommand("Insert into HackerNewsDB.Comment (ThreadID, Name, UserID, CommentKarma, Time, Han_ID, ParentID) values (@parentID, @Name, @UserID, @Number, @Time, @Han_ID, @parentID)");
+                        InsertCommand.Parameters.AddWithValue("@parentID", comment.ParentID);
+                        InsertCommand.Parameters.AddWithValue("@Name", comment.Name);
+                        InsertCommand.Parameters.AddWithValue("@UserID", comment.UserID);
+                        InsertCommand.Parameters.AddWithValue("@Number", 0);
+                        InsertCommand.Parameters.AddWithValue("@Time", comment.Time);
+                        InsertCommand.Parameters.AddWithValue("@Han_ID", comment.Han_ID);
                         Console.WriteLine("Comment get");
-                        InsertMessage(message);
+                        InsertMessage(InsertCommand);
                     }
                     else if (jsonmessage.post_type == "UserInsert")
                     {
