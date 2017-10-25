@@ -7,18 +7,18 @@ namespace DB_Inserter_Slave
         static void Main(string[] args)
         {
             Thread t1 = new Thread(new ThreadStart(ThreadInserter));
-            Thread t2 = new Thread(new ThreadStart(CommentInserter));
-            Thread t3 = new Thread(new ThreadStart(UserInserter));
+            //Thread t2 = new Thread(new ThreadStart(CommentInserter));
+            //Thread t3 = new Thread(new ThreadStart(UserInserter));
             t1.Start();
-            t2.Start();
-            t3.Start();
+            //t2.Start();
+            //t3.Start();
         }
         private static void ThreadInserter()
         {
             RabbitManager rm = new RabbitManager();
             while (true)
             {
-                rm.ReceiveMessage("ThreadInsert");
+                rm.ReceiveMessage("HNPost");
             }
         }
         private static void CommentInserter()
@@ -34,7 +34,7 @@ namespace DB_Inserter_Slave
             RabbitManager rm = new RabbitManager();
             while (true)
             {
-                rm.ReceiveMessage("UserInsert");
+                rm.ReceiveMessage("HNPost");
             }
         }
     }

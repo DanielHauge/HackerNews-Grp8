@@ -45,14 +45,14 @@ namespace DB_Inserter_Slave
                 consumer.Received += (model, ea) =>
                 {
                     var body = ea.Body;
+                    var jsonmessage = (JsonMessage)new JavaScriptSerializer().Deserialize(Encoding.UTF8.GetString(body), typeof(JsonMessage));
                     //decide where the message go
-                    if (messageChannel == "ThreadInsert")
+                    if (jsonmessage.post_type == "story")
                     {
                         MySqlConnection sqlConnection = new MySqlConnection(sqlString);
-                        var threadMessage = (JsonMessage)new JavaScriptSerializer().Deserialize(Encoding.UTF8.GetString(body), typeof(JsonMessage));
-                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = '" + threadMessage.username + "'", sqlConnection);
-                        MySqlDataReader reader = command.ExecuteReader();
+                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = '" + jsonmessage.username + "'", sqlConnection);
                         sqlConnection.Open();
+                        MySqlDataReader reader = command.ExecuteReader();
                         int userID = 0;
                         while (reader.Read())
                         {
@@ -61,16 +61,15 @@ namespace DB_Inserter_Slave
                         }
                         sqlConnection.Close();
                         sqlConnection.Dispose();
-                        Threads thread = new Threads { Name = threadMessage.post_title, UserID = userID, Post_URL = threadMessage.post_url, Han_ID = threadMessage.harnesst_id, Time = DateTime.Now };
-                        string message = "Insert into HackerNewsDB.Thread(Name,UserID,Time,Han_ID,PostURL) values('" + thread.Name + "','" + thread.UserID + "','" + thread.Time + "','" + thread.Han_ID + "','" + thread.Post_URL + "')";
+                        Threads thread = new Threads { Name = jsonmessage.post_title, UserID = userID, Post_URL = jsonmessage.post_url, Han_ID = jsonmessage.harnesst_id, Time = DateTime.Now };
+                        string message = "Insert into HackerNewsDB.Thread(Name,UserID,Time,Han_ID,Post_URL) values('" + thread.Name + "','" + thread.UserID + "','" + thread.Time + "','" + thread.Han_ID + "','" + thread.Post_URL + "')";
                         Console.WriteLine("Thread get");
                         InsertMessage(message);
                     }
-                    else if (messageChannel == "HNPost")
+                    else if (jsonmessage.post_type == "comment")
                     {
                         MySqlConnection sqlConnection = new MySqlConnection(sqlString);
-                        var commentMessage = (JsonMessage)new JavaScriptSerializer().Deserialize(Encoding.UTF8.GetString(body), typeof(JsonMessage));
-                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = '" + commentMessage.username + "'", sqlConnection);
+                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = '" + jsonmessage.username + "'", sqlConnection);
                         sqlConnection.Open();
                         MySqlDataReader reader = command.ExecuteReader();
                         int userID = 0;
@@ -81,14 +80,13 @@ namespace DB_Inserter_Slave
                         }
                         sqlConnection.Close();
                         sqlConnection.Dispose();
-                        Comment comment = new Comment { UserID = userID, ThreadID = commentMessage.post_parent, ParentID = commentMessage.post_parent, Han_ID = commentMessage.harnesst_id, Time = DateTime.Now };
-                        string message = "Insert into HackerNewsDB.Comment(ThreadID,Name,UserID,Time) values('" + comment.ParentID + "','" + comment.Name + "','" + comment.UserID + "','" + comment.Time + "')";
+                        Comment comment = new Comment { UserID = userID, ThreadID = jsonmessage.post_parent, ParentID = jsonmessage.post_parent, Han_ID = jsonmessage.harnesst_id, Time = DateTime.Now };
+                        string message = "Insert into HackerNewsDB.Comment (ThreadID,Name,UserID,CommentKarma,Time,Han_ID,ParentID) values ('" + comment.ParentID + "','" + comment.Name + "','" + comment.UserID + "','0','" + comment.Time + "','" + comment.Han_ID + "','" + comment.ParentID + "')";
                         Console.WriteLine("Comment get");
                         InsertMessage(message);
                     }
-                    else if (messageChannel == "UserInsert")
+                    else if (jsonmessage.post_type == "UserInsert")
                     {
-                        //var userMessage = (JsonMessage)new JavaScriptSerializer().Deserialize(Encoding.UTF8.GetString(body), typeof(JsonMessage));
                         //string message = "Insert into HackerNewsDB.User(Name,KarmaPoints,Password,Email) values('" + userMessage.Name + "','" + userMessage.KarmaPoints + "','" + userMessage.Password + "','" + userMessage.Email + "')";
                         //Console.WriteLine("User get");
                         //InsertMessage(message);
