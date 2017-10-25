@@ -62,14 +62,14 @@ namespace DB_Inserter_Slave
                         sqlConnection.Close();
                         sqlConnection.Dispose();
                         Threads thread = new Threads { Name = jsonmessage.post_title, UserID = userID, Post_URL = jsonmessage.post_url, Han_ID = jsonmessage.harnesst_id, Time = DateTime.Now };
-                        string message = "Insert into HackerNewsDB.Thread(Name,UserID,Time,Han_ID,Post_URL) values('" + thread.Name + "','" + thread.UserID + "','" + thread.Time + "','" + thread.Han_ID + "','" + thread.Post_URL + "')";
+                        string message = "Insert into HackerNewsDB.Thread(Name,UserID,Time,Han_ID,Post_URL) values(" + thread.Name + "," + thread.UserID + "," + thread.Time + "," + thread.Han_ID + "," + thread.Post_URL + ")";
                         Console.WriteLine("Thread get");
                         InsertMessage(message);
                     }
                     else if (jsonmessage.post_type == "comment")
                     {
                         MySqlConnection sqlConnection = new MySqlConnection(sqlString);
-                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = '" + jsonmessage.username + "'", sqlConnection);
+                        MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = " + jsonmessage.username, sqlConnection);
                         sqlConnection.Open();
                         MySqlDataReader reader = command.ExecuteReader();
                         int userID = 0;
@@ -81,7 +81,12 @@ namespace DB_Inserter_Slave
                         sqlConnection.Close();
                         sqlConnection.Dispose();
                         Comment comment = new Comment { UserID = userID, ThreadID = jsonmessage.post_parent, ParentID = jsonmessage.post_parent, Han_ID = jsonmessage.harnesst_id, Time = DateTime.Now };
-                        string message = "Insert into HackerNewsDB.Comment (ThreadID,Name,UserID,CommentKarma,Time,Han_ID,ParentID) values ('" + comment.ParentID + "','" + comment.Name + "','" + comment.UserID + "','0','" + comment.Time + "','" + comment.Han_ID + "','" + comment.ParentID + "')";
+                        string message = "Insert into HackerNewsDB.Comment (ThreadID,Name,UserID,CommentKarma,Time,Han_ID,ParentID) values (@parentID,@Name,@UserID,0,@Time,@Han_ID,@parentID)";
+                        command.Parameters.AddWithValue("@parentID", comment.ParentID);
+                        command.Parameters.AddWithValue("@Name", comment.Name);
+                        command.Parameters.AddWithValue("@UserID", comment.UserID);
+                        command.Parameters.AddWithValue("@Time", comment.Time);
+                        command.Parameters.AddWithValue("@Han_ID", comment.Han_ID);
                         Console.WriteLine("Comment get");
                         InsertMessage(message);
                     }
@@ -103,7 +108,7 @@ namespace DB_Inserter_Slave
                 channel.BasicConsume(queue: messageChannel,
                                      autoAck: false,
                                      consumer: consumer);
-
+                Console.ReadLine();
             }
         }
     }
