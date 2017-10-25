@@ -9,23 +9,20 @@ namespace DB_Inserter_Slave
 {
     class RabbitManager
     {
-        private MySqlConnection sqlConnection { get; set; }
+        private string sqlString { get; set; }
 
         public RabbitManager()
         {
-            sqlConnection = new MySqlConnection("server = 46.101.103.163; user id = admin; Password=password; database = HackerNewsDB; allowuservariables = True; persistsecurityinfo = True");
+            sqlString = "server = 46.101.103.163; user id = admin; password = hackernews8; database = HackerNewsDB; allowuservariables = True; persistsecurityinfo = True";
         }
         public void InsertMessage(string message)
         {
+            MySqlConnection sqlConnection = new MySqlConnection(sqlString);
             MySqlCommand command = new MySqlCommand(message, sqlConnection);
-            MySqlDataReader reader;
             sqlConnection.Open();
-            reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-
-            }
+            command.ExecuteNonQuery();
             sqlConnection.Close();
+            sqlConnection.Dispose();
         }
 
         public void ReceiveMessage(string messageChannel)
@@ -51,11 +48,11 @@ namespace DB_Inserter_Slave
                     //decide where the message go
                     if (messageChannel == "ThreadInsert")
                     {
+                        MySqlConnection sqlConnection = new MySqlConnection(sqlString);
                         var threadMessage = (JsonMessage)new JavaScriptSerializer().Deserialize(Encoding.UTF8.GetString(body), typeof(JsonMessage));
                         MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = '" + threadMessage.username + "'", sqlConnection);
-                        MySqlDataReader reader;
+                        MySqlDataReader reader = command.ExecuteReader();
                         sqlConnection.Open();
-                        reader = command.ExecuteReader();
                         int userID = 0;
                         while (reader.Read())
                         {
@@ -63,6 +60,7 @@ namespace DB_Inserter_Slave
                             userID = int.Parse(result);
                         }
                         sqlConnection.Close();
+                        sqlConnection.Dispose();
                         Threads thread = new Threads { Name = threadMessage.post_title, UserID = userID, Post_URL = threadMessage.post_url, Han_ID = threadMessage.harnesst_id, Time = DateTime.Now };
                         string message = "Insert into HackerNewsDB.Thread(Name,UserID,Time,Han_ID,PostURL) values('" + thread.Name + "','" + thread.UserID + "','" + thread.Time + "','" + thread.Han_ID + "','" + thread.Post_URL + "')";
                         Console.WriteLine("Thread get");
@@ -70,11 +68,11 @@ namespace DB_Inserter_Slave
                     }
                     else if (messageChannel == "HNPost")
                     {
+                        MySqlConnection sqlConnection = new MySqlConnection(sqlString);
                         var commentMessage = (JsonMessage)new JavaScriptSerializer().Deserialize(Encoding.UTF8.GetString(body), typeof(JsonMessage));
                         MySqlCommand command = new MySqlCommand("Select ID from HackerNewsDB.User where Name = '" + commentMessage.username + "'", sqlConnection);
-                        MySqlDataReader reader;
                         sqlConnection.Open();
-                        reader = command.ExecuteReader();
+                        MySqlDataReader reader = command.ExecuteReader();
                         int userID = 0;
                         while (reader.Read())
                         {
@@ -82,7 +80,8 @@ namespace DB_Inserter_Slave
                             userID = int.Parse(result);
                         }
                         sqlConnection.Close();
-                        Comment comment = new Comment { UserID = userID, ThreadID = commentMessage.post_parent, ParentID = commentMessage.post_parent, Han_ID = commentMessage.harnesst_id, Name = commentMessage.post_text, Time = DateTime.Now };
+                        sqlConnection.Dispose();
+                        Comment comment = new Comment { UserID = userID, ThreadID = commentMessage.post_parent, ParentID = commentMessage.post_parent, Han_ID = commentMessage.harnesst_id, Time = DateTime.Now };
                         string message = "Insert into HackerNewsDB.Comment(ThreadID,Name,UserID,Time) values('" + comment.ParentID + "','" + comment.Name + "','" + comment.UserID + "','" + comment.Time + "')";
                         Console.WriteLine("Comment get");
                         InsertMessage(message);
