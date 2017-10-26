@@ -37,6 +37,7 @@ type StoryWithComments struct {
 
 type LatestStories struct {
 	Stories []Story `json:"stories"`
+	CommentAmount int `json:"comment_amount"`
 }
 
 type Story struct {
@@ -46,8 +47,6 @@ type Story struct {
 	Time string `json:"time"`
 	Url string `json:"url"`
 }
-
-
 
 type Comment struct {
 	Comment string `json:"comment"`

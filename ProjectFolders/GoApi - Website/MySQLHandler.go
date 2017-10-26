@@ -54,6 +54,16 @@ func GetSingleStory(threadid int)Story{
 	return st
 }
 
+func CountComments(threadid int)int{
+	amount := 0
+	row := DB.QueryRow("SELECT COUNT(ID) AS amount FROM HackerNewsDB.Comment WHERE ThreadID LIKE ?;", threadid)
+	err := row.Scan(&amount); if err != nil{
+		fmt.Print(err.Error())
+	}
+	log.Print(amount)
+	return amount
+}
+
 func GetUserID(username string)int {
 
 	uid := 0
@@ -113,8 +123,9 @@ func QueryLatestStories(dex int, dexto int)LatestStories{
 		if err := rows.Scan(&ID ,&Name, &UserID, &Time, &Post_URL); err != nil {
 			log.Fatal(err)
 		}
-		results.Stories = append(results.Stories, Story{ID,Name,GetUsername(UserID), Time.String(),Post_URL})
+		results.Stories = append(results.Stories, Story{ID,Name,GetUsername(UserID), Time.String(),Post_URL,})
 	}
+
 	return results
 }
 

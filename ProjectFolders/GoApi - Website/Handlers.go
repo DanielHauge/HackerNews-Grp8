@@ -285,6 +285,7 @@ func GetLatestStories(w http.ResponseWriter, r *http.Request){
 		}
 	}
 	AllStories = QueryLatestStories(req.Dex,req.DexTo)
+
 	msgs, err := json.Marshal(AllStories); if err != nil{ panic(err) }
 	fmt.Fprint(w, string(msgs))
 }
@@ -333,6 +334,8 @@ func StartRecovery(w http.ResponseWriter, r *http.Request){
 
 
 }
+
+
 
 func UpdatePassword(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
