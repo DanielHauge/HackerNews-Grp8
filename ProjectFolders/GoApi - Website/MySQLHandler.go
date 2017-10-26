@@ -31,6 +31,29 @@ func SqlStatus() bool{
 	return alive
 }
 
+func GetUsername(userid int)string{
+	un := "0"
+	row := DB.QueryRow("select Name from User where ID = ?;", userid)
+	err := row.Scan(&un); if err != nil{
+		fmt.Print(err.Error())
+	}
+	return un
+}
+
+func GetSingleStory(threadid int)Story{
+	var st Story
+	var userid int
+	var date DateType
+	row := DB.QueryRow("SELECT ID, Name, UserID, Time, Post_URL FROM HackerNewsDB.Thread WHERE ID LIKE ?;", threadid)
+	err := row.Scan(&st.Id, &st.Title, &userid, &date, &st.Url); if err != nil{
+		fmt.Print(err.Error())
+	}
+	st.Username = GetUsername(userid)
+	st.Time = date.String()
+	log.Print(st.Username)
+	return st
+}
+
 func GetUserID(username string)int {
 
 	uid := 0
@@ -83,19 +106,20 @@ func QueryLatestStories(dex int, dexto int)LatestStories{
 		var Name string
 		var UserID int
 		var Time DateType
+
 		var Post_URL string
 		var ID int
 
 		if err := rows.Scan(&ID ,&Name, &UserID, &Time, &Post_URL); err != nil {
 			log.Fatal(err)
 		}
-		results.Stories = append(results.Stories, Story{ID,Name,UserID, Time,Post_URL})
+		results.Stories = append(results.Stories, Story{ID,Name,GetUsername(UserID), Time.String(),Post_URL})
 	}
 	return results
 }
 
-func QueryAllComments(T_id int)AllComments{
-	results := AllComments{}
+func QueryAllComments(T_id int)[]Comment{
+	results := []Comment{}
 	var id int
 
 	rows, err := DB.Query("SELECT Name, UserID, CommentKarma, Time FROM HackerNewsDB.Comment WHERE ID LIKE ? ORDER BY ID DESC", id)
@@ -112,7 +136,7 @@ func QueryAllComments(T_id int)AllComments{
 		if err := rows.Scan(&Name, &UserID, &CommentKarma, &Time); err != nil {
 			log.Fatal(err)
 		}
-		results.Comments = append(results.Comments, Comment{Name,UserID,CommentKarma,Time})
+		results = append(results, Comment{Name,GetUsername(UserID),CommentKarma,Time})
 	}
 	return results
 }

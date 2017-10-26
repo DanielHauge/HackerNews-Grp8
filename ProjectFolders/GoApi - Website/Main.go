@@ -13,6 +13,7 @@ import (
 // go get "github.com/go-sql-driver/mysql"
 // go get “github.com/gorilla/mux”
 // go get get github.com/streadway/amqp
+// go get github.com/rs/cors
 
 var DB *sql.DB
 var CONN *amqp.Connection
