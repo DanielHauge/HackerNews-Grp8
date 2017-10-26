@@ -21,3 +21,12 @@ Group 8: Continues Delivery Setup Chain Documentation
 Database: 46.101.103.163
 - username = root pw = hackernews 
 - Database username = admin pw = hackernews8
+
+#### Improvements
+- Join database tables for username and comment amount.
+- Timedate into good format.
+- KarmaPoints into the Thread aswell.
+- Inserter needs to insert correctly. (ThreadID shall never be 0, and shall not take Han_ID but actual ID from the Thread Table.)
+
+
+
