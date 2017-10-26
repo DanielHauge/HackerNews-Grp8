@@ -5,5 +5,19 @@ Group 8: Continues Delivery Setup Chain Documentation
 - Documentation in forms of (how to use system, how to install stuff, what to do what stuff breaks down, who to contact and how when all other fails)
 - General Documentation (see [link to documentation UFO slides](https://datsoftlyngby.github.io/soft2017fall/UFO/03-Documentation.html)
 
+## Overview Navigation
+- Operations Documentation : Github Wiki
+- General Documentation : github folder documentation
+- Project Paper : Git Pages
+
 ## Link Minimal Viable Prototype
-[Link to website](http://165.227.151.217:8080/)
+[Link to website](http://165.227.151.217:8080/).
+
+165.227.151.217
+- :8787 = Core api
+- :9191 = Website api
+- :8080 = website
+
+Database: 46.101.103.163
+- username = root pw = hackernews 
+- Database username = admin pw = hackernews8
