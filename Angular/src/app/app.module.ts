@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppComponent } from './app.component';
 import { appRouterModule } from "./app.routes";
 
@@ -21,7 +21,7 @@ import { AuthguardGuard } from './authguard.guard';
         HttpModule,
         FormsModule,
         appRouterModule,
-        InMemoryWebApiModule.forRoot(InMemoryThreadService)
+        //InMemoryWebApiModule.forRoot(InMemoryThreadService)
     ],
     providers: [ ThreadService , UserService, AuthguardGuard],
     declarations: [

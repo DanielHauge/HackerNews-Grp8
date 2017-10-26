@@ -13,20 +13,57 @@ export class LoginComponent{
 
     username: string = "";
     password: string = "";
+
+    reg_username: string = "";
+    reg_password: string = "";
+    reg_email_addr: string = "";
      @ViewChild('loginForm') loginForm: NgForm;
 	
 	    constructor(private userService: UserService, private router:Router) {
 
     }
-
+	ngOnInit() {
+		if(this.userService.getUserLoggedIn()){
+			//this.router.navigate(['/login']);
+            this.userService.setUserLoggedOut()
+		}
+		
+	}
 	onSubmit(loginForm: NgForm) {
        // if (this.loginForm.invalid) return;
         let user = { username: this.username, password: this.password };
         this.userService.loginUser(user)
             .then(() => {
+                this.userService.setUsername(this.username);
+                this.userService.setUserLoggedIn();
                     this.loginForm.resetForm();
 					this.router.navigate(['/threads']);
 					
-            });
+            },
+             reason => {
+                this.loginForm.resetForm();
+                
+            }
+        
+        );
     }
+    onSubmit2(registerForm: NgForm) {
+        // if (this.loginForm.invalid) return;
+        console.log('register users');
+         let user = { username: this.reg_username, password: this.reg_password , email_addr: this.reg_email_addr};
+         this.userService.registerUser(user)
+             .then(() => {
+                 this.userService.setUsername(this.reg_username);
+                 this.userService.setUserLoggedIn();
+                    // this.registerForm.resetForm();
+                     this.router.navigate(['/threads']);
+                     
+             },
+              reason => {
+                 //this.registerForm.resetForm();
+                 
+             }
+         
+         );
+     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ThreadService } from '../shared/thread.service';
-import { Thread } from '../shared/thread.model';
+import { ThreadDisplay } from '../shared/thread-display.model';
 
 @Component({
     selector: 'app-thread-list',
@@ -9,15 +9,21 @@ import { Thread } from '../shared/thread.model';
 })
 
 export class ThreadListComponent implements OnInit {
-    threads: Thread[];
-
+    threads: ThreadDisplay[];
+    counter:number;
     constructor(private threadService: ThreadService) {
         
     }
-
-    ngOnInit() {
+    loadMore(){
+        this.counter +=100;
         this.threadService
-                .getEntries()
+        .getThreads(this.counter)
+        .then(threads => this.threads = threads);
+    }
+    ngOnInit() {
+        this.counter = 0;
+        this.threadService
+                .getThreads(this.counter)
                 .then(threads => this.threads = threads);
     }
 }

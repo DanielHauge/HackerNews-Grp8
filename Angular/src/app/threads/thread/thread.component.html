@@ -1,8 +1,8 @@
 <section>
 <div>
 
-<a [routerLink]="['/threads', thread.id]"><h4>{{thread.post_title}}</h4></a>
-    <p>Id {{thread.id}}, Title {{thread.post_title}} , Username {{thread.username}}</p>
+    <a href="{{thread.url}}"><h4>{{thread.title}}</h4></a>
+    <p><a [routerLink]="['/threads', thread.id]">discuss</a><span>{{thread.time}}</span></p>
 
 </div>
 <!--div class="actions">

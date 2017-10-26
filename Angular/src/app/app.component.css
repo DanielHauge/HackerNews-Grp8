@@ -2,6 +2,10 @@ body{
     font: 0.85em sans-serif;
     font-family: Verdana, Geneva, sans-serif    
 }
+body{
+	display: table;
+	margin: 0 auto;
+}
 .dropdownmenu ul, .dropdownmenu li {
 	margin: 0;
 	padding: 0;

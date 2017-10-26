@@ -1,8 +1,7 @@
-export class Thread {
+export class ThreadDisplay {
     id: number;
     title: string;
+    url: string;
     username: string;
-    url:string;
     time: string;
-    comments: any[];
 }
