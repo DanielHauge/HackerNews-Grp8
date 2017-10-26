@@ -250,18 +250,21 @@ func Login(w http.ResponseWriter, r *http.Request){
 func GetStoryByID(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
 
-	//vars := mux.Vars(r)
-	//id := vars["storyid"]
+	vars := mux.Vars(r)
+	id := vars["storyid"]
 
+	realid, err := strconv.Atoi(id); if err != nil {log.Println("Error in parsing int"); fmt.Fprint(w, "Error in parsing int, you should only use ints has ID")}
+	log.Print(realid)
 
-
-	req := PostRequest{Username:"Hej",Post_type:"story",Post_parrent:-1,Post_text:"",Post_title:"HELLO!",Pwd_hash:"d421d",Hanesst_id:2003}
+	story := GetSingleStory(realid)
+	log.Print(story.Username)
 	/// Query data base and set req to correct data format.
 
+	comments := QueryAllComments(realid)
+	final := StoryWithComments{story, comments}
+	msgs, err := json.Marshal(final); if err != nil{ panic(err) }
 
-	msgs, err := json.Marshal(req); if err != nil{ panic(err) }
-
-	fmt.Fprint(w, msgs)
+	fmt.Fprint(w, string(msgs))
 }
 
 func GetLatestStories(w http.ResponseWriter, r *http.Request){

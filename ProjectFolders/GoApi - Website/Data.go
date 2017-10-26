@@ -30,25 +30,27 @@ type PasswordChangeData struct {
 	NewPassword string `json:"new_password"`
 }
 
+type StoryWithComments struct {
+	Thread Story `json:"thread"`
+	Acomments []Comment `json:"comments"`
+}
+
 type LatestStories struct {
 	Stories []Story `json:"stories"`
+	CommentAmount int `json:"comment_amount"`
 }
 
 type Story struct {
 	Id int `json:"id"`
 	Title string `json:"title"`
-	UserID int `json:"user_id"`
-	Time DateType `json:"time"`
+	Username string `json:"username"`
+	Time string `json:"time"`
 	Url string `json:"url"`
-}
-
-type AllComments struct {
-	Comments []Comment `json:"comments"`
 }
 
 type Comment struct {
 	Comment string `json:"comment"`
-	Userid int `json:"userid"`
+	Username string `json:"username"`
 	Points int `json:"points"`
 	Time DateType `json:"time"`
 }
