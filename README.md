@@ -1,17 +1,22 @@
-Group 8: Continues Delivery Setup Chain Documentation
+Group 8: Hacker News Clone Project
 ==============================================================
-## Hand-over Things to consider
-- Bugzilla or another issue-tracking platform.
-- Documentation in forms of (how to use system, how to install stuff, what to do what stuff breaks down, who to contact and how when all other fails)
-- General Documentation (see [link to documentation UFO slides](https://datsoftlyngby.github.io/soft2017fall/UFO/03-Documentation.html)
+This is the project: Hacker News.
 
-## Overview Navigation
-- Operations Documentation : Github Wiki
-- General Documentation : github folder documentation
-- Project Paper : Git Pages
+Credit: Emmely(cph-el69), Kristian(cph-kf96), Daniel(cph-dh136).
 
-## Link Minimal Viable Prototype
-[Link to website](http://165.227.151.217:8080/)
+This project is based of a project description, which can be found in the link below:
+- [Project-link](https://github.com/datsoftlyngby/soft2017fall-lsd-teaching-material/blob/master/assignments/01-HN%20Clone%20Task%20Description.ipynb)
+
+## Hacker News System
+The product of this project is in short a forum website which users can register, post, read stories and comments. The system is build more or less from the ground up, and are implementing continious delivery. This means the project also include a part after the hand-over to operations.
+
+### System Documentation
+- Operations Documentation : This Githubs's Wiki
+- Development Documentation : GitHub Documentation Folder
+- Project Paper : Github Pages
+- Issues and bugs reporting : IssueTrackingLink
+
+## Dev-Servers
 
 165.227.151.217
 - :8787 = Core api
@@ -19,14 +24,11 @@ Group 8: Continues Delivery Setup Chain Documentation
 - :8080 = website
 
 Database: 46.101.103.163
-- username = root pw = hackernews 
-- Database username = admin pw = hackernews8
+
+RabbitMQ Server: http://138.197.186.82:15672/
 
 #### Improvements
-- Join database tables for username and comment amount.
-- Timedate into good format.
-- KarmaPoints into the Thread aswell.
-- Inserter needs to insert correctly. (ThreadID shall never be 0, and shall not take Han_ID but actual ID from the Thread Table.)
+- Upvote comments and threads.
 
 
 
