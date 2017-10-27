@@ -27,7 +27,11 @@ h2 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+:host(app-root){
+	display: table;
+    margin: 0 auto;
+    border:1px solid red;
+}
 button {
     background-color: transparent;
     border-width: 0;
