@@ -54,6 +54,16 @@ func GetSingleStory(threadid int)Story{
 	return st
 }
 
+func CountComments(threadid int)int{
+	amount := 0
+	row := DB.QueryRow("SELECT COUNT(ID) AS amount FROM HackerNewsDB.Comment WHERE ThreadID LIKE ?;", threadid)
+	err := row.Scan(&amount); if err != nil{
+		fmt.Print(err.Error())
+	}
+	log.Print(amount)
+	return amount
+} /// Not used currently
+
 func GetUserID(username string)int {
 
 	uid := 0
@@ -98,45 +108,46 @@ func GetRecoveryInformation(username string)(string,string){
 func QueryLatestStories(dex int, dexto int)LatestStories{
 	results := LatestStories{}
 
-	rows, err := DB.Query("SELECT ID, Name, UserID, Time, Post_URL FROM HackerNewsDB.Thread ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
+	rows, err := DB.Query("SELECT HackerNewsDB.Thread.ID, HackerNewsDB.Thread.Name, HackerNewsDB.Thread.Time, HackerNewsDB.Thread.Post_URL, HackerNewsDB.Thread.Karma, HackerNewsDB.User.Name, COUNT(HackerNewsDB.Comment.ID) as commentamount FROM HackerNewsDB.Thread LEFT OUTER JOIN HackerNewsDB.User ON HackerNewsDB.Thread.UserID = HackerNewsDB.User.ID LEFT OUTER JOIN HackerNewsDB.Comment ON HackerNewsDB.Thread.ID = HackerNewsDB.Comment.ThreadID GROUP BY HackerNewsDB.Thread.ID ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
 	if err != nil {
 		log.Fatal(err)
 	}
 	for rows.Next() {
 		var Name string
-		var UserID int
+		var Username string
 		var Time DateType
-
+		var Karma int
 		var Post_URL string
 		var ID int
+		var comamount int
 
-		if err := rows.Scan(&ID ,&Name, &UserID, &Time, &Post_URL); err != nil {
+		if err := rows.Scan(&ID ,&Name, &Time, &Post_URL, &Karma, &Username, &comamount); err != nil {
 			log.Fatal(err)
 		}
-		results.Stories = append(results.Stories, Story{ID,Name,GetUsername(UserID), Time.String(),Post_URL})
+		results.Stories = append(results.Stories, Story{ID,Name,Username, Karma,Time.String(), Post_URL, comamount})
 	}
+
 	return results
 }
 
 func QueryAllComments(T_id int)[]Comment{
 	results := []Comment{}
-	var id int
 
-	rows, err := DB.Query("SELECT Name, UserID, CommentKarma, Time FROM HackerNewsDB.Comment WHERE ID LIKE ? ORDER BY ID DESC", id)
+	rows, err := DB.Query("SELECT HackerNewsDB.Comment.ID, HackerNewsDB.Comment.Name, HackerNewsDB.User.Name, HackerNewsDB.Comment.Karma, HackerNewsDB.Comment.Time FROM HackerNewsDB.Comment LEFT OUTER JOIN HackerNewsDB.User ON HackerNewsDB.Comment.UserID = HackerNewsDB.User.ID WHERE HackerNewsDB.Comment.ThreadID LIKE ? ORDER BY HackerNewsDB.Comment.ID DESC", T_id)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for rows.Next() {
 		var Name string
-		var UserID int
+		var username string
 		var CommentKarma int
 		var Time DateType
-
-		if err := rows.Scan(&Name, &UserID, &CommentKarma, &Time); err != nil {
+		var id int
+		if err := rows.Scan(&id ,&Name, &username, &CommentKarma, &Time); err != nil {
 			log.Fatal(err)
 		}
-		results = append(results, Comment{Name,GetUsername(UserID),CommentKarma,Time})
+		results = append(results, Comment{id,Name,username,CommentKarma,Time.String()})
 	}
 	return results
 }

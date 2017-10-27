@@ -35,10 +35,11 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Accepts Json & text/plain Syntax: " +
 			"\n\n>``` {\"username\": \"<string>\",\"post_type\": \"<string>\", \"pwd_hash\": \"<string>\",\"post_title\": \"<string>\",'post_url\": \"<string>\", \"post_parent\": <int>, \"hanesst_id\": <int>, \"post_text\": \"<string>\"}```\n\n" +
 		"- Example: \n\n > ```{\"post_title\": \"NYC Developer Dilemma\", \"post_text\": \"\", \"hanesst_id\": 4, \"post_type\": \"story\", \"post_parent\": -1, \"username\": \"onebeerdave\", \"pwd_hash\": \"fwozXFe7g0\",  \"post_url\": \"http://avc.blogs.com/a_vc/2006/10/the_nyc_develop.html\"}```"+
+		"\n\n- Return of Example: \n\n > ```Publishing to RQ for DB Insertion```"+
 		"\n\n" +
 		"## GetLatest\n" +
 		"This call will return the latest ingested story or comment which was sent by the simulator program. \n\n"+
-		"- Route: /post\n" +
+		"- Route: /latest\n" +
 		"- Method type: GET\n" +
 		"\n" +
 		"## GetStatus\n" +
@@ -53,6 +54,7 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Accepts Json & text/plain Syntax: \n" +
 			"\n\n> ```{\"username\": \"<string>\",\"password\": \"<string>\",\"email_addr\": \"<string>\"}```\n" +
 		"\n- Example: \n\n>```{\"username\": \"Retrospective\",\"password\": \"Th1sp4ssw0rdW1llN3verG3tH4ck3d\",\"email_addr\": \"Retrospective@icloud.com\"}```"+
+		"\n\n- Return of Example: \n\n > ```Publishing to RQ for DB Insertion```"+
 		"\n\n" +
 		"## Login\n" +
 		"This call is to verify users, it will see if username and password is correct and respond accordingly. \n\n"+
@@ -60,6 +62,7 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Method type: POST\n" +
 		"- Accepts Json & text/plain Syntax: \n\n> ```{\"username\": \"<string>\",\"password\": \"<string>\"}```\n\n" +
 		"- Example: \n\n> ```{\"username\": \"farmer\",\"password\": \"xMBVi4fAO5\"}```\n"+
+		"\n\n- Return of Example: \n\n > ```Succesfull - User is logged in with 200OK as http status, it will return 406 if not correct```"+
 		"\n\n" +
 		"## GetLatestStories\n" +
 		"This call will return an array of stories. dex:0 dex_to 100 will return last 100 threads, dex:100,dex_to:200 will return the 100 threads before the very newest 100 threads \n\n"+
@@ -68,16 +71,19 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Accepts Json & text/plain Syntax: " +
 		"\n\n>``` {\"dex\": <int>,\"dex_to\": <int>} ```\n\n" +
 		"- Example: \n\n > ```{\"dex\": 0,\"dex_to\": 100}```"+
+		"\n\n- Return for dex:0-dex_to:2 = \n\n > ``` {\"stories\":[{\"id\":446,\"title\":\"How Important is the .com TLD?\",\"username\":\"python_kiss\",\"points\":0,\"time\":\"15 Minutes Ago\",\"url\":\"http://www.netbusinessblog.com/2007/02/19/how-important-is-the-dot-com/\",\"commentamount\":0}]} ```"+
 		"\n\n" +
 		"## GetStoryByID\n" +
 		"This call is not implementet yet, but it works and will return a static story. \n\n"+
 		"- Route: /stories/{storyid}\n" +
 		"- Method type: GET\n" +
-		"\n" +
+		"\n\n- Return for 174 = \n\n > ``` {\"thread\":{\"id\":173,\"title\":\"_\",\"username\":\"akkartik\",\"points\":0,\"time\":\"24 Minutes Ago\",\"url\":\"http://alwayson.goingon.com/permalink/post/9894\",\"commentamount\":0},\"comments\":[{\"id\":76,\"comment\":\"I've gotten used to using submit to find the reddit discussion for a page. Turns out there's no duplication-detection here on news.yc yet. Apologies.\\n\\nNice that they allow editing the title.\",\"username\":\"akkartik\",\"points\":0,\"time\":\"24 Minutes Ago\"}]} ```"+
+		"\n\n" +
 		"## GetComments\n" +
 		"This call is to create users, it will run concurrently, but is not guarenteed to be succesfully insertet. But if it can be succesfull insertet, it will at some point. \n\n"+
 		"- Route: /comments/{storyid}\n" +
 		"- Method type: GET\n" +
+		"\n\n- Return of Example: \n\n > ```Same as above, but without the story aswell, just an array of comments```"+
 		"\n\n" +
 		"## RecoverPassword\n" +
 		"This call will send an email to the address which is linked with the username provided. \n\n"+
@@ -86,6 +92,7 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Accepts Json & text/plain Syntax: " +
 		"\n\n>``` {\"username\": \"<string>\"} ```\n\n" +
 		"- Example: \n\n > ```{\"username\": \"farmer\"}```"+
+		"\n\n- Return of Example: - Note: For security reasons: it will allways send this regardless if it succeds or not \n\n > ```Am Email has been sent to the specified email linked with the username provided```"+
 		"\n\n"+
 		"## UpdatePassword\n" +
 		"This call will change the password of the user. \n\n"+
@@ -94,6 +101,7 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Accepts Json & text/plain Syntax: " +
 		"\n\n>``` {\"username\": \"<string>\", \"password\": \"<string>\", \"new_password\": \"<string>\"} ```\n\n" +
 		"- Example: \n\n > ```{\"username\": \"farmer\", \"password\": \"currentpassword\", \"new_password\": \"newpassword\"}```"+
+		"\n\n- Return of Example: \n\n > ```Succesfully Changed Password with 200 OK and 406 if not correct credentials.```"+
 		"\n\n"
 	output := blackfriday.Run([]byte(input))
 	w.Write(output)
@@ -155,7 +163,7 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 
 	input := FindLatest()
 	w.Write([]byte(input))
-}
+} /// Not used by Website
 
 func PostStory(w http.ResponseWriter, r *http.Request){
 	w.WriteHeader(http.StatusOK)
@@ -182,12 +190,12 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 
 
 	fmt.Fprint(w, "Publishing to RQ for DB Insertion")
-}
+} /// Used by website
 
 func GetStatus(w http.ResponseWriter, r *http.Request){
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprint(w, "Alive")
-}
+} /// Not used by website
 
 func CreateUser(w http.ResponseWriter, r *http.Request){
 	w.WriteHeader(http.StatusOK)
@@ -213,7 +221,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request){
 
 	}()
 	fmt.Fprint(w, "Publishing to RQ for DB Insertion")
-}
+} /// Used by website
 
 func Login(w http.ResponseWriter, r *http.Request){
 
@@ -245,7 +253,7 @@ func Login(w http.ResponseWriter, r *http.Request){
 	}
 
 
-}
+} /// Used by website
 
 func GetStoryByID(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
@@ -265,7 +273,7 @@ func GetStoryByID(w http.ResponseWriter, r *http.Request){
 	msgs, err := json.Marshal(final); if err != nil{ panic(err) }
 
 	fmt.Fprint(w, string(msgs))
-}
+} /// Used by website
 
 func GetLatestStories(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
@@ -288,7 +296,7 @@ func GetLatestStories(w http.ResponseWriter, r *http.Request){
 
 	msgs, err := json.Marshal(AllStories); if err != nil{ panic(err) }
 	fmt.Fprint(w, string(msgs))
-}
+} /// Used by website
 
 func GetComments(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
@@ -303,7 +311,7 @@ func GetComments(w http.ResponseWriter, r *http.Request){
 	fmt.Fprint(w, string(msgs))
 
 
-}
+} /// Not used currently by website
 
 func StartRecovery(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
@@ -330,12 +338,10 @@ func StartRecovery(w http.ResponseWriter, r *http.Request){
 		SendEmail("Daniel.f.hauge@icloud.com", pwd)
 
 	}()
-	fmt.Fprint(w, "A Email has been sent to the specified email linked with the username provided")
+	fmt.Fprint(w, "An Email has been sent to the specified email linked with the username provided")
 
 
-}
-
-
+} /// Used by website
 
 func UpdatePassword(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
@@ -361,10 +367,12 @@ func UpdatePassword(w http.ResponseWriter, r *http.Request){
 		if err != nil{
 			fmt.Fprint(w, "There was an error which might have prevented the password to change, password"+err.Error())
 		}
+		w.WriteHeader(http.StatusOK)
 		fmt.Fprint(w, "Succesfully Changed Password")
 	}else {
 		fmt.Fprint(w, "Error in credentials, wrong password or username")
+		w.WriteHeader(http.StatusNotAcceptable)
 	}
 
 
-}
+} /// Used by website

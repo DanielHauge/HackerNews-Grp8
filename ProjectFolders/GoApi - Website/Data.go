@@ -1,6 +1,9 @@
 package main
 
-import "time"
+import (
+	"time"
+	"strconv"
+)
 
 type PostRequest struct {
 	Username string `json:"username"`
@@ -37,22 +40,25 @@ type StoryWithComments struct {
 
 type LatestStories struct {
 	Stories []Story `json:"stories"`
-	CommentAmount int `json:"comment_amount"`
+
 }
 
 type Story struct {
 	Id int `json:"id"`
 	Title string `json:"title"`
 	Username string `json:"username"`
+	Points int `json:"points"`
 	Time string `json:"time"`
 	Url string `json:"url"`
+	CommentAmount int `json:"commentamount"`
 }
 
 type Comment struct {
+	Id int `json:"id"`
 	Comment string `json:"comment"`
 	Username string `json:"username"`
 	Points int `json:"points"`
-	Time DateType `json:"time"`
+	Time string `json:"time"`
 }
 
 type StoryRequest struct {
@@ -68,5 +74,26 @@ type CommentsRequest struct {
 type DateType time.Time
 
 func (t DateType) String() string {
-	return time.Time(t).String()
+	/*
+	then, err := time.Parse("2006-01-02 15:4:5", time.Time(t).String())
+	if err != nil{
+		fmt.Println(err)
+	}
+	*/
+	then := time.Time(t)
+	duration := 0
+	describer := ""
+	if int(time.Since(then).Minutes()+120) < 60{
+		duration = int(time.Since(then).Minutes()+120)
+		describer = " Minutes Ago"
+	}else{
+		duration = int(time.Since(then).Hours()+2)
+		describer = " Hours Ago"
+	}
+	if int(time.Since(then).Hours()+2)>24{
+		duration = duration/24
+		describer = " Days Ago"
+	}
+	msg := strconv.Itoa(duration) + describer
+	return string(msg)
 }
