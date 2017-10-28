@@ -1,5 +1,7 @@
 <form (submit)="onSubmit()" #commentForm="ngForm" novalidate>
     <div>
+        <div *ngIf="alertMsg">{{alertMsg}}</div>	
+            
         <textarea name="comment" [(ngModel)]="comment" required minlength="3" #commentField="ngModel"></textarea>
         <div class="alert alert-danger" *ngIf="(commentForm.submitted || commentField.dirty || commentField.touched) && commentField.errors">
             <div [hidden]="!commentField.errors.required">Comment is required</div>
@@ -8,5 +10,6 @@
     </div>
     <div>
         <button [attr.disabled]="canMakeComment == false ? true : null">Add comment</button>
+        <span *ngIf="canMakeComment == false"><i>You must be logged in to be able to make a comment.</i></span>
     </div>
 </form>

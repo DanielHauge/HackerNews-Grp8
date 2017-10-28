@@ -10,13 +10,17 @@ export class ThreadService {
 
     }
 
-    addComment(threadId: number, comment: {  comment: string; }) {
-        
-        let post = {"post_title": "", "post_text": comment, "hanesst_id": -1, "post_type": "comment", "post_parent": threadId, "username": "onebeerdave", "pwd_hash": "fwozXFe7g0", "post_url": ""}
-        return this.http.post(`http://165.227.151.217:9191/${threadId}/post`, comment)
+    addComment(threadId: number, comment: {  username:string; comment: string; password:string;}) {        
+        let data = {"post_title": "", "post_text": comment.comment, "hanesst_id": -1, "post_type": "comment", "post_parent": threadId, "username": comment.username, "pwd_hash": comment.password, "post_url": ""}
+        return this.http.post(`http://165.227.151.217:9191/${threadId}/post`, data)
             .toPromise();
+    }
+    getComments(threadId: number) {
+        return this.http.get(`http://165.227.151.217:9191/comments${threadId}` )
+                .toPromise()
+                .then(response => response.json().comments as any[]);
     }    
-	addThread(threadId: number, comment: { name: string; comment: string; }) {
+	addThread(threadId: number, comment: { username: string; comment: string; }) {
         return this.http.post(`/app/threads/${threadId}/comments`, comment)
             .toPromise();
     }
