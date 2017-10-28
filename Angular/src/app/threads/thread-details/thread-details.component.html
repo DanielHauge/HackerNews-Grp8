@@ -2,7 +2,7 @@
 
 <section *ngIf="thread">
 	<a href="{{thread.url}}"><h4>{{thread.title}}</h4></a>
-	<p><span>{{thread.time}}</span></p>
+	<p><span>{{thread.time}}</span> | <span>by {{thread.username}}</span> | <span>{{thread.points}} points</span></p>
 	<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
 	
 	

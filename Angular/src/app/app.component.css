@@ -3,6 +3,11 @@
 	width:1200px;
     margin: 0 auto;
 }
+/*:host{
+	display: table;
+	width:1200px;
+    margin: 0 auto;
+}
 body{
     font: 0.85em sans-serif;
     font-family: Verdana, Geneva, sans-serif    
@@ -39,4 +44,4 @@ body{
 }
 .dropdownmenu a.link{
 	color: #000000;
-}
+}*/

@@ -1,15 +1,15 @@
+<div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
 <form (submit)="onSubmit()" #commentForm="ngForm" novalidate>
-    <div>
-        <div *ngIf="alertMsg">{{alertMsg}}</div>	
+    <div class="form-group">
             
-        <textarea name="comment" [(ngModel)]="comment" required minlength="3" #commentField="ngModel"></textarea>
+        <textarea class="form-control" name="comment" [(ngModel)]="comment" required minlength="3" #commentField="ngModel"></textarea>
         <div class="alert alert-danger" *ngIf="(commentForm.submitted || commentField.dirty || commentField.touched) && commentField.errors">
             <div [hidden]="!commentField.errors.required">Comment is required</div>
             <div [hidden]="!commentField.errors.minlength">Comment must be a minimum of 3 characters long</div>
         </div>
     </div>
     <div>
-        <button [attr.disabled]="canMakeComment == false ? true : null">Add comment</button>
-        <span *ngIf="canMakeComment == false"><i>You must be logged in to be able to make a comment.</i></span>
+        <button class="btn btn-primary" [attr.disabled]="canMakeComment == false ? true : null">Add comment</button>
+        <p *ngIf="canMakeComment == false"><i>You must be logged in to be able to make a comment.</i></p>
     </div>
 </form>
