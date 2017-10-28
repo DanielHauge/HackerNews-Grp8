@@ -1,13 +1,5 @@
-FROM golang:jessie
+FROM nginx
 
-# Install any needed dependencies...
-# RUN go get ...
+COPY /wwwroot/ /usr/share/nginx/html
 
-# Copy the server code into the container
-COPY server.go server.go
-
-# Make port 8080 available to the host
-EXPOSE 8081
-
-# Build and run the server when the container is started
-ENTRYPOINT go run server.go
+# sudo docker run --rm -d -p 8080:80 dockerimagename
