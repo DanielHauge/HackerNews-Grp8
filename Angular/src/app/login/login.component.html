@@ -21,11 +21,12 @@
             </div-->
         </div>
     </div>
-    <button class="btn btn-primary">Log in</button>
-    
+    <button class="btn btn-primary">Log in</button>   
 </form>
+<p></p>
+<a  [routerLink]="['/user/resetpassword']" >Forgot your password?</a>
 
-
+<p></p>
 <h1>Register</h1>
 <form (submit)="onSubmit2()" #registerForm="ngForm" novalidate>
     <div class="form-group">                
