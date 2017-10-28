@@ -20,8 +20,8 @@ export class ThreadService {
                 .toPromise()
                 .then(response => response.json().comments as any[]);
     }    
-	addThread(threadId: number, comment: { username: string; comment: string; }) {
-        return this.http.post(`/app/threads/${threadId}/comments`, comment)
+	submitThread(data: {username:string; post_type: string; pwd_hash: string; post_title:string; post_url:string; post_parent:number; hanesst_id:number; post_text:string; }) {
+        return this.http.post(`http://165.227.151.217:9191/post`, data)
             .toPromise();
     }
 
