@@ -1,18 +1,8 @@
-<section>
-<div>
-
-    <a href="{{thread.url}}"><h4>{{thread.title}}</h4></a>
-    <p><a [routerLink]="['/threads', thread.id]">discuss</a><span>{{thread.time}}</span></p>
-
-</div>
-<!--div class="actions">
-    <button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
-    <button type="button" (click)="showComments = !showComments">Comments ({{thread.comments.length}})</button>
-</div>
-<div class="comments" *ngIf="showComments">
-    <div class="comment" *ngFor="let comment of thread.comments">
-        <p><strong>{{comment.name}}</strong> {{comment.comment}}</p>
+<div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+        <a href="{{thread.url}}" ><h5 class="mb-1">{{thread.title}}</h5></a>
+        <small>{{thread.time}} by {{thread.username}}</small>
     </div>
-    <app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
-</div-->
-</section>
+    <p class="mb-1"></p>
+    <a [routerLink]="['/threads', thread.id]"><small>{{thread.commentamount}} comments </small></a>|<small> {{thread.points}} points</small>
+</div>
