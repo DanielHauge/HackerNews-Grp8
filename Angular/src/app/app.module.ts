@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { appRouterModule } from "./app.routes";
 
-import { UserService, LoginComponent } from './login';
+import { UserService, LoginComponent, UserUpdateComponent } from './login';
 import { ThreadListComponent, ThreadComponent, ThreadService, ThreadCommentFormComponent, ThreadDetailsComponent, ThreadSubmitComponent } from './threads';
 
 import { InMemoryThreadService } from './backend';
@@ -30,7 +30,8 @@ import { AuthguardGuard } from './authguard.guard';
         ThreadListComponent,
         ThreadCommentFormComponent,
         ThreadDetailsComponent,
-		ThreadSubmitComponent, 
+        ThreadSubmitComponent,
+        UserUpdateComponent, 
         LoginComponent, HeaderComponent, FooterComponent,
     ],
     bootstrap: [AppComponent]

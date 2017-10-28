@@ -11,6 +11,7 @@ import { ThreadDisplay } from '../shared/thread-display.model';
 export class ThreadListComponent implements OnInit {
     threads: ThreadDisplay[];
     counter:number;
+    alertMsg = "";
     constructor(private threadService: ThreadService) {
         
     }
@@ -24,6 +25,15 @@ export class ThreadListComponent implements OnInit {
         this.counter = 0;
         this.threadService
                 .getThreads(this.counter)
-                .then(threads => this.threads = threads);
+                //.then(threads => this.threads = threads);
+                .then((threads) => {
+                    this.threads = threads;
+                },
+                reason => {
+                    this.alertMsg = "Sorry! Something went wrong, nothing was loaded!";
+                    console.error(reason);
+                }
+
+                );
     }
 }

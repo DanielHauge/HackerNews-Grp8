@@ -1,5 +1,7 @@
 
 <h1>Login</h1>
+<div *ngIf="alertMsg">{{alertMsg}}</div>
+
 <form (submit)="onSubmit()" #loginForm="ngForm" novalidate>
     <div>
         <label for="username">Username</label>
