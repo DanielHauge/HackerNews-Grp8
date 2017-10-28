@@ -11,6 +11,7 @@ import { UserService } from '../../login/shared/user.service';
 export class ThreadCommentFormComponent {
     name: string = "";
     comment: string = "";
+    canMakeComment:boolean;
     @Input() threadId: number;
     @Output() onCommentAdded = new EventEmitter<{name: string; comment:string;}>();
     @ViewChild('commentForm') commentForm: NgForm;
@@ -18,7 +19,9 @@ export class ThreadCommentFormComponent {
     constructor(private threadService: ThreadService, private userService: UserService) {
 
     }
-    
+    ngOnInit() {
+		this.canMakeComment = this.userService.getUserLoggedIn();
+	}
     onSubmit(commentForm: NgForm) {
         if (this.commentForm.invalid) return;
         let comment = { name: this.name, comment: this.comment };

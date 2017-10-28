@@ -20,7 +20,20 @@ export class UserService {
 		let options = new RequestOptions({ headers: headers });
 		
         return this.http.post('http://165.227.151.217:9191/login', user, options)
-            .toPromise();
+			.toPromise()
+			.then( response => { 
+				console.error(response);
+				console.error(response);
+				
+				 return response.json();
+			});
+			/*.catch(	response => { 			console.error(response);
+			
+			 return response.json();
+			}
+			);*/
+			
+
 	}
 	registerUser(user: { username: string; password: string; }) {
 		console.log(user);

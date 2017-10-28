@@ -2,7 +2,6 @@
 	<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
 	<h2>You selected:  {{thread.id}}</h2>
 	<p>Id {{thread.id}}</p>
-	<p>Title {{thread.title}}</p>
 	<div class="actions">
 		<button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
 		<button type="button" (click)="showComments = !showComments">Comments ({{thread.comments.length}})</button>

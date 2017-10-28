@@ -34,7 +34,8 @@ export class LoginComponent{
        // if (this.loginForm.invalid) return;
         let user = { username: this.username, password: this.password };
         this.userService.loginUser(user)
-            .then(() => {
+            .then((response) => {
+                console.log(response);
                 this.userService.setUsername(this.username);
                 this.userService.setUserLoggedIn();
                     this.loginForm.resetForm();
@@ -42,29 +43,51 @@ export class LoginComponent{
 					
             },
              reason => {
+                console.warn(reason);
+                if(reason.status){
+                    this.alertMsg = "Wrong username or password";
+                }
+                else{
+                    this.alertMsg = "Login failed.";
+                    
+                }                
                 this.loginForm.resetForm();
                 
-            }
-        
-        );
+            })
+            .catch(	response => { 			
+                    console.error(response);
+                    this.alertMsg = "Whoops... something went wrong";
+                    this.loginForm.resetForm();
+            });
     }
     onSubmit2(registerForm: NgForm) {
         // if (this.loginForm.invalid) return;
         console.log('register users');
          let user = { username: this.reg_username, password: this.reg_password , email_addr: this.reg_email_addr};
          this.userService.registerUser(user)
-             .then(() => {
+             .then((response) => {
                  this.userService.setUsername(this.reg_username);
                  this.userService.setUserLoggedIn();
                     // this.registerForm.resetForm();
-                     this.router.navigate(['/threads']);
+                 this.router.navigate(['/threads']);
                      
              },
-              reason => {
-                 //this.registerForm.resetForm();
-                 
-             }
-         
-         );
+             reason => {
+                console.warn(reason);
+                if(reason.status){
+                    this.alertMsg = "Please type a valid username or password";
+                }
+                else{
+                    this.alertMsg = "Registration failed.";
+                    
+                }                
+                this.loginForm.resetForm();
+                
+            })
+            .catch(	response => { 			
+                    console.error(response);
+                    this.alertMsg = "Whoops... something went wrong";
+                    this.loginForm.resetForm();
+            });
      }
 }

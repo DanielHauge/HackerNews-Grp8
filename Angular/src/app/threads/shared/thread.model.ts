@@ -5,4 +5,6 @@ export class Thread {
     url:string;
     time: string;
     comments: any[];
+    commentamount:number;
+    points:number;
 }

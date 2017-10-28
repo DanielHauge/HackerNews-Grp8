@@ -39,8 +39,12 @@ export class ThreadService {
         return this.http.get(`http://165.227.151.217:9191/stories/${id}`)
         .toPromise()
         .then( response => {
+            var thread:Thread;
+            thread = response.json().thread
+            thread.comments = response.json().comments
             console.log(response.json());
-            return response.json().thread as Thread;
+            console.log(thread);
+            return thread as Thread;
         }); 
        // .then(response => response.json().data as Thread);
     }

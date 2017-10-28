@@ -23,11 +23,10 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 		private threadService:ThreadService) { }
 
 	ngOnInit() {
-
-	this.sub = this.route.params.subscribe(params => {
-		let id = Number.parseInt(params['id']);
-		this.threadService.getThread(id).then( data => this.thread = data );
-	});
+		this.sub = this.route.params.subscribe(params => {
+			let id = Number.parseInt(params['id']);
+			this.threadService.getThread(id).then( data => this.thread = data );
+		});
 	}
 
 	ngOnDestroy(): void {
