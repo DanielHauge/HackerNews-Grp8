@@ -11,6 +11,7 @@ export class ThreadService {
     }
 
     addComment(threadId: number, comment: {  comment: string; }) {
+        
         let post = {"post_title": "", "post_text": comment, "hanesst_id": -1, "post_type": "comment", "post_parent": threadId, "username": "onebeerdave", "pwd_hash": "fwozXFe7g0", "post_url": ""}
         return this.http.post(`http://165.227.151.217:9191/${threadId}/post`, comment)
             .toPromise();

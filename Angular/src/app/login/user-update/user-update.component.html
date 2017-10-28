@@ -1,0 +1,24 @@
+
+<h1>User Information</h1>
+<h2>Update Password for <span>{{user.username}}</span></h2>
+<form (submit)="onSubmit()" #registerForm="ngForm" novalidate>
+
+    <div>
+        <label for="password">Old Password</label>
+        <input type="password" name="password" [(ngModel)]="user.password" required minlength="3" #passwordField="ngModel" />
+        <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
+            <div [hidden]="!nameField.errors.required">Password is required</div>
+            <div [hidden]="!nameField.errors.minlength">Password must be a minimum of 3 characters long</div>
+        </div-->
+    </div>
+    <div>
+        <label for="password">New Password</label>
+        <input type="password" name="password" [(ngModel)]="user.new_password" required minlength="3" #newPasswordField="ngModel" />
+        <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
+            <div [hidden]="!nameField.errors.required">Password is required</div>
+            <div [hidden]="!nameField.errors.minlength">Password must be a minimum of 3 characters long</div>
+        </div-->
+    </div>
+    <button>Save New Password</button>
+    
+</form>

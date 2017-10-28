@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { Http } from '@angular/http';
 import {Http, Headers, RequestOptions,Response} from '@angular/http';
+import { User } from './user.model';
 
 @Injectable()
 export class UserService {
@@ -29,6 +30,15 @@ export class UserService {
 		let options = new RequestOptions({ headers: headers });
 		
         return this.http.post('http://165.227.151.217:9191/create', user, options)
+            .toPromise();
+	}
+	updateUser(user:User) {
+		console.log('updateUser..');
+		let headers = new Headers();
+		headers.append('Content-Type', 'text/plain');
+		let options = new RequestOptions({ headers: headers });
+		
+        return this.http.post('http://165.227.151.217:9191/update', user, options)
             .toPromise();
     }
 	setUserLoggedIn(){

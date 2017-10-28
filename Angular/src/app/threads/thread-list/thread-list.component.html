@@ -1,2 +1,3 @@
 <app-thread *ngFor="let thread of threads" [thread]="thread"></app-thread>
+<div *ngIf="alertMsg">{{alertMsg}}</div>
 <button (click)="loadMore()">Load more..</button>

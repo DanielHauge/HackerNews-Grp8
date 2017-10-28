@@ -8,7 +8,7 @@
 		<li><a href="#">ask</a></li>
 		<li><a href="#">jobs</a></li>
 		<li><a class="link" [routerLink]="['/submit']">submit</a></li>
-		<li *ngIf="getUserName()" ><a href="#">{{getUserName()}}</a></li>
+		<li *ngIf="getUserName()" ><a [routerLink]="['/user/update']">{{getUserName()}}</a></li>
 		<li><a class="link" [routerLink]="['/login']">{{getUserNameText()}}</a></li>
 	</ul>
 </nav>
