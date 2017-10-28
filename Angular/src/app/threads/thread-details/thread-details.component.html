@@ -7,7 +7,7 @@
 		<button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
 		 <span>{{thread.time}}</span> | <span>by {{thread.username}}</span> | <span>{{thread.points}} points</span>  | <span>{{thread.commentamount}} comments</span> 
 	</p>
-</section>	
+
 	<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
 	
 	
@@ -19,9 +19,9 @@
 			<p><strong>{{comment.name}}</strong> {{comment.comment}}</p>
 		</div>
 	</div>  
-</section-->
-<br>
-<section>
+</section-->	
+	<br>
+
 	<div class="list-group" *ngFor="let comment of thread.comments">
 		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
 			<div class="d-flex w-100 justify-content-between">
