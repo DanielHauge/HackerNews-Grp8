@@ -13,9 +13,34 @@ import { Thread } from '../shared/thread.model';
 export class ThreadDetailsComponent implements OnInit, OnDestroy {
 	@Input() thread: Thread;
 	sub:any;
+	alertMsg = "";
+	
 
-	onCommentAdded(comment: {name: string; comment: string;}) {
-		this.thread.comments.push(comment);
+	onCommentAdded(threadId:number) {
+		//this.thread.comments.push(comment);
+		this.threadService.getComments(threadId)
+		
+		.then((response) => {
+			console.log(response);
+			this.thread.comments = response;
+				
+		},
+		 reason => {
+			console.warn(reason);
+			if(reason.status){
+				this.alertMsg = "Wrong username or password";
+			}
+			else{
+				this.alertMsg = "Login failed.";
+				
+			}                
+			
+		})
+		.catch(	response => { 			
+				console.error(response);
+				this.alertMsg = "Whoops... something went wrong";
+		});
+
 	}
 	
 

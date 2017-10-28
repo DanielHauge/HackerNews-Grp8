@@ -1,7 +1,12 @@
+<div *ngIf="alertMsg">{{alertMsg}}</div>	
+
 <section *ngIf="thread">
+	<a href="{{thread.url}}"><h4>{{thread.title}}</h4></a>
+	<p><span>{{thread.time}}</span></p>
 	<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
-	<h2>You selected:  {{thread.id}}</h2>
-	<p>Id {{thread.id}}</p>
+	
+	
+
 	<div class="actions">
 		<button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
 		<button type="button" (click)="showComments = !showComments">Comments ({{thread.comments.length}})</button>
