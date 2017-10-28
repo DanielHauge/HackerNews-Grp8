@@ -12,11 +12,11 @@ export class ThreadService {
 
     addComment(threadId: number, comment: {  username:string; comment: string; password:string;}) {        
         let data = {"post_title": "", "post_text": comment.comment, "hanesst_id": -1, "post_type": "comment", "post_parent": threadId, "username": comment.username, "pwd_hash": comment.password, "post_url": ""}
-        return this.http.post(`http://165.227.151.217:9191/${threadId}/post`, data)
+        return this.http.post(`http://165.227.151.217:9191/post`, data)
             .toPromise();
     }
     getComments(threadId: number) {
-        return this.http.get(`http://165.227.151.217:9191/comments${threadId}` )
+        return this.http.get(`http://165.227.151.217:9191/comments/${threadId}` )
                 .toPromise()
                 .then(response => response.json().comments as any[]);
     }    

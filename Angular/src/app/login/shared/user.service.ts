@@ -25,7 +25,7 @@ export class UserService {
 				console.error(response);
 				console.error(response);
 				
-				 return response.json();
+				 return response;
 			});
 			/*.catch(	response => { 			console.error(response);
 			
