@@ -102,6 +102,15 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"\n\n>``` {\"username\": \"<string>\", \"password\": \"<string>\", \"new_password\": \"<string>\"} ```\n\n" +
 		"- Example: \n\n > ```{\"username\": \"farmer\", \"password\": \"currentpassword\", \"new_password\": \"newpassword\"}```"+
 		"\n\n- Return of Example: \n\n > ```Succesfully Changed Password with 200 OK and 406 if not correct credentials.```"+
+		"\n\n"+
+		"## Upvote\n" +
+		"This call will register the upvote. if comment set threadid to -1 \n\n"+
+		"- Route: /upvote\n" +
+		"- Method type: POST\n" +
+		"- Accepts Json & text/plain Syntax: " +
+		"\n\n>``` {\"thread_id\": -1,\"comment_id\": 4, \"username\": \"farmer\"} ```\n\n" +
+		"- Example: \n\n > ```{\"thread_id\": -1,\"comment_id\": 4, \"username\": \"farmer\"}```"+
+		"\n\n- Return of Example: \n\n > ```200 OK```"+
 		"\n\n"
 	output := blackfriday.Run([]byte(input))
 	w.Write(output)
@@ -376,3 +385,28 @@ func UpdatePassword(w http.ResponseWriter, r *http.Request){
 
 
 } /// Used by website
+
+func Upvote(w http.ResponseWriter, r *http.Request){
+	setheader(w, r)
+	w.WriteHeader(http.StatusOK)
+
+	var op UpvoteData
+	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
+	if err != nil {
+		panic(err)
+	}
+	if err := r.Body.Close(); err != nil {
+		panic(err)
+	}
+	if err := json.Unmarshal(body, &op); err != nil {
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		w.WriteHeader(422)
+		if err := json.NewEncoder(w).Encode(err); err != nil {
+			panic(err)
+		}
+	}
+
+	go UpdateUpvote(op)
+
+
+}

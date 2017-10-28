@@ -80,6 +80,12 @@ var routes = Routes{
 		"/update",
 		UpdatePassword,
 	},
+	Route{
+		"Upvoting",
+		"Post",
+		"/upvote",
+		Upvote,
+	},
 
 
 	Route{
