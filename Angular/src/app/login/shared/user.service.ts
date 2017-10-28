@@ -53,7 +53,16 @@ export class UserService {
 		
         return this.http.post('http://165.227.151.217:9191/update', user, options)
             .toPromise();
-    }
+	}
+	resetPassword(username: string) {
+		console.log('recover Password..');
+		let headers = new Headers();
+		headers.append('Content-Type', 'text/plain');
+		let options = new RequestOptions({ headers: headers });
+		
+        return this.http.post('http://165.227.151.217:9191/recover', {username:username}, options)
+            .toPromise();
+	}
 	setUserLoggedIn(){
 		this.isUserLoggedIn = true;
 	}

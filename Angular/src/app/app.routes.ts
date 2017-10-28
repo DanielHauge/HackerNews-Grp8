@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent, UserUpdateComponent } from './login';
+import { LoginComponent, UserUpdateComponent, UserResetPasswordComponent } from './login';
 import { AuthguardGuard  } from './authguard.guard';
 
 import { ThreadListComponent, ThreadComponent, ThreadService, ThreadCommentFormComponent , ThreadDetailsComponent, ThreadSubmitComponent } from './threads';
@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'user/update',
     component: UserUpdateComponent,
+  },
+  {
+    path: 'user/resetpassword',
+    component: UserResetPasswordComponent,
   },
   {
     path: 'login',
