@@ -166,3 +166,46 @@ func ChangePassword(newpwd string, id int)error{
 
 	return err
 }
+
+func UpdateUpvote(data UpvoteData){
+
+	var id int
+
+	if data.ThreadID == -1{
+		id = data.CommentID
+
+		stmt, err := DB.Prepare("UPDATE HackerNewsDB.Comment SET Karma = Karma+1 WHERE ID = ?;")
+		if err != nil{
+			fmt.Print(err.Error())
+		}
+
+		_, err = stmt.Exec(id)
+		if err != nil{
+			fmt.Print(err.Error())
+		}
+
+	} else {
+		id = data.ThreadID
+		stmt, err := DB.Prepare("UPDATE HackerNewsDB.Thread SET Karma = Karma+1 WHERE ID = ?;")
+		if err != nil{
+			fmt.Print(err.Error())
+		}
+
+		_, err = stmt.Exec(id)
+		if err != nil{
+			fmt.Print(err.Error())
+		}
+	}
+
+
+
+	stmt2, err := DB.Prepare("UPDATE HackerNewsDB.User SET Karma = Karma+1 WHERE Name LIKE ?;")
+	if err != nil{
+		fmt.Print(err.Error())
+	}
+	_, err = stmt2.Exec(data.Username)
+	if err != nil{
+		fmt.Print(err.Error())
+	}
+
+}

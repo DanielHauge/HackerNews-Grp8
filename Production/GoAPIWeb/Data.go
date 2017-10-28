@@ -43,6 +43,12 @@ type LatestStories struct {
 
 }
 
+type UpvoteData struct {
+	ThreadID int `json:"thread_id"`
+	CommentID int `json:"comment_id"`
+	Username string `json:"username"`
+}
+
 type Story struct {
 	Id int `json:"id"`
 	Title string `json:"title"`

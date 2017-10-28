@@ -2,15 +2,11 @@
 {
     public class User
     {
-        //primary key
-        public int ID;
         //is varchar in database with a max count of 20
-        public string Name;
-        //total karma count 
-        public int KarmaPoints;
+        public string username;
         //is varchar in database with a max count of 20
-        public string Password;
+        public string password;
         //is varchar in database with a max count of 80
-        public string Email;
+        public string email_addr;
     }
 }
