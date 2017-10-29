@@ -1,11 +1,12 @@
-<div *ngIf="alertMsg">{{alertMsg}}</div>	
+<div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
 
 <section *ngIf="thread">
 	<a href="{{thread.url}}"><h4>{{thread.title}}</h4></a>
 	
 	<p>
-		<button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">❤</button>
-		 <span>{{thread.time}}</span> | <span>by {{thread.username}}</span> | <span>{{thread.points}} points</span>  | <span>{{thread.commentamount}} comments</span> 
+		<!--button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">u</button-->
+		
+		<span (click)="threadVote()" class="upvote" [ngClass]="{liked: isLiked}">▲</span> | <span>{{thread.time}}</span> | <span>by {{thread.username}}</span> | <span>{{thread.points}} points</span>  | <span>{{thread.commentamount}} comments</span> 
 	</p>
 
 	<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
@@ -21,15 +22,16 @@
 	</div>  
 </section-->	
 	<br>
+	<br>
 
 	<div class="list-group" *ngFor="let comment of thread.comments">
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+		<div class="list-group-item list-group-item-action flex-column align-items-start">
 			<div class="d-flex w-100 justify-content-between">
 			<!--h5 class="mb-1">List group item heading</h5-->
-			<small>{{comment.username}}</small>
+				<small>{{comment.username}}</small>
 			</div>
 			<p class="mb-1">{{comment.comment}}</p>
-			<small>{{comment.points}} points </small>|<small> {{comment.time}}</small>
-		</a>
+			<small (click)="commentVote(comment)"  class="upvote" [ngClass]="{liked: comment.vote}">▲</small> | <small>{{comment.points}} points </small>|<small> {{comment.time}}</small>
+		</div>
 	</div>	
 </section>	
