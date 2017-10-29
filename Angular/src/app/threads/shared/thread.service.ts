@@ -34,6 +34,16 @@ export class ThreadService {
                 }); 
                 //.then(response => response.json().data as ThreadDisplay[]);
     }
+    upvotePost(data:any): Promise<any> {
+        console.log('Upvote post');
+        
+        return this.http.post('http://165.227.151.217:9191/upvote', data )
+                .toPromise()
+                .then( response => {
+                    console.log(response.json());
+                }); 
+                //.then(response => response.json().data as ThreadDisplay[]);
+    }
       // 3. New method also uses PEOPLE variable
     getThread(id: number) : Promise<Thread> {
     /*    return this.http.get('/app/threads')
@@ -45,11 +55,24 @@ export class ThreadService {
         .then( response => {
             var thread:Thread;
             thread = response.json().thread
-            thread.comments = response.json().comments
+            thread.comments = this.filterComments(response.json().comments);
             console.log(response.json());
             console.log(thread);
             return thread as Thread;
         }); 
        // .then(response => response.json().data as Thread);
+    }
+
+    filterComments(comments:any[]){
+        var filtered: any[] = [];
+        var i = 0;
+        for (let comment of comments) {
+            comment.vote = false;
+            comment.index = i;
+            
+            filtered.push(comment); // 1, "string", false
+            i++;
+        }
+        return filtered;
     }
 }
