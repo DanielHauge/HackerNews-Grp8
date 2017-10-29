@@ -10,6 +10,6 @@
     </div>
     <div>
         <button class="btn btn-primary" [attr.disabled]="canMakeComment == false ? true : null">Add comment</button>
-        <p *ngIf="canMakeComment == false"><i>You must be logged in to be able to make a comment.</i></p>
+        <p *ngIf="canMakeComment == false"><i><small>You must be logged in to be able to make a comment.</small></i></p>
     </div>
 </form>

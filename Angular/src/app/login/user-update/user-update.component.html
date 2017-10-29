@@ -1,6 +1,6 @@
 
-<h1>User Information</h1>
-<h2>Update Password for <span>{{user.username}}</span></h2>
+<h5>User Information</h5>
+<h6>Update Password for <span>{{user.username}}</span></h6>
 <div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
 <form (submit)="onSubmit()" #registerForm="ngForm" novalidate>
     <div class="form-group">                

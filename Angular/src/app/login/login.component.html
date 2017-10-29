@@ -1,5 +1,5 @@
 
-<h1>Log in</h1>
+<h5>Log in</h5>
 <div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
 
 <form (submit)="onSubmit()" #loginForm="ngForm" novalidate>
@@ -27,7 +27,7 @@
 <a  [routerLink]="['/user/resetpassword']" >Forgot your password?</a>
 
 <p></p>
-<h1>Register</h1>
+<h5>Register</h5>
 <form (submit)="onSubmit2()" #registerForm="ngForm" novalidate>
     <div class="form-group">                
         <div>
