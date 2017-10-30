@@ -22,7 +22,7 @@ namespace HN_UserInserterScript
             using (MySqlConnection connection = new MySqlConnection("server=46.101.103.163;user id=myuser;database=HackerNewsDB;SslMode=none;persistsecurityinfo=True;allowuservariables=True;Pwd=HackerNews8"))
             {
                 MySqlCommand cmd = new MySqlCommand(
-                    "INSERT INTO User (Name, Password, KarmaPoints) VALUES (@Name, @Password, @KarmaPoints)");
+                    "INSERT INTO User (Name, Password, Karma) VALUES (@Name, @Password, @KarmaPoints)");
 
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
