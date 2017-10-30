@@ -22,6 +22,12 @@ type HNUser struct {
 	EmailAddr string `json:"email_addr"`
 }
 
+type LoggedInUser struct {
+	Username string `json:"username"`
+	EmailAddr string `json:"email_addr"`
+	Karma int `json:"karma"`
+}
+
 type UserLogin struct {
 	Username string `json:"username"`
 	Password string `json:"password"`

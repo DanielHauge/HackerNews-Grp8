@@ -8,8 +8,7 @@ import (
 	"io"
 	"github.com/streadway/amqp"
 	"github.com/gorilla/mux"
-	//"github.com/microcosm-cc/bluemonday" // go get github.com/russross/blackfriday-tool
-	"gopkg.in/russross/blackfriday.v2" // go get -u gopkg.in/russross/blackfriday.v2
+	"gopkg.in/russross/blackfriday.v2"
 	"log"
 	"strconv"
 )
@@ -54,7 +53,8 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Accepts Json & text/plain Syntax: \n" +
 			"\n\n> ```{\"username\": \"<string>\",\"password\": \"<string>\",\"email_addr\": \"<string>\"}```\n" +
 		"\n- Example: \n\n>```{\"username\": \"Retrospective\",\"password\": \"Th1sp4ssw0rdW1llN3verG3tH4ck3d\",\"email_addr\": \"Retrospective@icloud.com\"}```"+
-		"\n\n- Return of Example: \n\n > ```Publishing to RQ for DB Insertion```"+
+		"\n\n- Return of Example: \n\n > ```Publishing to RQ for DB Insertion``` with 200 OK"+
+		"\n\n > ```Username or email has been taken``` With 406"+
 		"\n\n" +
 		"## Login\n" +
 		"This call is to verify users, it will see if username and password is correct and respond accordingly. \n\n"+
@@ -62,7 +62,9 @@ func Index2(w http.ResponseWriter, r *http.Request){
 		"- Method type: POST\n" +
 		"- Accepts Json & text/plain Syntax: \n\n> ```{\"username\": \"<string>\",\"password\": \"<string>\"}```\n\n" +
 		"- Example: \n\n> ```{\"username\": \"farmer\",\"password\": \"xMBVi4fAO5\"}```\n"+
-		"\n\n- Return of Example: \n\n > ```Succesfull - User is logged in with 200OK as http status, it will return 406 if not correct```"+
+		"\n\n- Return of Example: \n\n > ```{\"username\":\"farmer\",\"email_addr\":\"\"none\"\",\"karma\":9}```\nwith 200 OK, 406 if bad"+
+		"\n\n- Return of another exampme: \n\n > ```{\"username\":\"Daniel\",\"email_addr\":\"Animcuil@gmail.com\",\"karma\":0}```\nwith 200 OK, 406 if bad"+
+		"\n\n" +
 		"\n\n" +
 		"## GetLatestStories\n" +
 		"This call will return an array of stories. dex:0 dex_to 100 will return last 100 threads, dex:100,dex_to:200 will return the 100 threads before the very newest 100 threads \n\n"+
@@ -207,29 +209,43 @@ func GetStatus(w http.ResponseWriter, r *http.Request){
 } /// Not used by website
 
 func CreateUser(w http.ResponseWriter, r *http.Request){
-	w.WriteHeader(http.StatusOK)
+
 	setheader(w, r)
 
 
-
-		body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
-		if err != nil {
+	var usr HNUser
+	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
+	if err != nil {
+			panic(err)
+			}
+	if err := r.Body.Close(); err != nil {
+			panic(err)
+	}
+	if err := json.Unmarshal(body, &usr); err != nil {
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		w.WriteHeader(422)
+		if err := json.NewEncoder(w).Encode(err); err != nil {
 			panic(err)
 		}
-		if err := r.Body.Close(); err != nil {
-			panic(err)
-		}
+	}
+	if CheckIfTaken(usr){
+		go func() {
+			/// Implement MySQL
+			props := amqp.Publishing{
+				ContentType: "application/json; charset=UTF-8",
+				Body:        body,
+			}
+			SendToRabbit(props, User_Q.Name)
 
-	go func() {
-		/// Implement MySQL
-		props := amqp.Publishing{
-			ContentType: "application/json; charset=UTF-8",
-			Body:        body,
-		}
-		SendToRabbit(props, User_Q.Name)
+		}()
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprint(w, "Publishing to RQ for DB Insertion")
+	}else {
+		w.WriteHeader(http.StatusNotAcceptable)
+		fmt.Fprint(w, "Username or email has been taken")
+	}
 
-	}()
-	fmt.Fprint(w, "Publishing to RQ for DB Insertion")
+
 } /// Used by website
 
 func Login(w http.ResponseWriter, r *http.Request){
@@ -251,11 +267,14 @@ func Login(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 	}
+	Correct, user := VerifyUser(usr)
 
-
-	if VerifyUser(usr) {
+	if  Correct{
 		w.WriteHeader(http.StatusOK)
-		fmt.Fprint(w, "Succesfull - User is logged in")
+
+		msgs, err := json.Marshal(user); if err != nil{ panic(err) }
+
+		fmt.Fprint(w, string(msgs))
 	} else {
 		w.WriteHeader(http.StatusNotAcceptable)
 		fmt.Fprint(w, "Error, incorrect username and/or password")
@@ -344,7 +363,7 @@ func StartRecovery(w http.ResponseWriter, r *http.Request){
 	log.Printf(recinfo.Username)
 	log.Printf(email)
 
-		SendEmail("Daniel.f.hauge@icloud.com", pwd)
+		SendEmail(email, pwd)
 
 	}()
 	fmt.Fprint(w, "An Email has been sent to the specified email linked with the username provided")
@@ -370,8 +389,8 @@ func UpdatePassword(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 	}
-
-	if VerifyUser(UserLogin{change.Username,change.Password}){
+	Correct, _ := VerifyUser(UserLogin{change.Username,change.Password})
+	if Correct{
 		err := ChangePassword(change.NewPassword, GetUserID(change.Username))
 		if err != nil{
 			fmt.Fprint(w, "There was an error which might have prevented the password to change, password"+err.Error())

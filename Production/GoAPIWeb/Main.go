@@ -14,6 +14,7 @@ import (
 // go get “github.com/gorilla/mux”
 // go get get github.com/streadway/amqp
 // go get github.com/rs/cors
+// go get -u gopkg.in/russross/blackfriday.v2
 
 var DB *sql.DB
 var CONN *amqp.Connection

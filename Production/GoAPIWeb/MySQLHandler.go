@@ -74,12 +74,14 @@ func GetUserID(username string)int {
 	return uid
 }
 
-func VerifyUser(usr UserLogin)bool {
+func VerifyUser(usr UserLogin)(bool, LoggedInUser) {
 	result := false
 
 	pwd := ""
-	row := DB.QueryRow("select Password from User where Name = ?;", usr.Username)
-	err := row.Scan(&pwd);
+	karm := 0
+	Email := ""
+	row := DB.QueryRow("select Password, Karma, Email from User where Name = ?;", usr.Username)
+	err := row.Scan(&pwd, &karm, &Email);
 	if err != nil {
 		fmt.Print(err.Error())
 	}
@@ -88,7 +90,7 @@ func VerifyUser(usr UserLogin)bool {
 		result = true
 	}
 
-	return result
+	return result, LoggedInUser{Karma:karm, Username:usr.Username, EmailAddr:Email}
 }
 
 func GetRecoveryInformation(username string)(string,string){
@@ -207,5 +209,23 @@ func UpdateUpvote(data UpvoteData){
 	if err != nil{
 		fmt.Print(err.Error())
 	}
+
+}
+
+func CheckIfTaken(user HNUser)bool {
+
+	is_not_taken := 0;
+	row := DB.QueryRow("select COUNT(*) from HackerNewsDB.User where Name = ? OR Email = ?;", user.Username, user.EmailAddr)
+	err := row.Scan(&is_not_taken);
+	if err != nil {
+		fmt.Print(err.Error())
+	}
+
+	if is_not_taken > 0 {
+		return false
+	}else {
+		return true
+	}
+
 
 }
