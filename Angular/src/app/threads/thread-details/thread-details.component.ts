@@ -27,6 +27,8 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 		if(this.userService.getUserLoggedIn()){
 			if(comment.vote == false){
 				comment.vote = true ;
+				comment.points += 1 ;
+				
 				let username = this.userService.getUsername();			
 				this.threadService.upvotePost({thread_id: -1,comment_id: comment.id, username: username});
 			}
@@ -46,6 +48,7 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 				this.isLiked = true;
 				let username = this.userService.getUsername();			
 				this.threadService.upvotePost({thread_id: this.thread.id, comment_id: -1, username: username});
+				this.thread.points += 1;
 			}
 		}
 		else{

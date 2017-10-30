@@ -19,7 +19,7 @@ export class ThreadListComponent implements OnInit {
         this.counter +=100;
         this.threadService
         .getThreads(this.counter)
-        .then(threads => this.threads = threads);
+        .then(threads => this.threads = this.threads.concat(threads));
     }
     ngOnInit() {
         this.counter = 0;
@@ -30,7 +30,7 @@ export class ThreadListComponent implements OnInit {
                     this.threads = threads;
                 },
                 reason => {
-                    this.alertMsg = "Sorry! Something went wrong, nothing was loaded!";
+                    this.alertMsg = "Sorry! Something went wrong. Could not contact the server!";
                     console.error(reason);
                 }
 
