@@ -27,7 +27,8 @@ export class UserResetPasswordComponent{
 
 	}
 	onSubmit(hnForm: NgForm) {
-       if (hnForm.invalid) return;
+      // if (hnForm.invalid) return;
+       console.log(this.username);
         //let user = { username: this.username, password: this.password };
         this.userService.resetPassword(this.username)
             .then(() => {
