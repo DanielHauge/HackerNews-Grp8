@@ -45,7 +45,9 @@ export class LoginComponent{
              reason => {
                 console.warn(reason);
                 if(reason){
-                    this.alertMsg = reason;
+                    console.log(reason);
+                    this.alertMsg = "Whoops... wrong username or password.";
+                    
                 }
                
                 this.loginForm.resetForm();
