@@ -14,7 +14,7 @@ export class ThreadCommentFormComponent {
     comment: string = "";
     canMakeComment:boolean;
     @Input() threadId: number;
-    @Output() onCommentAdded = new EventEmitter<number>();
+    @Output() onCommentAdded = new EventEmitter<{ username: string; comment: string; password: string }>();
     @ViewChild('commentForm') commentForm: NgForm;
     
     constructor(private threadService: ThreadService, private userService: UserService) {
@@ -41,7 +41,7 @@ export class ThreadCommentFormComponent {
 
             .then((response) => {
                 console.log(response);
-                this.onCommentAdded.emit(this.threadId);
+                this.onCommentAdded.emit(comment);
                 this.commentForm.resetForm();
 					
             },

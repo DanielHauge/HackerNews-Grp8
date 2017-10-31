@@ -1,6 +1,9 @@
 .upvote.liked {
     color:blue;
+    cursor: no-drop;
+    
 }
 .upvote{
+    cursor: pointer;
     color:lightgrey;
 }
