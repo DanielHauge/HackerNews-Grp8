@@ -29,6 +29,7 @@
                 <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
                 <element signature="n#!!block;n#GetComments#0" expanded="false" />
                 <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+                <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
                 <element signature="n#!!block;n#Upvote#0" expanded="false" />
               </folding>
             </state>
@@ -48,7 +49,7 @@
       <file leaf-file-name="Data.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
+            <state relative-caret-position="663">
               <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
               <folding>
                 <element signature="e#14#43#0" expanded="true" />
@@ -83,8 +84,8 @@
       <file leaf-file-name="MySQLHandler.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="221" column="5" lean-forward="true" selection-start-line="221" selection-start-column="5" selection-end-line="221" selection-end-column="5" />
+            <state relative-caret-position="969">
+              <caret line="221" column="5" lean-forward="false" selection-start-line="221" selection-start-column="5" selection-end-line="221" selection-end-column="5" />
               <folding>
                 <element signature="e#14#74#0" expanded="true" />
                 <element signature="n#!!block;n#FindLatest#0" expanded="false" />
@@ -117,7 +118,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Routes.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Routes.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Routes.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1462">
@@ -127,10 +128,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
+            <state relative-caret-position="-94">
               <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
               <folding />
             </state>
@@ -169,8 +170,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="2482" />
+    <option name="y" value="109" />
     <option name="width" value="2576" />
     <option name="height" value="1416" />
   </component>
@@ -189,7 +190,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -201,7 +202,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -239,10 +240,10 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="2552" y="122" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20747218" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.282516" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -348,6 +349,7 @@
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
             <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
@@ -445,6 +447,7 @@
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
             <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
@@ -553,6 +556,7 @@
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
             <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
@@ -651,6 +655,7 @@
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
             <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
@@ -750,14 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Router.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GmailMailAPI.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -768,27 +765,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routes.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RabbitManager.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
+        <state relative-caret-position="663">
           <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding>
             <element signature="e#14#43#0" expanded="true" />
@@ -799,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="221" column="5" lean-forward="true" selection-start-line="221" selection-start-column="5" selection-end-line="221" selection-end-column="5" />
+        <state relative-caret-position="969">
+          <caret line="221" column="5" lean-forward="false" selection-start-line="221" selection-start-column="5" selection-end-line="221" selection-end-column="5" />
           <folding>
             <element signature="e#14#74#0" expanded="true" />
             <element signature="n#!!block;n#FindLatest#0" expanded="false" />
@@ -817,6 +796,32 @@
             <marker date="1509382224035" expanded="true" signature="1727:1781" ph="select Passw... User" />
             <marker date="1509382224035" expanded="true" signature="5247:5313" ph="select COUNT... User" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RabbitManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-94">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -837,15 +842,16 @@
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
             <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.go">
+    <entry file="file://$PROJECT_DIR$/Routes.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        <state relative-caret-position="1462">
+          <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
           <folding />
         </state>
       </provider>
