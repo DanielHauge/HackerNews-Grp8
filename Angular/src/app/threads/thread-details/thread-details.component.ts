@@ -57,31 +57,12 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 			this.alertMsg = "You must be logged in to be able upvote.";
 		}
 	}
-	onCommentAdded(threadId:number) {
-		//this.thread.comments.push(comment);
-		this.threadService.getComments(threadId)
-		
-		.then((response) => {
-			console.log(response);
-			this.thread.comments = response;
-				
-		},
-		 reason => {
-			console.warn(reason);
-			if(reason.status){
-				this.alertMsg = "Wrong username or password";
-			}
-			else{
-				this.alertMsg = "Login failed.";
-				
-			}                
-			
-		})
-		.catch(	response => { 			
-				console.error(response);
-				this.alertMsg = "Whoops... something went wrong";
-		});
+	onCommentAdded( comment:any  ) {
 
+			this.thread.commentamount += 1;
+			comment = {username:comment.username,comment:comment.comment,vote:0,points:0,time:'Just now'}
+			this.thread.comments.push(comment);
+				
 	}
 	
 
