@@ -32,8 +32,12 @@ export class UserResetPasswordComponent{
         //let user = { username: this.username, password: this.password };
         this.userService.resetPassword(this.username)
             .then(() => {
+                this.alertMsg = "Check your email!";                
                 hnForm.resetForm();
-                this.alertMsg = "Check your email!";
-            });
+            },
+            reason => {
+                console.error(reason);
+                this.alertMsg = "Whoops, something went wrong. Make sure you put the correct username.";
+            }  );
     }
 }

@@ -36,8 +36,12 @@ export class UserUpdateComponent{
         //let user = { username: this.username, password: this.password };
         this.userService.updateUser(this.user)
             .then(() => {
+                this.alertMsg = "Your password was successfully updated!";
                 this.user.password="";
-                this.user.new_password="";					
+                this.user.new_password="";
+                userUpdateForm.resetForm();
+                
+                
             },
             reason => {
                 console.error(reason);

@@ -19,14 +19,14 @@
                 <div [hidden]="!threadUrlField.errors.minlength">URL must be a minimum of 3 characters long</div>
             </div>
         </div>    
-        <div>
+        <!--div>
             <label for="thread_text">Text</label>
             <textarea class="form-control" name="thread_text" [(ngModel)]="post_text"  #threadTextField="ngModel"></textarea>
             <div class="alert alert-danger" *ngIf="(submitThreadForm.submitted || threadTextField.dirty || threadTextField.touched) && threadTextField.errors">
                 <div [hidden]="!threadTextField.errors.required">Text is required</div>
                 <div [hidden]="!threadTextField.errors.minlength">Text must be a minimum of 3 characters long</div>
             </div>
-        </div>
+        </div-->
     </div>
     <div>
         <button  class="btn btn-primary" >Submit</button>
