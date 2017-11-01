@@ -27,25 +27,26 @@ export class UserUpdateComponent{
             /*Should never happen*/
 			this.router.navigate(['/login']);
         }
-        //this.user = {username: this.userService.getUsername,password: this.userService.getPassword, new_password:""};
-        this.user = {username: ""+this.userService.getUsername(),password: "", new_password:""};
+         this.user = {username: ""+this.userService.getUsername(),password: "", new_password:""};
         
 	}
 	onSubmit(userUpdateForm: NgForm) {
-       // if (this.userUpdateForm.invalid) return;
-        //let user = { username: this.username, password: this.password };
-        this.userService.updateUser(this.user)
+        if (this.userUpdateForm.invalid) return;
+         this.userService.updateUser(this.user)
             .then(() => {
+
                 this.alertMsg = "Your password was successfully updated!";
+                this.userUpdateForm.resetForm();
                 this.user.password="";
                 this.user.new_password="";
-                userUpdateForm.resetForm();
+                this.userUpdateForm.resetForm();
                 
                 
             },
             reason => {
                 console.error(reason);
                 this.alertMsg = "Whoops, something went wrong when updating password... Unexpected Error.";
+                this.userUpdateForm.resetForm();
             }        
         );
     }

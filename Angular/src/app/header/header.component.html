@@ -1,15 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
 	<a class="navbar-barnd" [routerLink]="['/threads']" >Hacker News</a>
-	<div class="collapse navbar-collapse" id="navbarNav">
-			
+	<div class="" id="navbarNav">			
 		<ul class="navbar-nav">
-			<!--li class="nav-item"><a class="nav-link" href="#">news</a></li-->
-
 			<li class="nav-item"><a class="nav-link" [routerLink]="['/submit']">submit</a></li>
 			<li class="nav-item" *ngIf="getUserName()" ><a class="nav-link" [routerLink]="['/user/update']"><<u>{{getUserName()}}</u>></a></li>
 			<li class="nav-item"><a class="nav-link" [routerLink]="['/login']">{{getUserNameText()}}</a></li>
 		</ul>
-
 	</div>
 </nav>
-
+<!-- See app.routes for how the link/routes above are handled-->

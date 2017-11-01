@@ -1,60 +1,65 @@
+<div class="col-12">
+    <h5>Log in</h5>
+    <div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
 
-<h5>Log in</h5>
-<div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
+    <form (submit)="onSubmit()" #loginForm="ngForm" novalidate>
+        <div class="form-group">                    
+            <div>
+                <label for="username">Username</label>
+                <input class="form-control" type="text" name="username" [(ngModel)]="username" required minlength="3" #usernameField="ngModel" />
+                <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || usernameField.dirty || usernameField.touched) && usernameField.errors">
+                    <div [hidden]="!usernameField.errors.required">Username is required</div>
+                    <div [hidden]="!usernameField.errors.minlength">Username must be a minimum of 3 characters long</div>
+                </div-->
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input class="form-control" type="password" name="password" [(ngModel)]="password" required minlength="3" #passwordField="ngModel" />
+                <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
+                    <div [hidden]="!nameField.errors.required">Password is required</div>
+                    <div [hidden]="!nameField.errors.minlength">Password must be a minimum of 3 characters long</div>
+                </div-->
+            </div>
+        </div>
+        <button class="btn btn-primary">Log in</button>   
+    </form>
+    <p></p>
+    <a [routerLink]="['/user/resetpassword']" >Forgot your password?</a>
 
-<form (submit)="onSubmit()" #loginForm="ngForm" novalidate>
-   <div class="form-group">                    
-        <div>
-            <label for="username">Username</label>
-            <input class="form-control" type="text" name="username" [(ngModel)]="username" required minlength="3" #usernameField="ngModel" />
-            <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
-                <div [hidden]="!nameField.errors.required">Username is required</div>
-                <div [hidden]="!nameField.errors.minlength">Username must be a minimum of 3 characters long</div>
-            </div-->
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" [(ngModel)]="password" required minlength="3" #passwordField="ngModel" />
-            <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
-                <div [hidden]="!nameField.errors.required">Password is required</div>
-                <div [hidden]="!nameField.errors.minlength">Password must be a minimum of 3 characters long</div>
-            </div-->
-        </div>
-    </div>
-    <button class="btn btn-primary">Log in</button>   
-</form>
-<p></p>
-<a  [routerLink]="['/user/resetpassword']" >Forgot your password?</a>
+    <p></p>
 
-<p></p>
-<h5>Register</h5>
-<form (submit)="onSubmit2()" #registerForm="ngForm" novalidate>
-    <div class="form-group">                
-        <div>
-            <label for="username">Username</label>
-            <input class="form-control" type="text" name="username" [(ngModel)]="reg_username" required minlength="3" #usernameField="ngModel" />
-            <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
-                <div [hidden]="!nameField.errors.required">Username is required</div>
-                <div [hidden]="!nameField.errors.minlength">Username must be a minimum of 3 characters long</div>
-            </div-->
+    <h5>Register</h5>
+    <form (submit)="onSubmit2()" #registerForm="ngForm" novalidate>
+        <div class="form-group">                
+            <div>
+                <label for="reg_username">Username</label>
+                <input class="form-control" type="text" name="reg_username" [(ngModel)]="reg_username" required minlength="3" maxlength="20" #regUsernameField="ngModel" />
+                <div class="alert alert-danger" *ngIf="(registerForm.submitted || regUsernameField.dirty || regUsernameField.touched) && regUsernameField.errors">
+                <!--div class="alert alert-danger" *ngIf="(registerForm.submitted) && regUsernameField.errors"-->                    
+                    <div [hidden]="!regUsernameField.errors.required">Username is required</div>
+                    <div [hidden]="!regUsernameField.errors.minlength">Username must be a minimum of 3 characters long</div>
+                    <div [hidden]="!regUsernameField.errors.maxlength">Username must be a maximum of 20 characters long</div>             
+                </div>
+            </div>
+            <div>
+                <label for="reg_email">Email</label>
+                <input class="form-control" type="email" name="reg_email" [(ngModel)]="reg_email_addr" required minlength="6" maxlength="50" #regEmailField="ngModel" />
+                <div class="alert alert-danger" *ngIf="(registerForm.submitted || regEmailField.dirty || regEmailField.touched) && regEmailField.errors">
+                    <div [hidden]="!regEmailField.errors.required">Email is required</div>
+                    <div [hidden]="!regEmailField.errors.minlength">Email must be a minimum of 6 characters long</div>
+                    <div [hidden]="!regPasswordField.errors.maxlength">Email must be a maximum of 50 characters long</div>
+                </div>
+            </div>
+            <div>
+                <label for="reg_password">Password</label>
+                <input class="form-control" type="password" name="reg_password" [(ngModel)]="reg_password" required minlength="4" maxlength="20" #regPasswordField="ngModel" />
+                <div class="alert alert-danger" *ngIf="(registerForm.submitted || regPasswordField.dirty || regPasswordField.touched) && regPasswordField.errors">
+                    <div [hidden]="!regPasswordField.errors.required">Password is required</div>
+                    <div [hidden]="!regPasswordField.errors.minlength">Password must be a minimum of 4 characters long</div>
+                    <div [hidden]="!regPasswordField.errors.maxlength">Password must be a maximum of 20 characters long</div>    
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="email">Email</label>
-            <input class="form-control" type="email" name="email" [(ngModel)]="reg_email_addr" required minlength="3" #emailField="ngModel" />
-            <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
-                <div [hidden]="!nameField.errors.required">Password is required</div>
-                <div [hidden]="!nameField.errors.minlength">Password must be a minimum of 3 characters long</div>
-            </div-->
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" [(ngModel)]="reg_password" required minlength="3" #passwordField="ngModel" />
-            <!--div class="alert alert-danger" *ngIf="(loginForm.submitted || nameField.dirty || nameField.touched) && nameField.errors">
-                <div [hidden]="!nameField.errors.required">Password is required</div>
-                <div [hidden]="!nameField.errors.minlength">Password must be a minimum of 3 characters long</div>
-            </div-->
-        </div>
-    </div>
-    <button class="btn btn-primary">Register</button>
-    
-</form>
+        <button class="btn btn-primary">Register</button>        
+    </form>
+</div>

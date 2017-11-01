@@ -25,7 +25,6 @@ export class ThreadListComponent implements OnInit {
         this.counter = 0;
         this.threadService
                 .getThreads(this.counter)
-                //.then(threads => this.threads = threads);
                 .then((threads) => {
                     this.threads = threads;
                 },
