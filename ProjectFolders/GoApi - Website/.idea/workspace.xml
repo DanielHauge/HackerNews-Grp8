@@ -25,6 +25,7 @@
                 <element signature="n#!!block;n#GetStatus#0" expanded="false" />
                 <element signature="n#!!block;n#CreateUser#0" expanded="false" />
                 <element signature="n#!!block;n#Login#0" expanded="false" />
+                <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
                 <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
                 <element signature="n#!!block;n#GetComments#0" expanded="false" />
                 <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
@@ -45,14 +46,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Data.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Data.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="1033">
+              <caret line="102" column="32" lean-forward="true" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
               <folding>
                 <element signature="e#14#43#0" expanded="true" />
-                <element signature="n#!!block;n#String#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -80,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQLHandler.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MySQLHandler.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="765">
-              <caret line="88" column="27" lean-forward="true" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+              <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
               <folding>
                 <element signature="e#14#74#0" expanded="true" />
                 <element signature="n#!!block;n#FindLatest#0" expanded="false" />
@@ -120,7 +120,7 @@
       <file leaf-file-name="Routes.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Routes.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1462">
+            <state relative-caret-position="1200">
               <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
               <folding />
             </state>
@@ -155,10 +155,10 @@
         <option value="$PROJECT_DIR$/client_secret.json.json" />
         <option value="$PROJECT_DIR$/GmailMailAPI.go" />
         <option value="$PROJECT_DIR$/Routes.go" />
-        <option value="$PROJECT_DIR$/Data.go" />
         <option value="$PROJECT_DIR$/Handlers.go" />
         <option value="$PROJECT_DIR$/Main.go" />
         <option value="$PROJECT_DIR$/MySQLHandler.go" />
+        <option value="$PROJECT_DIR$/Data.go" />
       </list>
     </option>
   </component>
@@ -242,7 +242,7 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29292527" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29769474" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -344,6 +344,7 @@
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
             <element signature="n#!!block;n#Login#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
@@ -441,6 +442,7 @@
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
             <element signature="n#!!block;n#Login#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
@@ -464,7 +466,6 @@
           <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
             <element signature="e#14#43#0" expanded="true" />
-            <element signature="n#!!block;n#String#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -549,6 +550,7 @@
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
             <element signature="n#!!block;n#Login#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
@@ -572,7 +574,6 @@
           <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding>
             <element signature="e#14#43#0" expanded="true" />
-            <element signature="n#!!block;n#String#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -647,6 +648,7 @@
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
             <element signature="n#!!block;n#Login#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
@@ -670,7 +672,6 @@
           <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding>
             <element signature="e#14#43#0" expanded="true" />
-            <element signature="n#!!block;n#String#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -776,20 +777,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Routes.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1462">
-          <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GmailMailAPI.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
           <folding>
             <element signature="e#14#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="88" column="27" lean-forward="false" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <element signature="e#14#74#0" expanded="true" />
+            <element signature="n#!!block;n#FindLatest#0" expanded="false" />
+            <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
+            <element signature="n#!!block;n#GetUsername#0" expanded="false" />
+            <element signature="n#!!block;n#CountComments#0" expanded="false" />
+            <element signature="n#!!block;n#GetUserID#0" expanded="false" />
+            <element signature="n#!!block;n#GetRecoveryInformation#0" expanded="false" />
+            <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
+            <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
+            <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
+            <marker date="1509559523001" expanded="true" signature="815:902" ph="SELECT ID, N... " />
+            <marker date="1509559523001" expanded="true" signature="1746:1800" ph="select Passw... User" />
+            <marker date="1509559523001" expanded="true" signature="2413:2891" ph="SELECT Hacke... Thread" />
+            <marker date="1509559523001" expanded="true" signature="5266:5332" ph="select COUNT... User" />
           </folding>
         </state>
       </provider>
@@ -807,6 +823,7 @@
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
             <element signature="n#!!block;n#Login#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
@@ -816,36 +833,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data.go">
+    <entry file="file://$PROJECT_DIR$/Routes.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-          <folding>
-            <element signature="e#14#43#0" expanded="true" />
-            <element signature="n#!!block;n#String#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="1200">
+          <caret line="86" column="12" lean-forward="false" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
+    <entry file="file://$PROJECT_DIR$/Data.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="88" column="27" lean-forward="true" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+        <state relative-caret-position="1033">
+          <caret line="102" column="32" lean-forward="true" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
           <folding>
-            <element signature="e#14#74#0" expanded="true" />
-            <element signature="n#!!block;n#FindLatest#0" expanded="false" />
-            <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
-            <element signature="n#!!block;n#GetUsername#0" expanded="false" />
-            <element signature="n#!!block;n#CountComments#0" expanded="false" />
-            <element signature="n#!!block;n#GetUserID#0" expanded="false" />
-            <element signature="n#!!block;n#GetRecoveryInformation#0" expanded="false" />
-            <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
-            <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
-            <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-            <marker date="1509559523001" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-            <marker date="1509559523001" expanded="true" signature="1746:1800" ph="select Passw... User" />
-            <marker date="1509559523001" expanded="true" signature="2413:2891" ph="SELECT Hacke... Thread" />
-            <marker date="1509559523001" expanded="true" signature="5266:5332" ph="select COUNT... User" />
+            <element signature="e#14#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
