@@ -1,7 +1,7 @@
 <div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
 <form (submit)="onSubmit()" #commentForm="ngForm" novalidate>
     <div class="form-group">            
-        <textarea class="form-control" name="comment" [(ngModel)]="comment" required minlength="3" #commentField="ngModel"></textarea>
+        <textarea class="form-control" name="comment" [(ngModel)]="comment" required minlength="3" maxlength="1000" #commentField="ngModel"></textarea>
         <div class="alert alert-danger" *ngIf="(commentForm.submitted || commentField.dirty || commentField.touched) && commentField.errors">
             <div [hidden]="!commentField.errors.required">Comment is required</div>
             <div [hidden]="!commentField.errors.minlength">Comment must be a minimum of 3 characters long</div>
