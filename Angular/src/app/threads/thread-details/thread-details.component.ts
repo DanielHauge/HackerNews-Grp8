@@ -65,7 +65,7 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 
 			this.thread.commentamount += 1;
 			comment = {username:comment.username,comment:comment.comment,vote:0,points:0,time:'Just now'}
-			this.thread.comments.push(comment);
+			this.thread.comments.unshift(comment);
 				
 	}
 

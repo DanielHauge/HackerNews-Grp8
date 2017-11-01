@@ -27,7 +27,7 @@ export class UserResetPasswordComponent{
 
 	}
 	onSubmit(hnForm: NgForm) {
-       if (hnForm.invalid) return;
+
        console.log('User submitted recover/reset password..');
        console.log(this.username);
         this.userService.resetPassword(this.username)
@@ -36,8 +36,10 @@ export class UserResetPasswordComponent{
                 this.hnForm.resetForm();
             },
             reason => {
+                /*The correct behaviour ends up here*/
                 console.error(reason);
-                this.alertMsg = "Whoops, something went wrong. Make sure you put the correct username.";
+                this.alertMsg = "Check your email!";                
+                this.hnForm.resetForm();
             }  );
     }
 }
