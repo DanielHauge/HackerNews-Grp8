@@ -10,7 +10,5 @@ import { Thread } from '../shared/thread.model';
 export class ThreadComponent {
     @Input() thread: Thread;
 
-    onCommentAdded(comment: {name: string; comment: string;}) {
-        this.thread.comments.push(comment);
-    }
+    
 }
