@@ -95,14 +95,14 @@ func (t DateType) String() string {
 	then := time.Time(t)
 	duration := 0
 	describer := ""
-	if int(time.Since(then).Minutes()+120) < 60{
-		duration = int(time.Since(then).Minutes()+120)
+	if int(time.Since(then).Minutes()) < 60{
+		duration = int(time.Since(then).Minutes())
 		describer = " Minutes Ago"
 	}else{
-		duration = int(time.Since(then).Hours()+2)
+		duration = int(time.Since(then).Hours())
 		describer = " Hours Ago"
 	}
-	if int(time.Since(then).Hours()+2)>24{
+	if int(time.Since(then).Hours())>24{
 		duration = duration/24
 		describer = " Days Ago"
 	}
