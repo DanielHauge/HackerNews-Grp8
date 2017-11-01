@@ -1,37 +1,25 @@
-<div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
+<div class="col-12">
+	<br>
+	<div class="alert alert-secondary" role="alert" *ngIf="alertMsg">{{alertMsg}}</div>
 
-<section *ngIf="thread">
-	<a href="{{thread.url}}"><h4>{{thread.title}}</h4></a>
-	
-	<p>
-		<!--button type="button" (click)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">u</button-->
+	<section *ngIf="thread">
+		<a href="{{thread.url}}"><h4>{{thread.title}}</h4></a>
 		
-		<span (click)="threadVote()" class="upvote" [ngClass]="{liked: isLiked}">▲</span> | <span>{{thread.time}}</span> | <span>by {{thread.username}}</span> | <span>{{thread.points}} points</span>  | <span>{{thread.commentamount}} comments</span> 
-	</p>
+		<p><span (click)="threadVote()" class="upvote" [ngClass]="{liked: isLiked}">▲</span> | <span>{{thread.time}}</span> | <span>by {{thread.username}}</span> | <span>{{thread.points}} points</span>  | <span>{{thread.commentamount}} comments</span></p>
 
-	<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
-	
-	
+		<app-thread-comment-form (onCommentAdded)="onCommentAdded($event)" [threadId]="thread.id"></app-thread-comment-form>
 
-<!--section>
-	
-	<div class="comments" >
-		<div class="comment" *ngFor="let comment of thread.comments">
-			<p><strong>{{comment.name}}</strong> {{comment.comment}}</p>
-		</div>
-	</div>  
-</section-->	
-	<br>
-	<br>
+		<br>
+		<br>
 
-	<div class="list-group" *ngFor="let comment of thread.comments">
-		<div class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-			<!--h5 class="mb-1">List group item heading</h5-->
-				<small>{{comment.username}}</small>
+		<div class="list-group" *ngFor="let comment of thread.comments">
+			<div class="list-group-item list-group-item-action flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<small>{{comment.username}}</small>
+				</div>
+				<p class="mb-1">{{comment.comment}}</p>
+				<small (click)="commentVote(comment)"  class="upvote" [ngClass]="{liked: comment.vote}">▲</small> | <small>{{comment.points}} points </small>|<small> {{comment.time}}</small>
 			</div>
-			<p class="mb-1">{{comment.comment}}</p>
-			<small (click)="commentVote(comment)"  class="upvote" [ngClass]="{liked: comment.vote}">▲</small> | <small>{{comment.points}} points </small>|<small> {{comment.time}}</small>
-		</div>
-	</div>	
-</section>	
+		</div>	
+	</section>	
+</div>

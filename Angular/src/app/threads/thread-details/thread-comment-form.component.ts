@@ -33,12 +33,6 @@ export class ThreadCommentFormComponent {
         
         
         this.threadService.addComment(this.threadId, comment )
-            /*.then(() => {
-               // delete comment.password;
-                this.onCommentAdded.emit(comment);
-                    this.commentForm.resetForm();
-            });*/
-
             .then((response) => {
                 console.log(response);
                 this.onCommentAdded.emit(comment);
