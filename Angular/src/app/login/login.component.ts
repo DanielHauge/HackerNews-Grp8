@@ -72,8 +72,8 @@ export class LoginComponent{
              },
              reason => {
                 console.warn(reason);
-                if(reason.status){
-                    this.alertMsg = "Please type a valid username or password";
+                if(reason == "Username or email has been taken"){
+                    this.alertMsg = "Username or email has been taken";
                 }
                 else{
                     this.alertMsg = "Registration failed.";
