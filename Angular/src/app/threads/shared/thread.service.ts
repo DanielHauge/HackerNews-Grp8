@@ -55,6 +55,7 @@ export class ThreadService {
         .then( response => {
             var thread:Thread;
             thread = response.json().thread
+            thread.commentamount = response.json().comments.length;
             thread.comments = this.filterComments(response.json().comments);
             console.log(response.json());
             console.log(thread);
