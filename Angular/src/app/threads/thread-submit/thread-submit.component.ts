@@ -15,8 +15,6 @@ export class ThreadSubmitComponent implements OnInit {
     
     post_title: string = "";
     post_url: string = "";
-    post_text: string = "";
-    
 
     @ViewChild('submitThreadForm') submitThreadForm: NgForm;
 	
@@ -34,23 +32,15 @@ export class ThreadSubmitComponent implements OnInit {
         if (this.submitThreadForm.invalid) return;
         let username = this.userService.getUsername();
         let password = this.userService.getPassword();
-        //let thread = { post_title: this.post_title, post_url: this.post_url, post_text: post_text };
-        //let thread = { name: this.post_title, comment: this.post_url };
-        //{"post_title": "NYC Developer Dilemma", "post_text": "", "hanesst_id": 4, "post_type": "story", "post_parent": -1, "username": "onebeerdave", "pwd_hash": "fwozXFe7g0", "post_url": "http://avc.blogs.com/a_vc/2006/10/the_nyc_develop.html"}
-        let thread  = {post_title: this.post_title, post_text: this.post_text, hanesst_id: -1, post_type: "story", post_parent: -1, username: username, pwd_hash: password, post_url: this.post_url}
+
+        //Example: {"post_title": "NYC Developer Dilemma", "post_text": "", "hanesst_id": 4, "post_type": "story", "post_parent": -1, "username": "onebeerdave", "pwd_hash": "fwozXFe7g0", "post_url": "http://avc.blogs.com/a_vc/2006/10/the_nyc_develop.html"}
+        let thread  = {post_title: this.post_title, post_text: '', hanesst_id: -1, post_type: "story", post_parent: -1, username: username, pwd_hash: password, post_url: this.post_url}
         
         this.threadService.submitThread(thread)
-           /* .then(() => {
-                    //this.submitThreadForm.resetForm();
-					//TODO if everything goes well see all threads including submitted
-					this.router.navigate(['/threads']);
-					
-            });*/
-
-
             .then((response) => {
-                this.router.navigate(['/threads']);
-                
+                this.alertMsg = "Your thread was successfully submitted!";
+                this.submitThreadForm.resetForm();
+                console.log('submitThreadForm');
                 console.log(response);
 					
             },
@@ -69,7 +59,6 @@ export class ThreadSubmitComponent implements OnInit {
                     console.error(response);
                     this.alertMsg = "Whoops... something went wrong";
             });
-
 
     }
 }

@@ -18,7 +18,7 @@ export class LoginComponent{
     reg_username: string = "";
     reg_password: string = "";
     reg_email_addr: string = "";
-     @ViewChild('loginForm') loginForm: NgForm;
+    @ViewChild('loginForm') loginForm: NgForm;
 	
 	    constructor(private userService: UserService, private router:Router) {
 
@@ -45,7 +45,9 @@ export class LoginComponent{
              reason => {
                 console.warn(reason);
                 if(reason){
-                    this.alertMsg = reason;
+                    console.log(reason);
+                    this.alertMsg = "Whoops... could not log in.";
+                    
                 }
                
                 this.loginForm.resetForm();
@@ -58,7 +60,6 @@ export class LoginComponent{
             });
     }
     onSubmit2(registerForm: NgForm) {
-        // if (this.loginForm.invalid) return;
         console.log('register users');
          let user = { username: this.reg_username, password: this.reg_password , email_addr: this.reg_email_addr};
          this.userService.registerUser(user)

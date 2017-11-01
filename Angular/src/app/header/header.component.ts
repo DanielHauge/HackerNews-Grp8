@@ -7,7 +7,6 @@ import { UserService } from '../login/shared/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-/*getUsernameText()*/
 
   constructor(private userService: UserService) { }
   username:string;

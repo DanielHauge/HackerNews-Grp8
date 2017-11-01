@@ -15,7 +15,7 @@ export class UserResetPasswordComponent{
     username: string = "";
 
 
-     @ViewChild('userResetPasswordForm') userUpdateForm: NgForm;
+     @ViewChild('hnForm') hnForm: NgForm;
 	
 	    constructor(private userService: UserService, private router:Router) {
 
@@ -27,13 +27,17 @@ export class UserResetPasswordComponent{
 
 	}
 	onSubmit(hnForm: NgForm) {
-      // if (hnForm.invalid) return;
+       if (hnForm.invalid) return;
+       console.log('User submitted recover/reset password..');
        console.log(this.username);
-        //let user = { username: this.username, password: this.password };
         this.userService.resetPassword(this.username)
             .then(() => {
-                hnForm.resetForm();
-                this.alertMsg = "Check your email!";
-            });
+                this.alertMsg = "Check your email!";                
+                this.hnForm.resetForm();
+            },
+            reason => {
+                console.error(reason);
+                this.alertMsg = "Whoops, something went wrong. Make sure you put the correct username.";
+            }  );
     }
 }

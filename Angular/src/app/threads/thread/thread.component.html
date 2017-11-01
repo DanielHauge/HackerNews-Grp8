@@ -1,8 +1,8 @@
 <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
         <a href="{{thread.url}}" ><h5 class="mb-1">{{thread.title}}</h5></a>
-        <small>{{thread.time}} by {{thread.username}}</small>
+        <!--small>{{thread.time}} by {{thread.username}}</small-->
     </div>
     <p class="mb-1"></p>
-    <a [routerLink]="['/threads', thread.id]"><small>{{thread.commentamount}} comments </small></a>|<small> {{thread.points}} points</small>
+    <small>{{thread.time}} points</small> | <small>by {{thread.username}}</small> | <small>{{thread.points}} points</small> | <small><a [routerLink]="['/threads', thread.id]">{{thread.commentamount}} comments</a></small>
 </div>

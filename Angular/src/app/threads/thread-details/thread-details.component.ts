@@ -22,7 +22,12 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 	
 	constructor(private route:ActivatedRoute,
 		private threadService:ThreadService, private userService: UserService, private router:Router) { }
-	//commentVote(index:number){
+	ngOnInit() {
+		this.sub = this.route.params.subscribe(params => {
+			let id = Number.parseInt(params['id']);
+			this.threadService.getThread(id).then( data => this.thread = data );
+		});
+	}
 	commentVote(comment:any){
 		if(this.userService.getUserLoggedIn()){
 			if(comment.vote == false){
@@ -38,7 +43,6 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 			
 			this.alertMsg = "You must be logged in to be able upvote.";
 		}
-
 	}
 	threadVote(){
 		if(this.userService.getUserLoggedIn()){
@@ -64,16 +68,8 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 			this.thread.comments.push(comment);
 				
 	}
-	
 
 
-
-	ngOnInit() {
-		this.sub = this.route.params.subscribe(params => {
-			let id = Number.parseInt(params['id']);
-			this.threadService.getThread(id).then( data => this.thread = data );
-		});
-	}
 
 	ngOnDestroy(): void {
 		this.sub.unsubscribe();
