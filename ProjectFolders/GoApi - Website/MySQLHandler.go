@@ -44,8 +44,8 @@ func GetSingleStory(threadid int)Story{
 	var st Story
 	var userid int
 	var date DateType
-	row := DB.QueryRow("SELECT ID, Name, UserID, Time, Post_URL FROM HackerNewsDB.Thread WHERE ID LIKE ?;", threadid)
-	err := row.Scan(&st.Id, &st.Title, &userid, &date, &st.Url); if err != nil{
+	row := DB.QueryRow("SELECT ID, Name, UserID, Time, Post_URL, Karma FROM HackerNewsDB.Thread WHERE ID LIKE ?;", threadid)
+	err := row.Scan(&st.Id, &st.Title, &userid, &date, &st.Url, &st.Points); if err != nil{
 		fmt.Print(err.Error())
 	}
 	st.Username = GetUsername(userid)
