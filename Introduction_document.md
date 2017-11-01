@@ -10,7 +10,7 @@ We are running a total of 4 different systems for this project, for details of I
 
 ### API Server:
 IP: http://165.227.151.217/  
-Port for Core API: 8787  **__IMPORTANT: This is for the simulator__**
+Port for Core API: 8787 **__IMPORTANT: This is for the simulator__**      
 Port for Web API: 9191  
 Port for Website: 8080  
 
