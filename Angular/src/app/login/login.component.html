@@ -43,7 +43,7 @@
             </div>
             <div>
                 <label for="reg_email">Email</label>
-                <input class="form-control" type="email" name="reg_email" [(ngModel)]="reg_email_addr" required minlength="6" maxlength="50" #regEmailField="ngModel" />
+                <input class="form-control" type="email" name="reg_email" [(ngModel)]="reg_email_addr" required minlength="6" maxlength="80" #regEmailField="ngModel" />
                 <div class="alert alert-danger" *ngIf="(registerForm.submitted || regEmailField.dirty || regEmailField.touched) && regEmailField.errors">
                     <div [hidden]="!regEmailField.errors.required">Email is required</div>
                     <div [hidden]="!regEmailField.errors.minlength">Email must be a minimum of 6 characters long</div>
