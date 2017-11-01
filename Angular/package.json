@@ -1,5 +1,5 @@
 {
-  "name": "photoblog",
+  "name": "hackernewsgroup8",
   "scripts": {
     "postinstall": "npm run build",
     "serve": "webpack-dev-server --config config/develop.config.js --inline --progress --port 8080",
