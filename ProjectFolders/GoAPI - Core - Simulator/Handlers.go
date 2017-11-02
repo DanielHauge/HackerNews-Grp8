@@ -7,6 +7,7 @@ import (
 	"io"
 	"github.com/streadway/amqp"
 	"log"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 
@@ -32,7 +33,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetLatest(w http.ResponseWriter, r *http.Request){
-
+	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Access-Control-Allow-Headers", "Access-Control-Allow-Origin ,Accept, Content-Type, Content-Length, Accept-Encoding")
 	if origin := r.Header.Get("Origin"); origin != "" {
@@ -44,6 +45,7 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 }
 
 func PostStory(w http.ResponseWriter, r *http.Request){
+	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "text/plain")
 	w.Header().Set("Access-Control-Allow-Headers", "Access-Control-Allow-Origin ,Accept, Content-Type, Content-Length, Accept-Encoding")
@@ -78,6 +80,7 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 }
 
 func GetStatus(w http.ResponseWriter, r *http.Request){
+	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
 
 	/// Get status of website, and other API and more
@@ -101,4 +104,8 @@ func GetStatus(w http.ResponseWriter, r *http.Request){
 	// do some status things here
 
 
+}
+
+func GetMetrics (w http.ResponseWriter, r *http.Request){
+	promhttp.Handler().ServeHTTP(w, r)
 }

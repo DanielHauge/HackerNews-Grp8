@@ -7,6 +7,7 @@ RUN go get github.com/gorilla/mux
 RUN go get github.com/streadway/amqp
 RUN go get github.com/rs/cors
 RUN go get -u gopkg.in/russross/blackfriday.v2
+RUN go get github.com/prometheus/client_golang/prometheus
 
 
 

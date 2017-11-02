@@ -7,6 +7,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/streadway/amqp"
+	"github.com/prometheus/client_golang/prometheus"
 )
 
 
@@ -18,6 +19,24 @@ var DB *sql.DB
 var CONN *amqp.Connection
 var CH *amqp.Channel
 var Post_Q amqp.Queue
+
+
+var (
+
+	promRequests = prometheus.NewCounter(
+		prometheus.CounterOpts{
+			Name: "requests_since",
+			Help: "The ammount of requests which the api has gotten since the last check.",
+		},
+	)
+
+)
+
+func init() {
+	// Metrics have to be registered to be exposed:
+	prometheus.MustRegister(promRequests)
+
+}
 
 func main() {
 
