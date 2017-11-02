@@ -98,14 +98,14 @@ func SetStatus(){
 	_, err := http.Get("http://138.197.186.82:15672/api/overview")
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
-		Status = "Down\n"
+		Status = "Down"
 	} else{
 
 		if SqlStatus(){
-			Status = "Alive\n"
+			Status = "Alive"
 		} else
 		{
-			Status = "Udate\n"
+			Status = "Udate"
 		}
 
 	}
