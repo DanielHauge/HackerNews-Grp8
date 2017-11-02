@@ -40,7 +40,7 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 	} else { w.Header().Set("Access-Control-Allow-Origin", "*")}
 
-	input := FindLatest()
+	input := FindLatest()+"\n"
 	w.Write([]byte(input))
 }
 
