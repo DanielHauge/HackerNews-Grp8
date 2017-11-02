@@ -8,6 +8,7 @@ import (
 	"github.com/streadway/amqp"
 	"log"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"encoding/json"
 )
 
 
@@ -40,7 +41,7 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 	} else { w.Header().Set("Access-Control-Allow-Origin", "*")}
 
-	input := FindLatest()+"\n"
+	input := string(Hannest_id)+"\n"
 	w.Write([]byte(input))
 }
 
@@ -65,8 +66,20 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 			panic(err)
 		}
 
+
+
 		go func() {
 		/// Implement MySQL
+			var req PostRequest
+			if err := json.Unmarshal(body, &req); err != nil {
+				w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+				w.WriteHeader(422)
+				if err := json.NewEncoder(w).Encode(err); err != nil {
+					panic(err)
+				}
+			}
+			Hannest_id = req.Hanesst_id
+
 		props := amqp.Publishing{
 			ContentType: "application/json; charset=UTF-8",
 			Body:        body,
@@ -83,25 +96,7 @@ func GetStatus(w http.ResponseWriter, r *http.Request){
 	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
 
-	/// Get status of website, and other API and more
-
-	_, err := http.Get("http://138.197.186.82:15672/api/overview")
-	if err != nil {
-		fmt.Printf("The HTTP request failed with error %s\n", err)
-		w.Write([]byte("Down\n"))
-	} else{
-
-		if SqlStatus(){
-			w.Write([]byte("Alive\n"))
-		} else
-		{
-			w.Write([]byte("Udate\n"))
-		}
-
-	}
-
-
-	// do some status things here
+	w.Write([]byte(Status))
 
 
 }

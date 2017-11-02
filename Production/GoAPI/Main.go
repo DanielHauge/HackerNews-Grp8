@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/streadway/amqp"
 	"github.com/prometheus/client_golang/prometheus"
+	"time"
 )
 
 
@@ -19,7 +20,8 @@ var DB *sql.DB
 var CONN *amqp.Connection
 var CH *amqp.Channel
 var Post_Q amqp.Queue
-
+var Hannest_id int
+var Status string
 
 var (
 
@@ -58,6 +60,12 @@ func main() {
 	}
 	DB = db;
 
+	go FindLatest()
+	go SetStatus()
+	go StartStatusTask()
+
+
+
 	log.Println("Initializing RabbitMQ Server Connections and Channels.")
 	conn, err := amqp.Dial("amqp://admin:password@138.197.186.82"); if err != nil { panic(err) }
 	defer conn.Close()
@@ -85,3 +93,29 @@ func main() {
 
 }
 
+func SetStatus(){
+
+	_, err := http.Get("http://138.197.186.82:15672/api/overview")
+	if err != nil {
+		fmt.Printf("The HTTP request failed with error %s\n", err)
+		Status = "Down\n"
+	} else{
+
+		if SqlStatus(){
+			Status = "Alive\n"
+		} else
+		{
+			Status = "Udate\n"
+		}
+
+	}
+
+}
+
+func StartStatusTask(){
+	t := time.NewTicker(time.Second*5)
+	for {
+		SetStatus()
+		<-t.C
+	}
+}

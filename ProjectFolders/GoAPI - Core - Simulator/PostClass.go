@@ -10,3 +10,4 @@ type PostRequest struct {
 	Hanesst_id int `json:"hanesst_id"`
 	Post_text string `json:"post_text"`
 }
+
