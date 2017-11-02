@@ -9,6 +9,7 @@ import (
 	"log"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"encoding/json"
+	"strconv"
 )
 
 
@@ -41,7 +42,7 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 	} else { w.Header().Set("Access-Control-Allow-Origin", "*")}
 
-	input := string(Hannest_id)+"\n"
+	input := strconv.Itoa(Hannest_id)+"\n"
 	w.Write([]byte(input))
 }
 
