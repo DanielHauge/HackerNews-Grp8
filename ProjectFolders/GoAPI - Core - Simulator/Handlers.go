@@ -88,14 +88,14 @@ func GetStatus(w http.ResponseWriter, r *http.Request){
 	_, err := http.Get("http://138.197.186.82:15672/api/overview")
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
-		w.Write([]byte("Down"))
+		w.Write([]byte("Down\n"))
 	} else{
 
 		if SqlStatus(){
-			w.Write([]byte("Alive"))
+			w.Write([]byte("Alive\n"))
 		} else
 		{
-			w.Write([]byte("Upgrading"))
+			w.Write([]byte("Udate\n"))
 		}
 
 	}
