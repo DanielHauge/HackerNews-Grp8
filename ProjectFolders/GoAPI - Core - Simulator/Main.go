@@ -59,7 +59,7 @@ func main() {
 		fmt.Print(err.Error())
 	}
 	DB = db;
-
+	Hannest_id = 0
 	go FindLatest()
 	go SetStatus()
 	go StartStatusTask()
