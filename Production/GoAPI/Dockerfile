@@ -23,4 +23,6 @@ COPY Routes.go Routes.go
 # Make port 8787 available to the host
 EXPOSE 8787
 
-ENTRYPOINT go run Main.go Logger.go Handlers.go MySQLHandler.go PostClass.go Router.go Routes.go RabbitManager.go
+RUN go build
+
+#ENTRYPOINT ./go admin hackernews8 46.101.103.163 admin password 138.197.186.82
