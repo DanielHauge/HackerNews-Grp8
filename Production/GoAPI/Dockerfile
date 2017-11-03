@@ -25,4 +25,3 @@ EXPOSE 8787
 
 RUN go build
 
-#ENTRYPOINT ./go admin hackernews8 46.101.103.163 admin password 138.197.186.82
