@@ -9,9 +9,10 @@ import (
 	"github.com/streadway/amqp"
 	"github.com/prometheus/client_golang/prometheus"
 	"time"
+	"os"
 )
 
-
+// ARGS: 0= db username, 1= db password, 2 = db ip, 3 = rabbit user, 4= rabbit password, 5= rabbit ip
 // go get "github.com/go-sql-driver/mysql"
 // go get “github.com/gorilla/mux”
 // go get get github.com/streadway/amqp
@@ -48,7 +49,7 @@ func main() {
 
 
 	log.Println("Initializing Database Connection.")
-	db, err := sql.Open("mysql", "myuser:HackerNews8@tcp(46.101.103.163:3306)/HackerNewsDB")
+	db, err := sql.Open("mysql", os.Args[0]+":"+os.Args[1]+"@tcp("+os.Args[2]+":3306)/HackerNewsDB")
 	if err != nil {
 		fmt.Print(err.Error())
 	}
@@ -67,7 +68,7 @@ func main() {
 
 
 	log.Println("Initializing RabbitMQ Server Connections and Channels.")
-	conn, err := amqp.Dial("amqp://admin:password@138.197.186.82"); if err != nil { panic(err) }
+	conn, err := amqp.Dial("amqp://"+os.Args[3]+":"+os.Args[4]+"@"+os.Args[5]+""); if err != nil { panic(err) }
 	defer conn.Close()
 
 	ch, err := conn.Channel(); if err != nil { panic(err) }
