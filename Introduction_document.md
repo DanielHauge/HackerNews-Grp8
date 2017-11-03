@@ -18,14 +18,14 @@ Port for Website: 8080
 
 ### RabbitMQ Server:  
 IP: http://138.197.186.82:15672/  
-username: admin  
-password: password  
+username: Redacted  
+password: Redacted  
 
 ### Hackernews Database:  
 IP: http://46.101.103.163  
 Port: 3306  
-Username: admin  
-Password: hackernews8  
+Username: Redacted  
+Password: Redacted
 
 ### Bugzilla  
 IP: http://138.68.103.94/bugzilla/
