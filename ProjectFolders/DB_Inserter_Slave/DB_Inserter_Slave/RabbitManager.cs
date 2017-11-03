@@ -13,7 +13,7 @@ namespace DB_Inserter_Slave
 
         public RabbitManager()
         {
-            sqlString = "server = 46.101.103.163; user id = admin; password = hackernews8; database = HackerNewsDB; allowuservariables = True; persistsecurityinfo = True";
+            sqlString = "server = " + Program.dbip + "; user id = " + Program.dbusername + "; password = " + Program.dbpassword + "; database = HackerNewsDB; allowuservariables = True; persistsecurityinfo = True";
         }
         public void InsertMessage(MySqlCommand command)
         {
@@ -24,10 +24,10 @@ namespace DB_Inserter_Slave
             sqlConnection.Close();
             sqlConnection.Dispose();
         }
-
+        
         public void ReceiveMessage(string messageChannel)
         {
-            var factory = new ConnectionFactory() { HostName = "138.197.186.82", UserName = "admin", Password = "password" };
+            var factory = new ConnectionFactory() { HostName = Program.rabbitip, UserName = Program.rabbituser, Password = Program.rabbitpassword };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
@@ -171,7 +171,7 @@ namespace DB_Inserter_Slave
 
         public void ReceiveUser(string messageChannel)
         {
-            var factory = new ConnectionFactory() { HostName = "138.197.186.82", UserName = "admin", Password = "password" };
+            var factory = new ConnectionFactory() { HostName = Program.rabbitip, UserName = Program.rabbituser, Password = Program.rabbitpassword };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
