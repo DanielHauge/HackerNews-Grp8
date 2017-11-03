@@ -5,12 +5,13 @@ import (
 	"log"
 
 	"net/smtp"
+	"os"
 )
 
 
 func SendEmail(email_addr string, pwd string){
-	from := "hngroup8@gmail.com"
-	pass := "HackerNews8"
+	from := os.Args[7]
+	pass := os.Args[8]
 
 	msg := "From: "+from+"\n"+
 		"To: "+ email_addr + "\n"+

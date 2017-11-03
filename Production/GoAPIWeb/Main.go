@@ -7,9 +7,10 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/streadway/amqp"
+	"os"
 )
 
-
+// ARGS: 1= db username, 2= db password, 3 = db ip, 4 = rabbit user, 5= rabbit password, 6= rabbit ip, 7 = emailuser, 8 = emailpassword
 // go get "github.com/go-sql-driver/mysql"
 // go get “github.com/gorilla/mux”
 // go get get github.com/streadway/amqp
@@ -30,7 +31,7 @@ func main() {
 
 
 	log.Println("Initializing Database Connection.")
-	db, err := sql.Open("mysql", "myuser:HackerNews8@tcp(46.101.103.163:3306)/HackerNewsDB?parseTime=True")
+	db, err := sql.Open("mysql", os.Args[1]+":"+os.Args[2]+"@tcp("+os.Args[3]+":3306)/HackerNewsDB")
 	if err != nil {
 		fmt.Print(err.Error())
 	}
@@ -43,7 +44,7 @@ func main() {
 	DB = db;
 
 	log.Println("Initializing RabbitMQ Server Connections and Channels.")
-	conn, err := amqp.Dial("amqp://admin:password@138.197.186.82"); if err != nil { panic(err) }
+	conn, err := amqp.Dial("amqp://"+os.Args[4]+":"+os.Args[5]+"@"+os.Args[6]+""); if err != nil { panic(err) }
 	defer conn.Close()
 
 	ch, err := conn.Channel(); if err != nil { panic(err) }
