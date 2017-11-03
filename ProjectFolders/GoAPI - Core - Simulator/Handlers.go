@@ -42,7 +42,7 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 		w.Header().Set("Access-Control-Allow-Origin", origin)
 	} else { w.Header().Set("Access-Control-Allow-Origin", "*")}
 
-	input := strconv.Itoa(Hannest_id)+"\n"
+	input := strconv.Itoa(Hannest_id)
 	w.Write([]byte(input))
 }
 

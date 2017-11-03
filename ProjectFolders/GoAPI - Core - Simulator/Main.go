@@ -105,7 +105,7 @@ func SetStatus(){
 			Status = "Alive"
 		} else
 		{
-			Status = "Udate"
+			Status = "Update"
 		}
 
 	}
