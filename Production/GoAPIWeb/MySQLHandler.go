@@ -110,7 +110,7 @@ func GetRecoveryInformation(username string)(string,string){
 func QueryLatestStories(dex int, dexto int)LatestStories{
 	results := LatestStories{}
 
-	rows, err := DB.Query("SELECT HackerNewsDB.Thread.ID, HackerNewsDB.Thread.Name, HackerNewsDB.Thread.Time, HackerNewsDB.Thread.Post_URL, HackerNewsDB.Thread.Karma, HackerNewsDB.User.Name, COUNT(HackerNewsDB.Comment.ID) as commentamount FROM HackerNewsDB.Thread LEFT OUTER JOIN HackerNewsDB.User ON HackerNewsDB.Thread.UserID = HackerNewsDB.User.ID LEFT OUTER JOIN HackerNewsDB.Comment ON HackerNewsDB.Thread.ID = HackerNewsDB.Comment.ThreadID GROUP BY HackerNewsDB.Thread.ID ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
+	rows, err := DB.Query("SELECT HackerNewsDB.Thread.ID, HackerNewsDB.Thread.Name, HackerNewsDB.Thread.Time, HackerNewsDB.Thread.Post_URL, HackerNewsDB.Thread.Karma, HackerNewsDB.User.Name, COUNT(HackerNewsDB.Comment.ID) as commentamount FROM HackerNewsDB.Thread JOIN HackerNewsDB.User ON HackerNewsDB.Thread.UserID = HackerNewsDB.User.ID JOIN HackerNewsDB.Comment ON HackerNewsDB.Thread.ID = HackerNewsDB.Comment.ThreadID GROUP BY HackerNewsDB.Thread.ID ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
 	if err != nil {
 		log.Fatal(err)
 	}
