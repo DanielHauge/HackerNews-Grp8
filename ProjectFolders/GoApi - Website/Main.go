@@ -9,6 +9,7 @@ import (
 	"github.com/streadway/amqp"
 	"os"
 	"github.com/sirupsen/logrus"
+	"github.com/prometheus/client_golang/prometheus"
 )
 
 // ARGS: 1= db username, 2= db password, 3 = db ip, 4 = rabbit user, 5= rabbit password, 6= rabbit ip, 7 = emailuser, 8 = emailpassword
@@ -27,6 +28,23 @@ var User_Q amqp.Queue
 var Log_Q amqp.Queue
 var logz *logrus.Entry
 
+var (
+
+	promRequests = prometheus.NewCounter(
+		prometheus.CounterOpts{
+			Name: "requests_since",
+			Help: "The ammount of requests which the api has gotten since the last check.",
+		},
+	)
+
+)
+
+func init() {
+	// Metrics have to be registered to be exposed:
+	prometheus.MustRegister(promRequests)
+
+}
+
 func main() {
 
 	/// Starting up router for the API
@@ -35,7 +53,7 @@ func main() {
 	handler := cors.Default().Handler(router)
 
 	/// Setting up logger
-	SetupLogrus()
+	//SetupLogrus()
 
 
 	/// Setting up database
@@ -51,6 +69,7 @@ func main() {
 		fmt.Print(err.Error())
 	}
 	DB = db;
+
 
 	/// Setting up Rabbitmq
 	log.Println("Initializing RabbitMQ Server Connections and Channels.")

@@ -22,7 +22,7 @@ func Logger(inner http.Handler, name string) http.Handler {
 			time.Since(start),
 		)
 		//go RabbitMessage(Log_Q.Name, r.Method+","+r.RequestURI+","+name+","+time.Since(start).String())
-		logz.Info(r.Method+","+r.RequestURI+","+name+","+time.Since(start).String())
+		//logz.Info(r.Method+","+r.RequestURI+","+name+","+time.Since(start).String())
 
 	})
 }
