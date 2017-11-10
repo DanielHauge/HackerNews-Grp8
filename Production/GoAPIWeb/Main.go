@@ -32,7 +32,7 @@ var (
 
 	promRequests = prometheus.NewCounter(
 		prometheus.CounterOpts{
-			Name: "requests_since",
+			Name: "requests_s",
 			Help: "The ammount of requests which the api has gotten since the last check.",
 		},
 	)
