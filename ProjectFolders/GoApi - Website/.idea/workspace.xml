@@ -14,8 +14,8 @@
       <file leaf-file-name="Handlers.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Handlers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+            <state relative-caret-position="51">
+              <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="19" />
               <folding>
                 <element signature="n#!!block;n#setheader#0" expanded="false" />
                 <element signature="n#!!block;n#Index2#0" expanded="false" />
@@ -24,13 +24,11 @@
                 <element signature="n#!!block;n#PostStory#0" expanded="false" />
                 <element signature="n#!!block;n#GetStatus#0" expanded="false" />
                 <element signature="n#!!block;n#CreateUser#0" expanded="false" />
-                <element signature="n#!!block;n#Login#0" expanded="false" />
                 <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
                 <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
                 <element signature="n#!!block;n#GetComments#0" expanded="false" />
                 <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
                 <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
-                <element signature="n#!!block;n#Upvote#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -39,9 +37,11 @@
       <file leaf-file-name="Logger.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Logger.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="476">
+              <caret line="35" column="56" lean-forward="true" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+              <folding>
+                <element signature="e#14#137#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,8 +49,8 @@
       <file leaf-file-name="Data.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Data.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="102" column="32" lean-forward="false" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+            <state relative-caret-position="204">
+              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="37" />
               <folding>
                 <element signature="e#14#43#0" expanded="true" />
               </folding>
@@ -61,8 +61,8 @@
       <file leaf-file-name="RabbitManager.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RabbitManager.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="731">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="e#14#60#0" expanded="true" />
               </folding>
@@ -80,13 +80,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySQLHandler.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MySQLHandler.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+            <state relative-caret-position="68">
+              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="38" />
               <folding>
-                <element signature="e#14#74#0" expanded="true" />
                 <element signature="n#!!block;n#FindLatest#0" expanded="false" />
                 <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
                 <element signature="n#!!block;n#GetUsername#0" expanded="false" />
@@ -96,23 +95,11 @@
                 <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
                 <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
                 <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-                <marker date="1509985794760" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-                <marker date="1509985794760" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-                <marker date="1509985794760" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-                <marker date="1509985794760" expanded="true" signature="579:613" ph="select Name User" />
                 <marker date="1509985794760" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-                <marker date="1509985794760" expanded="true" signature="1202:1276" ph="SELECT COUNT... Comment" />
-                <marker date="1509985794760" expanded="true" signature="1489:1523" ph="select ID fr... User" />
                 <marker date="1509985794760" expanded="true" signature="1746:1800" ph="select Passw... User" />
-                <marker date="1509985794760" expanded="true" signature="2140:2188" ph="select Passw... User" />
                 <marker date="1509985794760" expanded="true" signature="2413:2894" ph="SELECT Hacke... Thread" />
                 <marker date="1509985794760" expanded="true" signature="2413:2895" ph="SELECT Hacke... Thread" />
                 <marker date="1509985794760" expanded="true" signature="2713:2805" ph="SELECT Threa... Comment" />
-                <marker date="1509985794760" expanded="true" signature="3447:3778" ph="SELECT Hacke... Comment" />
-                <marker date="1509985794760" expanded="true" signature="4223:4277" ph="UPDATE Hacke... " />
-                <marker date="1509985794760" expanded="true" signature="4543:4603" ph="UPDATE Hacke... " />
-                <marker date="1509985794760" expanded="true" signature="4786:4845" ph="UPDATE Hacke... " />
-                <marker date="1509985794760" expanded="true" signature="5002:5064" ph="UPDATE Hacke... " />
                 <marker date="1509985794760" expanded="true" signature="5275:5341" ph="select COUNT... User" />
               </folding>
             </state>
@@ -141,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+            <state relative-caret-position="-34">
+              <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -164,15 +151,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/RabbitManager.go" />
         <option value="$PROJECT_DIR$/PostClass.go" />
         <option value="$PROJECT_DIR$/client_secret.json.json" />
         <option value="$PROJECT_DIR$/Routes.go" />
-        <option value="$PROJECT_DIR$/Handlers.go" />
         <option value="$PROJECT_DIR$/Data.go" />
         <option value="$PROJECT_DIR$/GmailMailAPI.go" />
-        <option value="$PROJECT_DIR$/Main.go" />
         <option value="$PROJECT_DIR$/MySQLHandler.go" />
+        <option value="$PROJECT_DIR$/RabbitManager.go" />
+        <option value="$PROJECT_DIR$/Handlers.go" />
+        <option value="$PROJECT_DIR$/Main.go" />
+        <option value="$PROJECT_DIR$/Logger.go" />
       </list>
     </option>
   </component>
@@ -182,11 +170,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="340" />
-    <option name="y" value="134" />
-    <option name="width" value="1848" />
-    <option name="height" value="1167" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2552" />
+    <option name="y" value="122" />
+    <option name="width" value="1936" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -254,19 +242,18 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="340" y="134" width="1848" height="1167" extended-state="0" />
-    <editor active="true" />
+    <frame x="2552" y="122" width="1936" height="1176" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.105704695" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15671642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299611" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -302,7 +289,6 @@
         <state relative-caret-position="84">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#14#74#0" expanded="true" />
             <element signature="n#!!block;n#FindLatest#0" expanded="false" />
             <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
             <element signature="n#!!block;n#GetUsername#0" expanded="false" />
@@ -312,23 +298,11 @@
             <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
             <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
             <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-            <marker date="1509985794760" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1509985794760" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1509985794760" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1509985794760" expanded="true" signature="579:613" ph="select Name User" />
             <marker date="1509985794760" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-            <marker date="1509985794760" expanded="true" signature="1202:1276" ph="SELECT COUNT... Comment" />
-            <marker date="1509985794760" expanded="true" signature="1489:1523" ph="select ID fr... User" />
             <marker date="1509985794760" expanded="true" signature="1746:1800" ph="select Passw... User" />
-            <marker date="1509985794760" expanded="true" signature="2140:2188" ph="select Passw... User" />
             <marker date="1509985794760" expanded="true" signature="2413:2894" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2413:2895" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2713:2805" ph="SELECT Threa... Comment" />
-            <marker date="1509985794760" expanded="true" signature="3447:3778" ph="SELECT Hacke... Comment" />
-            <marker date="1509985794760" expanded="true" signature="4223:4277" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4543:4603" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4786:4845" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="5002:5064" ph="UPDATE Hacke... " />
             <marker date="1509985794760" expanded="true" signature="5275:5341" ph="select COUNT... User" />
           </folding>
         </state>
@@ -372,13 +346,11 @@
             <element signature="n#!!block;n#PostStory#0" expanded="false" />
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
-            <element signature="n#!!block;n#Login#0" expanded="false" />
             <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
             <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
-            <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -387,7 +359,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#14#137#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -440,7 +414,6 @@
         <state relative-caret-position="68">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#14#74#0" expanded="true" />
             <element signature="n#!!block;n#FindLatest#0" expanded="false" />
             <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
             <element signature="n#!!block;n#GetUsername#0" expanded="false" />
@@ -450,23 +423,11 @@
             <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
             <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
             <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-            <marker date="1509985794760" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1509985794760" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1509985794760" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1509985794760" expanded="true" signature="579:613" ph="select Name User" />
             <marker date="1509985794760" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-            <marker date="1509985794760" expanded="true" signature="1202:1276" ph="SELECT COUNT... Comment" />
-            <marker date="1509985794760" expanded="true" signature="1489:1523" ph="select ID fr... User" />
             <marker date="1509985794760" expanded="true" signature="1746:1800" ph="select Passw... User" />
-            <marker date="1509985794760" expanded="true" signature="2140:2188" ph="select Passw... User" />
             <marker date="1509985794760" expanded="true" signature="2413:2894" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2413:2895" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2713:2805" ph="SELECT Threa... Comment" />
-            <marker date="1509985794760" expanded="true" signature="3447:3778" ph="SELECT Hacke... Comment" />
-            <marker date="1509985794760" expanded="true" signature="4223:4277" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4543:4603" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4786:4845" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="5002:5064" ph="UPDATE Hacke... " />
             <marker date="1509985794760" expanded="true" signature="5275:5341" ph="select COUNT... User" />
           </folding>
         </state>
@@ -484,13 +445,11 @@
             <element signature="n#!!block;n#PostStory#0" expanded="false" />
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
-            <element signature="n#!!block;n#Login#0" expanded="false" />
             <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
             <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
-            <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -499,7 +458,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#14#137#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -528,7 +489,6 @@
         <state relative-caret-position="68">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#14#74#0" expanded="true" />
             <element signature="n#!!block;n#FindLatest#0" expanded="false" />
             <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
             <element signature="n#!!block;n#GetUsername#0" expanded="false" />
@@ -538,23 +498,11 @@
             <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
             <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
             <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-            <marker date="1509985794760" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1509985794760" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1509985794760" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1509985794760" expanded="true" signature="579:613" ph="select Name User" />
             <marker date="1509985794760" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-            <marker date="1509985794760" expanded="true" signature="1202:1276" ph="SELECT COUNT... Comment" />
-            <marker date="1509985794760" expanded="true" signature="1489:1523" ph="select ID fr... User" />
             <marker date="1509985794760" expanded="true" signature="1746:1800" ph="select Passw... User" />
-            <marker date="1509985794760" expanded="true" signature="2140:2188" ph="select Passw... User" />
             <marker date="1509985794760" expanded="true" signature="2413:2894" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2413:2895" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2713:2805" ph="SELECT Threa... Comment" />
-            <marker date="1509985794760" expanded="true" signature="3447:3778" ph="SELECT Hacke... Comment" />
-            <marker date="1509985794760" expanded="true" signature="4223:4277" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4543:4603" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4786:4845" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="5002:5064" ph="UPDATE Hacke... " />
             <marker date="1509985794760" expanded="true" signature="5275:5341" ph="select COUNT... User" />
           </folding>
         </state>
@@ -606,13 +554,11 @@
             <element signature="n#!!block;n#PostStory#0" expanded="false" />
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
-            <element signature="n#!!block;n#Login#0" expanded="false" />
             <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
             <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
-            <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -621,7 +567,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#14#137#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -674,7 +622,6 @@
         <state relative-caret-position="493">
           <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
           <folding>
-            <element signature="e#14#74#0" expanded="true" />
             <element signature="n#!!block;n#FindLatest#0" expanded="false" />
             <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
             <element signature="n#!!block;n#GetUsername#0" expanded="false" />
@@ -684,23 +631,11 @@
             <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
             <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
             <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-            <marker date="1509985794760" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1509985794760" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1509985794760" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1509985794760" expanded="true" signature="579:613" ph="select Name User" />
             <marker date="1509985794760" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-            <marker date="1509985794760" expanded="true" signature="1202:1276" ph="SELECT COUNT... Comment" />
-            <marker date="1509985794760" expanded="true" signature="1489:1523" ph="select ID fr... User" />
             <marker date="1509985794760" expanded="true" signature="1746:1800" ph="select Passw... User" />
-            <marker date="1509985794760" expanded="true" signature="2140:2188" ph="select Passw... User" />
             <marker date="1509985794760" expanded="true" signature="2413:2894" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2413:2895" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2713:2805" ph="SELECT Threa... Comment" />
-            <marker date="1509985794760" expanded="true" signature="3447:3778" ph="SELECT Hacke... Comment" />
-            <marker date="1509985794760" expanded="true" signature="4223:4277" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4543:4603" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4786:4845" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="5002:5064" ph="UPDATE Hacke... " />
             <marker date="1509985794760" expanded="true" signature="5275:5341" ph="select COUNT... User" />
           </folding>
         </state>
@@ -718,13 +653,11 @@
             <element signature="n#!!block;n#PostStory#0" expanded="false" />
             <element signature="n#!!block;n#GetStatus#0" expanded="false" />
             <element signature="n#!!block;n#CreateUser#0" expanded="false" />
-            <element signature="n#!!block;n#Login#0" expanded="false" />
             <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
             <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
             <element signature="n#!!block;n#GetComments#0" expanded="false" />
             <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
             <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
-            <element signature="n#!!block;n#Upvote#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -733,7 +666,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#14#137#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -770,7 +705,6 @@
         <state relative-caret-position="51">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#14#74#0" expanded="true" />
             <element signature="n#!!block;n#FindLatest#0" expanded="false" />
             <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
             <element signature="n#!!block;n#GetUsername#0" expanded="false" />
@@ -780,23 +714,11 @@
             <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
             <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
             <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-            <marker date="1509985794760" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1509985794760" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1509985794760" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1509985794760" expanded="true" signature="579:613" ph="select Name User" />
             <marker date="1509985794760" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-            <marker date="1509985794760" expanded="true" signature="1202:1276" ph="SELECT COUNT... Comment" />
-            <marker date="1509985794760" expanded="true" signature="1489:1523" ph="select ID fr... User" />
             <marker date="1509985794760" expanded="true" signature="1746:1800" ph="select Passw... User" />
-            <marker date="1509985794760" expanded="true" signature="2140:2188" ph="select Passw... User" />
             <marker date="1509985794760" expanded="true" signature="2413:2894" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2413:2895" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2713:2805" ph="SELECT Threa... Comment" />
-            <marker date="1509985794760" expanded="true" signature="3447:3778" ph="SELECT Hacke... Comment" />
-            <marker date="1509985794760" expanded="true" signature="4223:4277" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4543:4603" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4786:4845" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="5002:5064" ph="UPDATE Hacke... " />
             <marker date="1509985794760" expanded="true" signature="5275:5341" ph="select COUNT... User" />
           </folding>
         </state>
@@ -836,57 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RabbitManager.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="102" column="32" lean-forward="false" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
-          <folding>
-            <element signature="e#14#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!block;n#setheader#0" expanded="false" />
-            <element signature="n#!!block;n#Index2#0" expanded="false" />
-            <element signature="n#!!block;n#Index#0" expanded="false" />
-            <element signature="n#!!block;n#GetLatest#0" expanded="false" />
-            <element signature="n#!!block;n#PostStory#0" expanded="false" />
-            <element signature="n#!!block;n#GetStatus#0" expanded="false" />
-            <element signature="n#!!block;n#CreateUser#0" expanded="false" />
-            <element signature="n#!!block;n#Login#0" expanded="false" />
-            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
-            <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
-            <element signature="n#!!block;n#GetComments#0" expanded="false" />
-            <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
-            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
-            <element signature="n#!!block;n#Upvote#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Logger.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GmailMailAPI.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -894,14 +765,6 @@
           <folding>
             <element signature="e#14#51#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -913,12 +776,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Logger.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="35" column="56" lean-forward="true" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
+          <folding>
+            <element signature="e#14#137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="e#14#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RabbitManager.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="e#14#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MySQLHandler.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="38" />
           <folding>
-            <element signature="e#14#74#0" expanded="true" />
             <element signature="n#!!block;n#FindLatest#0" expanded="false" />
             <element signature="n#!!block;n#SqlStatus#0" expanded="false" />
             <element signature="n#!!block;n#GetUsername#0" expanded="false" />
@@ -928,25 +820,42 @@
             <element signature="n#!!block;n#QueryAllComments#0" expanded="false" />
             <element signature="n#!!block;n#ChangePassword#0" expanded="false" />
             <element signature="n#!!block;n#UpdateUpvote#0" expanded="false" />
-            <marker date="1509985794760" expanded="true" signature="142:276" ph="SELECT IFNUL... Han_ID" />
-            <marker date="1509985794760" expanded="true" signature="185:224" ph="SELECT Han_I... Comment" />
-            <marker date="1509985794760" expanded="true" signature="235:273" ph="SELECT Han_I... Thread" />
-            <marker date="1509985794760" expanded="true" signature="579:613" ph="select Name User" />
             <marker date="1509985794760" expanded="true" signature="815:902" ph="SELECT ID, N... " />
-            <marker date="1509985794760" expanded="true" signature="1202:1276" ph="SELECT COUNT... Comment" />
-            <marker date="1509985794760" expanded="true" signature="1489:1523" ph="select ID fr... User" />
             <marker date="1509985794760" expanded="true" signature="1746:1800" ph="select Passw... User" />
-            <marker date="1509985794760" expanded="true" signature="2140:2188" ph="select Passw... User" />
             <marker date="1509985794760" expanded="true" signature="2413:2894" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2413:2895" ph="SELECT Hacke... Thread" />
             <marker date="1509985794760" expanded="true" signature="2713:2805" ph="SELECT Threa... Comment" />
-            <marker date="1509985794760" expanded="true" signature="3447:3778" ph="SELECT Hacke... Comment" />
-            <marker date="1509985794760" expanded="true" signature="4223:4277" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4543:4603" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="4786:4845" ph="UPDATE Hacke... " />
-            <marker date="1509985794760" expanded="true" signature="5002:5064" ph="UPDATE Hacke... " />
             <marker date="1509985794760" expanded="true" signature="5275:5341" ph="select COUNT... User" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!block;n#setheader#0" expanded="false" />
+            <element signature="n#!!block;n#Index2#0" expanded="false" />
+            <element signature="n#!!block;n#Index#0" expanded="false" />
+            <element signature="n#!!block;n#GetLatest#0" expanded="false" />
+            <element signature="n#!!block;n#PostStory#0" expanded="false" />
+            <element signature="n#!!block;n#GetStatus#0" expanded="false" />
+            <element signature="n#!!block;n#CreateUser#0" expanded="false" />
+            <element signature="n#!!block;n#GetStoryByID#0" expanded="false" />
+            <element signature="n#!!block;n#GetLatestStories#0" expanded="false" />
+            <element signature="n#!!block;n#GetComments#0" expanded="false" />
+            <element signature="n#!!block;n#StartRecovery#0" expanded="false" />
+            <element signature="n#!!block;n#UpdatePassword#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

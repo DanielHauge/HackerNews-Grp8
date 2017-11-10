@@ -75,7 +75,7 @@ func main() {
 	defer ch.Close()
 
 	q1, err := ch.QueueDeclare(
-		"HNPost",
+		"TestPost",
 		true,
 		false,
 		false,
