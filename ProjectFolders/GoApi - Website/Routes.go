@@ -94,4 +94,10 @@ var routes = Routes{
 		"/index2",
 		Index,
 	},
+	Route{
+		"Metrics",
+		"GET",
+		"/metrics",
+		GetMetrics,
+	},
 }
