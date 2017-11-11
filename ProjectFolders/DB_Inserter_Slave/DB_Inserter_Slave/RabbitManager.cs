@@ -161,40 +161,48 @@ namespace DB_Inserter_Slave
                     }
                     catch (global::System.Exception)
                     {
-                        if (ea.BasicProperties.Headers == null)
-                        {
-                            ea.BasicProperties.Headers = new Dictionary<string, object>();
-                            ea.BasicProperties.Headers["loop"] = "no";
-                        }
-                        else if (ea.BasicProperties.Headers["loop"].ToString() == "yes")
-                        {
-                            var que = channel.QueueDeclare(queue: "HNError",
-                                durable: true,
-                                exclusive: false,
-                                autoDelete: false,
-                                arguments: null);
-                            //ea.BasicProperties.ReplyTo = que.QueueName;
-                            channel.BasicPublish(exchange: que, routingKey: "", basicProperties: ea.BasicProperties, body: body);
-                            //channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
-                            //channel.BasicConsume(queue: messageChannel,
-                            //                 autoAck: false,
-                            //                 consumer: consumer);
-                        }
-                        else
-                        {
-                            var que = channel.QueueDeclare(queue: messageChannel,
-                                durable: true,
-                                exclusive: false,
-                                autoDelete: false,
-                                arguments: null);
-                            //ea.BasicProperties.ReplyTo = que.QueueName;
-                            ea.BasicProperties.Headers["loop"] = "yes";
-                            channel.BasicPublish(exchange: que, routingKey: "", basicProperties: ea.BasicProperties, body: body);
-                            //channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
-                            //channel.BasicConsume(queue: messageChannel,
-                            //                 autoAck: false,
-                            //                 consumer: consumer);
-                        }
+                        var que = channel.QueueDeclare(queue: "HNError",
+                            durable: true,
+                            exclusive: false,
+                            autoDelete: false,
+                            arguments: null);
+                        //ea.BasicProperties.ReplyTo = que.QueueName;
+                        channel.BasicPublish(exchange: "", routingKey: que.QueueName, basicProperties: ea.BasicProperties, body: body);
+                        //string something = Encoding.UTF8.GetString((byte[])ea.BasicProperties.Headers["Requests"]);
+                        //if (ea.BasicProperties.Headers.Count == 0)
+                        //{
+                        //    ea.BasicProperties.Headers = new Dictionary<string, object>();
+                        //    ea.BasicProperties.Headers["loop"] = "no";
+                        //}
+                        //else if (Encoding.UTF8.GetString((byte[])ea.BasicProperties.Headers["loop"]) == "yes")
+                        //{
+                        //    var que = channel.QueueDeclare(queue: "HNError",
+                        //        durable: true,
+                        //        exclusive: false,
+                        //        autoDelete: false,
+                        //        arguments: null);
+                        //    //ea.BasicProperties.ReplyTo = que.QueueName;
+                        //    channel.BasicPublish(exchange: "", routingKey: que.QueueName, basicProperties: ea.BasicProperties, body: body);
+                        //    //channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+                        //    //channel.BasicConsume(queue: messageChannel,
+                        //    //                 autoAck: false,
+                        //    //                 consumer: consumer);
+                        //}
+                        //else
+                        //{
+                        //    var que = channel.QueueDeclare(queue: messageChannel,
+                        //        durable: true,
+                        //        exclusive: false,
+                        //        autoDelete: false,
+                        //        arguments: null);
+                        //    //ea.BasicProperties.ReplyTo = que.QueueName;
+                        //    ea.BasicProperties.Headers["loop"] = "yes";
+                        //    channel.BasicPublish(exchange: "", routingKey: que.QueueName, basicProperties: ea.BasicProperties, body: body);
+                        //    //channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+                        //    //channel.BasicConsume(queue: messageChannel,
+                        //    //                 autoAck: false,
+                        //    //                 consumer: consumer);
+                        //}
                     }
                     
 
