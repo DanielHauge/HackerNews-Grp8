@@ -5,6 +5,9 @@ using System.Text;
 using System.Web.Script.Serialization;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
+using SyslogNet.Client.Transport;
+using SyslogNet.Client;
+using SyslogNet.Client.Serialization;
 
 namespace DB_Inserter_Slave
 {
@@ -71,11 +74,32 @@ namespace DB_Inserter_Slave
                             InsertCommand.Parameters.AddWithValue("@Name", thread.Name);
                             InsertCommand.Parameters.AddWithValue("@UserID", thread.UserID);
                             InsertCommand.Parameters.AddWithValue("@Karma", 0);
-                            InsertCommand.Parameters.AddWithValue("@Time", thread.Time);
+                            InsertCommand.Parameters.AddWithValue("@Time", "curtime()");
                             InsertCommand.Parameters.AddWithValue("@Han_ID", thread.Han_ID);
                             InsertCommand.Parameters.AddWithValue("@Post_URL", thread.Post_URL);
                             Console.WriteLine("Thread get");
                             InsertMessage(InsertCommand);
+
+                            var _syslogSender = new SyslogUdpSender("localhost", 514);
+                            _syslogSender.Send(
+                                new SyslogMessage(
+                                    DateTime.Now,
+                                    Facility.SecurityOrAuthorizationMessages1,
+                                    Severity.Informational,
+                                    Environment.MachineName,
+                                    "Application Name",
+                                    "Message Content"),
+                                new SyslogRfc3164MessageSerializer());
+                            _syslogSender = new SyslogUdpSender("ec2-18-216-94-144.us-east-2.compute.amazonaws.com", 5000);
+                            _syslogSender.Send(
+                                new SyslogMessage(
+                                    DateTime.Now,
+                                    Facility.SecurityOrAuthorizationMessages1,
+                                    Severity.Informational,
+                                    Environment.MachineName,
+                                    "Application Name",
+                                    "Message Content"),
+                                new SyslogRfc3164MessageSerializer());
                         }
                         else if (jsonmessage.post_type == "comment")
                         {
@@ -141,12 +165,33 @@ namespace DB_Inserter_Slave
                             InsertCommand.Parameters.AddWithValue("@Name", comment.Name);
                             InsertCommand.Parameters.AddWithValue("@UserID", comment.UserID);
                             InsertCommand.Parameters.AddWithValue("@Number", 0);
-                            InsertCommand.Parameters.AddWithValue("@Time", comment.Time);
+                            InsertCommand.Parameters.AddWithValue("@Time", "curtime()");
                             InsertCommand.Parameters.AddWithValue("@Han_ID", comment.Han_ID);
                             InsertCommand.Parameters.AddWithValue("@ThreadID", comment.ThreadID);
                             InsertCommand.Parameters.AddWithValue("@PostParrent", comment.ParentID);
                             Console.WriteLine("Comment get");
                             InsertMessage(InsertCommand);
+
+                            var _syslogSender = new SyslogUdpSender("localhost", 514);
+                            _syslogSender.Send(
+                                new SyslogMessage(
+                                    DateTime.Now,
+                                    Facility.SecurityOrAuthorizationMessages1,
+                                    Severity.Informational,
+                                    Environment.MachineName,
+                                    "Application Name",
+                                    "Message Content"),
+                                new SyslogRfc3164MessageSerializer());
+                            _syslogSender = new SyslogUdpSender("ec2-18-216-94-144.us-east-2.compute.amazonaws.com", 5000);
+                            _syslogSender.Send(
+                                new SyslogMessage(
+                                    DateTime.Now,
+                                    Facility.SecurityOrAuthorizationMessages1,
+                                    Severity.Informational,
+                                    Environment.MachineName,
+                                    "Application Name",
+                                    "Message Content"),
+                                new SyslogRfc3164MessageSerializer());
                         }
                         else if (jsonmessage.post_type == "UserInsert")
                         {
@@ -161,6 +206,7 @@ namespace DB_Inserter_Slave
                     }
                     catch (global::System.Exception)
                     {
+                        Console.WriteLine("ERROR post send to HNError");
                         var que = channel.QueueDeclare(queue: "HNError",
                             durable: true,
                             exclusive: false,
@@ -203,6 +249,26 @@ namespace DB_Inserter_Slave
                         //    //                 autoAck: false,
                         //    //                 consumer: consumer);
                         //}
+                        var _syslogSender = new SyslogUdpSender("localhost", 514);
+                        _syslogSender.Send(
+                            new SyslogMessage(
+                                DateTime.Now,
+                                Facility.SecurityOrAuthorizationMessages1,
+                                Severity.Informational,
+                                Environment.MachineName,
+                                "Application Name",
+                                "Message Content"),
+                            new SyslogRfc3164MessageSerializer());
+                        _syslogSender = new SyslogUdpSender("ec2-18-216-94-144.us-east-2.compute.amazonaws.com", 5000);
+                        _syslogSender.Send(
+                            new SyslogMessage(
+                                DateTime.Now,
+                                Facility.SecurityOrAuthorizationMessages1,
+                                Severity.Informational,
+                                Environment.MachineName,
+                                "Application Name",
+                                "Message Content"),
+                            new SyslogRfc3164MessageSerializer());
                     }
                     
 
