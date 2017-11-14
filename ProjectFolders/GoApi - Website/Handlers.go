@@ -11,6 +11,7 @@ import (
 	"gopkg.in/russross/blackfriday.v2"
 	"log"
 	"strconv"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func setheader (w http.ResponseWriter, r *http.Request){
@@ -171,7 +172,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func GetLatest(w http.ResponseWriter, r *http.Request){
 	w.WriteHeader(http.StatusOK)
 	setheader(w, r)
-
+	promRequests.Inc()
 	input := FindLatest()
 	w.Write([]byte(input))
 } /// Not used by Website
@@ -179,7 +180,7 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 func PostStory(w http.ResponseWriter, r *http.Request){
 	w.WriteHeader(http.StatusOK)
 	setheader(w, r)
-
+	promRequests.Inc()
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
 		panic(err)
@@ -204,12 +205,13 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 } /// Used by website
 
 func GetStatus(w http.ResponseWriter, r *http.Request){
+	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprint(w, "Alive")
 } /// Not used by website
 
 func CreateUser(w http.ResponseWriter, r *http.Request){
-
+	promRequests.Inc()
 	setheader(w, r)
 
 
@@ -249,7 +251,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request){
 } /// Used by website
 
 func Login(w http.ResponseWriter, r *http.Request){
-
+	promRequests.Inc()
 	setheader(w, r)
 
 	var usr UserLogin
@@ -285,7 +287,7 @@ func Login(w http.ResponseWriter, r *http.Request){
 
 func GetStoryByID(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
-
+	promRequests.Inc()
 	vars := mux.Vars(r)
 	id := vars["storyid"]
 
@@ -305,6 +307,7 @@ func GetStoryByID(w http.ResponseWriter, r *http.Request){
 
 func GetLatestStories(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
+	promRequests.Inc()
 	var AllStories LatestStories
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
@@ -328,6 +331,7 @@ func GetLatestStories(w http.ResponseWriter, r *http.Request){
 
 func GetComments(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
+	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
 	vars := mux.Vars(r)
 	id := vars["storyid"]
@@ -343,6 +347,7 @@ func GetComments(w http.ResponseWriter, r *http.Request){
 
 func StartRecovery(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
+	promRequests.Inc()
 	var recinfo RecoveryData
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
@@ -373,7 +378,7 @@ func StartRecovery(w http.ResponseWriter, r *http.Request){
 
 func UpdatePassword(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
-
+	promRequests.Inc()
 	var change PasswordChangeData
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
@@ -407,20 +412,26 @@ func UpdatePassword(w http.ResponseWriter, r *http.Request){
 
 func Upvote(w http.ResponseWriter, r *http.Request){
 	setheader(w, r)
+	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
 
 	var op UpvoteData
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
+		RabbitMessage(Log_Q.Name, "Error in Opening the bodyreader in upvote")
 		panic(err)
 	}
 	if err := r.Body.Close(); err != nil {
+		RabbitMessage(Log_Q.Name, "Error in Closing the bodyreader in upvote")
 		panic(err)
+
 	}
 	if err := json.Unmarshal(body, &op); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422)
+		RabbitMessage(Log_Q.Name, "Error in parsing Upvote Message to json")
 		if err := json.NewEncoder(w).Encode(err); err != nil {
+
 			panic(err)
 		}
 	}
@@ -428,4 +439,8 @@ func Upvote(w http.ResponseWriter, r *http.Request){
 	go UpdateUpvote(op)
 
 
+}
+
+func GetMetrics (w http.ResponseWriter, r *http.Request){
+	promhttp.Handler().ServeHTTP(w, r)
 }

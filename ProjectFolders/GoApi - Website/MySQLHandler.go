@@ -110,7 +110,7 @@ func GetRecoveryInformation(username string)(string,string){
 func QueryLatestStories(dex int, dexto int)LatestStories{
 	results := LatestStories{}
 
-	rows, err := DB.Query("SELECT HackerNewsDB.Thread.ID, HackerNewsDB.Thread.Name, HackerNewsDB.Thread.Time, HackerNewsDB.Thread.Post_URL, HackerNewsDB.Thread.Karma, HackerNewsDB.User.Name, COUNT(HackerNewsDB.Comment.ID) as commentamount FROM HackerNewsDB.Thread JOIN HackerNewsDB.User ON HackerNewsDB.Thread.UserID = HackerNewsDB.User.ID JOIN HackerNewsDB.Comment ON HackerNewsDB.Thread.ID = HackerNewsDB.Comment.ThreadID GROUP BY HackerNewsDB.Thread.ID ORDER BY ID DESC LIMIT ?, ?", dex, dexto)
+	rows, err := DB.Query("SELECT HackerNewsDB.Thread.ID, HackerNewsDB.Thread.Name, HackerNewsDB.Thread.Time, HackerNewsDB.Thread.Post_URL, HackerNewsDB.Thread.Karma, HackerNewsDB.User.Name, COALESCE(C.camount, 0 ) FROM HackerNewsDB.Thread JOIN HackerNewsDB.User ON HackerNewsDB.Thread.UserID = HackerNewsDB.User.ID Left JOIN (SELECT ThreadID, Count(ThreadID) as camount From HackerNewsDB.Comment GROUP BY ThreadID DESC) C on HackerNewsDB.Thread.ID = C.ThreadID GROUP BY HackerNewsDB.Thread.ID DESC LIMIT ?, ?", dex, dexto)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -121,11 +121,12 @@ func QueryLatestStories(dex int, dexto int)LatestStories{
 		var Karma int
 		var Post_URL string
 		var ID int
-		var comamount int
+		var comamount int = 0
 
 		if err := rows.Scan(&ID ,&Name, &Time, &Post_URL, &Karma, &Username, &comamount); err != nil {
 			log.Fatal(err)
 		}
+
 		results.Stories = append(results.Stories, Story{ID,Name,Username, Karma,Time.String(), Post_URL, comamount})
 	}
 
