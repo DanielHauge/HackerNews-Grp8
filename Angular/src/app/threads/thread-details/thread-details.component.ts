@@ -4,6 +4,7 @@ import { ThreadService } from '../shared/thread.service';
 import { Thread } from '../shared/thread.model';
 import { UserService } from '../../login/shared/user.service';
 import { Router } from '@angular/router'
+import { RollbarService } from 'angular-rollbar';
 
 
 
@@ -21,7 +22,11 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 	isLiked:boolean = false;
 	
 	constructor(private route:ActivatedRoute,
-		private threadService:ThreadService, private userService: UserService, private router:Router) { }
+		private threadService:ThreadService, 
+		private userService: UserService, 
+		private router:Router, 
+		private rollbar: RollbarService
+	) { }
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => {
 			let id = Number.parseInt(params['id']);
@@ -59,6 +64,8 @@ export class ThreadDetailsComponent implements OnInit, OnDestroy {
 			this.router.navigate(['/login']);
 			
 			this.alertMsg = "You must be logged in to be able upvote.";
+			this.rollbar.warn('ThreadDetailsComponent: You must be logged in to be able upvote.');                    
+			
 		}
 	}
 	onCommentAdded( comment:any  ) {

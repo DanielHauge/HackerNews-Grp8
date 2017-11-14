@@ -2,11 +2,13 @@ import { Thread } from './thread.model';
 import { ThreadDisplay } from './thread-display.model';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { RollbarService } from 'angular-rollbar';
 
 @Injectable()
 export class ThreadService {
 
-    constructor(private http: Http) {
+    constructor(private http: Http, 
+        private rollbar: RollbarService) {
 
     }
 

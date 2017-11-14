@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
 import { NgForm } from '@angular/forms';
 import { ThreadService } from '../shared/thread.service';
 import { UserService } from '../../login/shared/user.service';
+import { RollbarService } from 'angular-rollbar';
 
 @Component({
     selector: 'app-thread-comment-form',
@@ -17,7 +18,10 @@ export class ThreadCommentFormComponent {
     @Output() onCommentAdded = new EventEmitter<{ username: string; comment: string; password: string }>();
     @ViewChild('commentForm') commentForm: NgForm;
     
-    constructor(private threadService: ThreadService, private userService: UserService) {
+    constructor(private threadService: ThreadService, 
+        private userService: UserService, 
+        private rollbar: RollbarService
+    ) {
 
     }
     ngOnInit() {
@@ -43,9 +47,12 @@ export class ThreadCommentFormComponent {
                 console.warn(reason);
                 if(reason.status){
                     this.alertMsg = "Wrong username or password";
+                    this.rollbar.error('ThreadCommentFormComponent: addComment if.');                    
+                    
                 }
                 else{
                     this.alertMsg = "Login failed.";
+                    this.rollbar.error('ThreadCommentFormComponent: addComment else.');                    
                     
                 }                
                 
@@ -53,6 +60,8 @@ export class ThreadCommentFormComponent {
             .catch(	response => { 			
                     console.error(response);
                     this.alertMsg = "Whoops... something went wrong";
+                    this.rollbar.error('ThreadCommentFormComponent: addComment catch.');                    
+                    
             });
 
 

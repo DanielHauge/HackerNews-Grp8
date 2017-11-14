@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router'
 import { User } from '../shared/user.model';
+import { RollbarService } from 'angular-rollbar';
 
 
 @Component({
@@ -17,7 +18,9 @@ export class UserResetPasswordComponent{
 
      @ViewChild('hnForm') hnForm: NgForm;
 	
-	    constructor(private userService: UserService, private router:Router) {
+        constructor(private userService: UserService, 
+            private router:Router, 
+            private rollbar: RollbarService) {
 
     }
 	ngOnInit() {

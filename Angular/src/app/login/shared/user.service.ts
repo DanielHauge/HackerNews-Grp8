@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 //import { Http } from '@angular/http';
 import {Http, Headers, RequestOptions,Response} from '@angular/http';
 import { User } from './user.model';
+import { RollbarService } from 'angular-rollbar';
 
 @Injectable()
 export class UserService {
 	private isUserLoggedIn: boolean;
 	private username:string;
 	private password:string;
-    constructor(private http: Http) {
+    constructor(private http: Http, 
+		private rollbar: RollbarService) {
 		this.isUserLoggedIn = false;
     }
 

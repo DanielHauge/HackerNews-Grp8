@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserService } from './shared/user.service';
 import { Router } from '@angular/router'
+import { RollbarService } from 'angular-rollbar';
 
 
 @Component({
@@ -20,7 +21,9 @@ export class LoginComponent{
     reg_email_addr: string = "";
     @ViewChild('loginForm') loginForm: NgForm;
 	
-	    constructor(private userService: UserService, private router:Router) {
+        constructor(private userService: UserService, 
+            private router:Router, 
+            private rollbar: RollbarService) {
 
     }
 	ngOnInit() {
@@ -38,8 +41,10 @@ export class LoginComponent{
                 console.log(response);
                 this.userService.setUsername(this.username);
                 this.userService.setUserLoggedIn();
-                    this.loginForm.resetForm();
-					this.router.navigate(['/threads']);
+                this.loginForm.resetForm();
+                this.router.navigate(['/threads']);
+                this.rollbar.info('LoginComponent: Login:' + this.username);                    
+                
 					
             },
              reason => {
@@ -49,7 +54,8 @@ export class LoginComponent{
                     this.alertMsg = "Whoops... could not log in.";
                     
                 }
-               
+                this.rollbar.error('LoginComponent: Login error:' + reason);                    
+                
                 this.loginForm.resetForm();
                 
             })
@@ -67,6 +73,8 @@ export class LoginComponent{
                  this.userService.setUsername(this.reg_username);
                  this.userService.setUserLoggedIn();
                     // this.registerForm.resetForm();
+                this.rollbar.info('LoginComponent: Register users:'+this.reg_username+' / '+this.reg_email_addr);                    
+                    
                  this.router.navigate(['/threads']);
                      
              },
@@ -74,9 +82,13 @@ export class LoginComponent{
                 console.warn(reason);
                 if(reason == "Username or email has been taken"){
                     this.alertMsg = "Username or email has been taken";
+                    this.rollbar.warn('LoginComponent: Username or email has been taken.');                    
+                    
                 }
                 else{
                     this.alertMsg = "Registration failed.";
+                    this.rollbar.warn('LoginComponent: Registration failed.');                    
+                    
                     
                 }                
                 this.loginForm.resetForm();
@@ -86,6 +98,8 @@ export class LoginComponent{
                     console.error(response);
                     this.alertMsg = "Whoops... something went wrong";
                     this.loginForm.resetForm();
+                    this.rollbar.error('LoginComponent: onSubmit2.');                    
+                    
             });
      }
 }

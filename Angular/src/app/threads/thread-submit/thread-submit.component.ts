@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ThreadService } from '../shared/thread.service';
 import { UserService } from '../../login/shared/user.service';
 import { Router } from '@angular/router'
+import { RollbarService } from 'angular-rollbar';
 
 @Component({
     selector: 'app-thread-submit',
@@ -18,13 +19,17 @@ export class ThreadSubmitComponent implements OnInit {
 
     @ViewChild('submitThreadForm') submitThreadForm: NgForm;
 	
-	    constructor(private threadService: ThreadService, private userService: UserService,  private router:Router) {
+        constructor(private threadService: ThreadService, 
+            private userService: UserService,  
+            private router:Router , 
+            private rollbar: RollbarService) {
 
     }
 	ngOnInit() {
 		if(!this.userService.getUserLoggedIn()){
 			this.router.navigate(['/login']);
-
+            this.rollbar.info('ThreadSubmitComponent: ngOnInit() ');                    
+            
 		}
 		
 	}
@@ -48,9 +53,12 @@ export class ThreadSubmitComponent implements OnInit {
                 console.warn(reason);
                 if(reason.status != 200){
                     this.alertMsg = "Whoops... something went wrong";
+                    this.rollbar.error('ThreadSubmitComponent: if Whoops... something went wrong!');                    
+                    
                 }
                 else{
                     this.alertMsg = "Whoops... something went wrong";
+                    this.rollbar.error('ThreadSubmitComponent: else Whoops... something went wrong!');                    
                     
                 }                
                 
@@ -58,6 +66,8 @@ export class ThreadSubmitComponent implements OnInit {
             .catch(	response => { 			
                     console.error(response);
                     this.alertMsg = "Whoops... something went wrong";
+                    this.rollbar.error('ThreadSubmitComponent: submitThread(thread)'+response);                    
+                    
             });
 
     }

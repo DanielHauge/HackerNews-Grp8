@@ -18,25 +18,25 @@ const routes: Routes = [
     component: ThreadDetailsComponent,
   },
   // HERE:route for UserUpdateComponent
-  // map '/threads/:id' to user-update component
+  // map to user-update component
   {
     path: 'user/update',
     component: UserUpdateComponent,
   },
   // HERE:route for UserResetPasswordComponent
-  // map '/threads/:id' to user-reset-password component  
+  // map to user-reset-password component  
   {
     path: 'user/resetpassword',
     component: UserResetPasswordComponent,
   },
   // HERE:route for LoginComponent
-  // map '/threads/:id' to login component 
+  // map to login component 
   {
     path: 'login',
     component: LoginComponent,
   }, 
   // HERE:route for ThreadSubmitComponent
-  // map '/threads/:id' to thread-submit component    
+  // map to thread-submit component    
   {
     path: 'submit',
   	//canActivate: [AuthguardGuard],
