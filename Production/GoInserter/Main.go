@@ -8,6 +8,7 @@ import (
 	"log"
 	"encoding/json"
 
+	"time"
 )
 
 //dbusername = args[1];
@@ -21,6 +22,9 @@ var DB *sql.DB
 var CONN *amqp.Connection
 var CH *amqp.Channel
 var Post_Q amqp.Queue
+var Error_q amqp.Queue
+var Users map[string]int
+var ThreadIDs map[int]int64
 
 
 
@@ -39,6 +43,8 @@ func main() {
 		fmt.Print(err.Error())
 	}
 	DB = db;
+	Users = SetupUserDictionairy()
+	ThreadIDs = SetupThreadIDdictionairy()
 
 
 	log.Println("Initializing RabbitMQ Server Connections and Channels.")
@@ -49,7 +55,16 @@ func main() {
 	defer ch.Close()
 
 	q1, err := ch.QueueDeclare(
-		"TestPost",
+		"HNPost",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	); if err != nil { panic(err)}
+
+	q2, err := ch.QueueDeclare(
+		"HNError",
 		true,
 		false,
 		false,
@@ -58,21 +73,26 @@ func main() {
 	); if err != nil { panic(err)}
 
 	Post_Q = q1
+	Error_q = q2
 	CH = ch
 	CONN = conn
 
 
-	msgs, err := ch.Consume(
-		Post_Q.Name,
-		"",
-		false,
-		false,
-		false,
-		false,
-		nil,
-	); if err != nil { panic(err)}
+
+	msgs, err := ch.Consume(Post_Q.Name,"",false,false,false,false,nil,); if err != nil { panic(err)}
 
 	forever := make(chan bool)
+
+	ticker := time.NewTicker(10 * time.Minute)
+	go func(ticker *time.Ticker) {
+		for {
+			select {
+			case <-ticker.C:
+			forever<-true
+
+			}
+		}
+	}(ticker)
 
 	go func() {
 		for d := range msgs {
@@ -82,14 +102,16 @@ func main() {
 
 			if err := json.Unmarshal(d.Body, &request); err != nil {
 				log.Println("Couldn't marshal")
+				go RabbitMessage("HNError", string(d.Body), "Unmarshal of rabbitmq response", err.Error())
+			} else {
+				SaveData(FillInBlanks(request))
+				log.Printf("Done")
+				d.Ack(false)
 			}
-			SaveData(request)
-
-			log.Printf("Done")
-			d.Ack(false)
 		}
 	}()
 	<-forever
 
 
 }
+

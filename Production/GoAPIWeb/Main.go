@@ -53,7 +53,7 @@ func main() {
 	handler := cors.Default().Handler(router)
 
 	/// Setting up logger
-	//SetupLogrus()
+	SetupLogrus()
 
 
 	/// Setting up database

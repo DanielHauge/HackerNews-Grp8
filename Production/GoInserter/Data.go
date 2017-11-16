@@ -20,3 +20,21 @@ type PostRequest struct {
 	//limit to 80
 	Email_addr string `json:"email_addr"`
 }
+
+func FillInBlanks(request JsonMessage)JsonMessage{
+
+	if (len(request.Username)==0){
+		request.Username = "UnknownUser"
+	}
+	if len(request.Post_text)==0{
+		request.Post_text = "This comment has been deleted"
+	}
+	if len(request.Post_url)==0{
+		request.Post_url = "http://165.227.151.217:8080/threads"
+	}
+	if len(request.Post_title)==0{
+		request.Post_title = "This link title has been deleted, will link to home"
+	}
+
+	return request
+}

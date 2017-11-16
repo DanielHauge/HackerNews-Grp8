@@ -26,7 +26,7 @@ var CH *amqp.Channel
 var Post_Q amqp.Queue
 var User_Q amqp.Queue
 var Log_Q amqp.Queue
-var logz *logrus.Entry
+var logz *logrus.Logger
 
 var (
 
@@ -53,7 +53,7 @@ func main() {
 	handler := cors.Default().Handler(router)
 
 	/// Setting up logger
-	//SetupLogrus()
+	SetupLogrus()
 
 
 	/// Setting up database

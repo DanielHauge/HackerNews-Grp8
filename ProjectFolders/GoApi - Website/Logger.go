@@ -22,14 +22,14 @@ func Logger(inner http.Handler, name string) http.Handler {
 			time.Since(start),
 		)
 		//go RabbitMessage(Log_Q.Name, r.Method+","+r.RequestURI+","+name+","+time.Since(start).String())
-		//logz.Info(r.Method+","+r.RequestURI+","+name+","+time.Since(start).String())
+		logz.Info(r.Method+","+r.RequestURI+","+name+","+time.Since(start).String())
 
 	})
 }
 
 func SetupLogrus(){
 	logger := logrus.New()
-	conn, err := net.Dial("tcp", "178.62.104.107:5000")
+	conn, err := net.Dial("tcp", "139.59.157.29:5000")
 	if err != nil{
 		log.Fatal(err)
 	}
@@ -42,7 +42,6 @@ func SetupLogrus(){
 		"method": "main",
 	})
 	ctx.Info("Hello World!")
-	logz = ctx
-	logger.Info("Hello World!")
+	logz = logger
 }
 
