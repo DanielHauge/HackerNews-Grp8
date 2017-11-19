@@ -1,4 +1,4 @@
-Group 8: Hacker News Clone Project
+Group L: Hacker News Clone Project
 ==============================================================
 This is the project: Hacker News.
 
