@@ -11,24 +11,13 @@ This project is based of a project description, which can be found in the link b
 The product of this project is in short a forum website which users can register, post, read stories and comments. The system is build more or less from the ground up, and are implementing continious delivery. This means the project also include a part after the hand-over to operations.
 
 ### System Documentation
-- Operations Documentation : This Githubs's Wiki
+- Operations Documentation : [HackerNews Wiki](https://github.com/DanielHauge/HackerNews-Grp8/wiki)
 - Development Documentation : GitHub Documentation Folder
 - Project Paper : Github Pages
-- Issues and bugs reporting : IssueTrackingLink
+- Issues and bugs reporting : [bugzilla](http://138.68.103.94/bugzilla/)
 
-## Dev-Servers
+## Simulator
+165.227.151.217:8787
 
-165.227.151.217
-- :8787 = Core api
-- :9191 = Website api
-- :8080 = website
-
-Database: 46.101.103.163
-
-RabbitMQ Server: http://138.197.186.82:15672/
-
-#### Improvements
-- Upvote comments and threads.
-
-
-
+## Website
+[165.227.151.217:8080](https://github.com/DanielHauge/HackerNews-Grp8/wiki)
