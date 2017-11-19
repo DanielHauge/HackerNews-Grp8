@@ -22,4 +22,7 @@ The product of this project is in short a forum website which users can register
 ## Website
 [165.227.151.217:8080](https://github.com/DanielHauge/HackerNews-Grp8/wiki)
 
-## 
+## Status
+![](http://138.68.91.198/chart.svg)
+
+![](http://138.68.91.198/error_chart.svg)
