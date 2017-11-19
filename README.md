@@ -13,7 +13,7 @@ The product of this project is in short a forum website which users can register
 ### System Documentation
 - Operations Documentation : [HackerNews Wiki](https://github.com/DanielHauge/HackerNews-Grp8/wiki)
 - Development Documentation : [GitHub Documentation Folder](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/Documentation) & [HackerNews Wiki](https://github.com/DanielHauge/HackerNews-Grp8/wiki)
-- Project Paper : Github Pages
+- Project Paper : [Github Pages](https://danielhauge.github.io/HackerNews-Grp8/)
 - Issues and bugs reporting : [bugzilla](http://138.68.103.94/bugzilla/)
 
 ## Simulator
