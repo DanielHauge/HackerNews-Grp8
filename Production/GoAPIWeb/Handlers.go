@@ -183,11 +183,11 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 	promRequests.Inc()
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 
 	if err := r.Body.Close(); err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 
 	go func() {
@@ -218,16 +218,16 @@ func CreateUser(w http.ResponseWriter, r *http.Request){
 	var usr HNUser
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
-			panic(err)
+			Error.Println(err)
 			}
 	if err := r.Body.Close(); err != nil {
-			panic(err)
+			Error.Println(err)
 	}
 	if err := json.Unmarshal(body, &usr); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422)
 		if err := json.NewEncoder(w).Encode(err); err != nil {
-			panic(err)
+			Error.Println(err)
 		}
 	}
 	if CheckIfTaken(usr){
@@ -257,16 +257,16 @@ func Login(w http.ResponseWriter, r *http.Request){
 	var usr UserLogin
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	if err := r.Body.Close(); err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	if err := json.Unmarshal(body, &usr); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422)
 		if err := json.NewEncoder(w).Encode(err); err != nil {
-			panic(err)
+			Error.Println(err)
 		}
 	}
 	Correct, user := VerifyUser(usr)
@@ -274,7 +274,7 @@ func Login(w http.ResponseWriter, r *http.Request){
 	if  Correct{
 		w.WriteHeader(http.StatusOK)
 
-		msgs, err := json.Marshal(user); if err != nil{ panic(err) }
+		msgs, err := json.Marshal(user); if err != nil{ Error.Println(err) }
 
 		fmt.Fprint(w, string(msgs))
 	} else {
@@ -300,7 +300,8 @@ func GetStoryByID(w http.ResponseWriter, r *http.Request){
 
 	comments := QueryAllComments(realid)
 	final := StoryWithComments{story, comments}
-	msgs, err := json.Marshal(final); if err != nil{ panic(err) }
+	msgs, err := json.Marshal(final); if err != nil{  Error.Println(err)
+	}
 
 	fmt.Fprint(w, string(msgs))
 } /// Used by website
@@ -311,21 +312,21 @@ func GetLatestStories(w http.ResponseWriter, r *http.Request){
 	var AllStories LatestStories
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	if err := r.Body.Close(); err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	var req StoryRequest
 	if err := json.Unmarshal(body, &req); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		if err := json.NewEncoder(w).Encode(err); err != nil {
-			panic(err)
+			Error.Println(err)
 		}
 	}
 	AllStories = QueryLatestStories(req.Dex,req.DexTo)
 
-	msgs, err := json.Marshal(AllStories); if err != nil{ panic(err) }
+	msgs, err := json.Marshal(AllStories); if err != nil{ Error.Println(err) }
 	fmt.Fprint(w, string(msgs))
 } /// Used by website
 
@@ -338,7 +339,7 @@ func GetComments(w http.ResponseWriter, r *http.Request){
 
 	threadid, err := strconv.Atoi(id); if err != nil {log.Println("Error in parsing int"); fmt.Fprint(w, "Error in parsing int, you should only use ints has ID")}
 	comments := QueryAllComments(threadid)
-	msgs, err := json.Marshal(comments); if err != nil{ panic(err) }
+	msgs, err := json.Marshal(comments); if err != nil{ Error.Println(err) }
 
 	fmt.Fprint(w, string(msgs))
 
@@ -351,16 +352,16 @@ func StartRecovery(w http.ResponseWriter, r *http.Request){
 	var recinfo RecoveryData
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	if err := r.Body.Close(); err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	if err := json.Unmarshal(body, &recinfo); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422)
 		if err := json.NewEncoder(w).Encode(err); err != nil {
-			panic(err)
+			Error.Println(err)
 		}
 	}
 	go func() {
@@ -382,16 +383,16 @@ func UpdatePassword(w http.ResponseWriter, r *http.Request){
 	var change PasswordChangeData
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	if err := r.Body.Close(); err != nil {
-		panic(err)
+		Error.Println(err)
 	}
 	if err := json.Unmarshal(body, &change); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422)
 		if err := json.NewEncoder(w).Encode(err); err != nil {
-			panic(err)
+			Error.Println(err)
 		}
 	}
 	Correct, _ := VerifyUser(UserLogin{change.Username,change.Password})
@@ -419,11 +420,11 @@ func Upvote(w http.ResponseWriter, r *http.Request){
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
 	if err != nil {
 		RabbitMessage(Log_Q.Name, "Error in Opening the bodyreader in upvote")
-		panic(err)
+		Error.Println(err)
 	}
 	if err := r.Body.Close(); err != nil {
 		RabbitMessage(Log_Q.Name, "Error in Closing the bodyreader in upvote")
-		panic(err)
+		Error.Println(err)
 
 	}
 	if err := json.Unmarshal(body, &op); err != nil {
@@ -432,7 +433,7 @@ func Upvote(w http.ResponseWriter, r *http.Request){
 		RabbitMessage(Log_Q.Name, "Error in parsing Upvote Message to json")
 		if err := json.NewEncoder(w).Encode(err); err != nil {
 
-			panic(err)
+			Error.Println(err)
 		}
 	}
 

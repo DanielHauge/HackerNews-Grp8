@@ -10,6 +10,8 @@ import (
 	"os"
 	"github.com/sirupsen/logrus"
 	"github.com/prometheus/client_golang/prometheus"
+	"io/ioutil"
+	"io"
 )
 
 // ARGS: 1= db username, 2= db password, 3 = db ip, 4 = rabbit user, 5= rabbit password, 6= rabbit ip, 7 = emailuser, 8 = emailpassword
@@ -46,6 +48,8 @@ func init() {
 }
 
 func main() {
+	// traceHandle ioutil.Discard,infoHandle os.Stdout,	warningHandle os.Stdout, errorHandle os.Stderr
+	LogSetup(ioutil.Discard, os.Stdout, os.Stdout, os.Stderr)
 
 	/// Starting up router for the API
 	log.Println("Initializing API.")
