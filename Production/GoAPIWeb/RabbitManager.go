@@ -19,7 +19,7 @@ func SendToRabbit(properties amqp.Publishing, qname string){
 		properties, // Properties
 	)
 	log.Printf(" [x] Sent %s", string(properties.Body))
-	if err != nil { panic(err)}
+	if err != nil { Error.Println(err)}
 
 }
 
