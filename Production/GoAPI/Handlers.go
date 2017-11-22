@@ -46,16 +46,8 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 	w.Write([]byte(input))
 }
 
-func PostConcurrent(r *http.Request){
-	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
-	if err != nil {
-		panic(err)
-		log.Printf(err.Error())
-	}
+func PostConcurrent(body []byte){
 
-	if err := r.Body.Close(); err != nil {
-		panic(err)
-	}
 
 		/// Implement MySQL
 		var req PostRequest
@@ -77,7 +69,16 @@ func PostConcurrent(r *http.Request){
 func PostStory(w http.ResponseWriter, r *http.Request){
 	promRequests.Inc()
 	w.WriteHeader(http.StatusOK)
-	go PostConcurrent(r)
+	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
+	if err != nil {
+		panic(err)
+		log.Printf(err.Error())
+	}
+	if err := r.Body.Close(); err != nil {
+		panic(err)
+	}
+
+	go PostConcurrent(body)
 	fmt.Fprint(w, "Publishing to RQ for DB Insertion")
 }
 
