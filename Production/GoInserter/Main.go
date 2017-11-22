@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 
 	"time"
+	"io/ioutil"
 )
 
 //dbusername = args[1];
@@ -61,7 +62,7 @@ func main() {
 		false,
 		false,
 		nil,
-	); if err != nil { panic(err)}
+	); if err != nil { panic(err);}
 
 	q2, err := ch.QueueDeclare(
 		"HNError",
@@ -76,7 +77,6 @@ func main() {
 	Error_q = q2
 	CH = ch
 	CONN = conn
-
 
 
 	msgs, err := ch.Consume(Post_Q.Name,"",false,false,false,false,nil,); if err != nil { panic(err)}

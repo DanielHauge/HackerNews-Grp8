@@ -46,40 +46,23 @@ func GetLatest(w http.ResponseWriter, r *http.Request){
 	w.Write([]byte(input))
 }
 
-func PostStory(w http.ResponseWriter, r *http.Request){
-	promRequests.Inc()
-	w.WriteHeader(http.StatusOK)
-	w.Header().Set("Content-Type", "text/plain")
-	w.Header().Set("Access-Control-Allow-Headers", "Access-Control-Allow-Origin ,Accept, Content-Type, Content-Length, Accept-Encoding")
-	if origin := r.Header.Get("Origin"); origin != "" {
-		w.Header().Set("Access-Control-Allow-Origin", origin)
-	} else { w.Header().Set("Access-Control-Allow-Origin", "*")}
+func PostConcurrent(r *http.Request){
+	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
+	if err != nil {
+		panic(err)
+		log.Printf(err.Error())
+	}
 
+	if err := r.Body.Close(); err != nil {
+		panic(err)
+	}
 
-
-		body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
-		if err != nil {
-			panic(err)
-			log.Printf(err.Error())
-		}
-
-		if err := r.Body.Close(); err != nil {
-			panic(err)
-		}
-
-
-
-		go func() {
 		/// Implement MySQL
-			var req PostRequest
-			if err := json.Unmarshal(body, &req); err != nil {
-				w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-				w.WriteHeader(422)
-				if err := json.NewEncoder(w).Encode(err); err != nil {
-					panic(err)
-				}
-			}
-			Hannest_id = req.Hanesst_id
+		var req PostRequest
+		if err := json.Unmarshal(body, &req); err != nil {
+			log.Println(err.Error())
+		}
+		Hannest_id = req.Hanesst_id
 
 		props := amqp.Publishing{
 			ContentType: "application/json; charset=UTF-8",
@@ -87,9 +70,14 @@ func PostStory(w http.ResponseWriter, r *http.Request){
 		}
 
 		SendToRabbit(props, Post_Q.Name)
-		}()
 
 
+}
+
+func PostStory(w http.ResponseWriter, r *http.Request){
+	promRequests.Inc()
+	w.WriteHeader(http.StatusOK)
+	go PostConcurrent(r)
 	fmt.Fprint(w, "Publishing to RQ for DB Insertion")
 }
 
