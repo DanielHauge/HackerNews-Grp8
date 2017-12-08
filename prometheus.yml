@@ -1,0 +1,65 @@
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+    monitor: 'CPHBusiness monitor'
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+    # Override the global default and scrape targets from this job every 5 seconds.
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Add our custom Jobs
+  - job_name: 'core'
+    dns_sd_configs:
+    - names:
+      - 'tasks.core'
+      type: 'A'
+      port: 8787
+
+  - job_name: 'singleCore'
+    scrape_interval: 5s
+    static_configs:
+       - targets: ['165.227.151.217:8787']
+
+
+
+  - job_name: 'webapi'
+    dns_sd_configs:
+    - names:
+      - 'tasks.webapi'
+      type: 'A'
+      port: 9191
+
+
+  - job_name: 'Rabbit'
+    scrape_interval: 5s
+    static_configs:
+       - targets: ['138.197.186.82:9090']
+
+  - job_name: 'website'
+    dns_sd_configs:
+    - names:
+      - 'tasks.hnwebsites'
+      type: 'A'
+      port: 9113
+
+
+  - job_name: 'mysql'
+    scrape_interval: 5s
+    static_configs:
+       - targets: ['46.101.103.163:9104']
+
+  - job_name: 'docker-exporter'
+    dns_sd_configs:
+    - names:
+      - 'tasks.docker-exporter'
+      type: 'A'
+      port: 4999
