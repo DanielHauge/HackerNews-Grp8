@@ -71,6 +71,7 @@ should be written from the viewpoint of the operator, not the developers.
 ```
 
 #### Hand-over
+Emmelys comment. I can write about this
 ```
 In this part, you should describe the hand-over of the system you were operating.  
 Specifically you should comment on the quality of the documentation you received  
