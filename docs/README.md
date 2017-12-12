@@ -26,6 +26,8 @@ The system had to handle multiple users posting stories and comments at the same
 In this part you should show off by telling us all you know about software development processes  
 and describe which concepts you used to structure your development.
 ```
+Our choice for structuring our development process was greatly affected by our team size, as a 3 member team we had to pull more than the average 4-5 man team we were suppose to be in, but we took the challenge to better ourself as we had to be more invovled with all parts of the system. We choose to run a mutated version of Scrum as the short development time and iterative development process was needed for a project with this short development cycle.  
+we could have gone with the waterfall model, but since our lectures would give new information on a weekly basis that we had to implement into the project this model wouldn't allow for such implementation and was discarded, likewise the Unified process also discarded but not for the same reason, the unified process does allow for iterative development, but at the time we started the project we weren't comepletly familliar with that development process, and we wouldn't get the lecture until 3 days after we passed on the project for remote testing by another group, this made us choose scrum as it allowed us to keep ourself up to date on a day to day basis, and realocate resources depending on the ever changing enviorment, consisting of different courses and lecture material.
 
 #### Software architecture
 ```
@@ -33,6 +35,17 @@ In this section you illustrate and describe the architecture of your Hackernews 
 That is, you describe how your system is structured and how the different  
 parts interact and communicate with each other.
 ```
+Theres two different version of our architecture, doing the development we where promted to extend the system into multiple sub systems, as a practice in low cupled development, the original design is shown in this picture.
+![](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Old%20Diagram.jpg)
+The original Idea was to have a REST API service, that was designed to handle the specific commands our teachers simulator program would use, the plan was to design out website around these commands, so we didn't have to make multiple commands that would reduce the overall performance of the system. One requirement was to never lose any messages that was recieved, even when the database goes down, to avoid this we implemented our recently gained knowledge of message brokers from the System Intergration course, and designated a MSMQ service called RabbitMQ to handle the messages, another reason for this design was to reduce the load on the API, as we could design it to simple recieve the message, then send it onwards to the save place of the RabbitMQ service, this allowed us to withdraw any database insertion logic from the API so it could handle the messages faster.  
+we then had two seperate services that each had a purpose, thier purpose was to handle the messages in the message broker and insert them as fast as they could into the database, or handle the errors should there be any.  
+Finally we had a database remotely from the system, this choice was made because the requirements hinted at database upgrade/downtime, so we expected some sort of trouble on the server that the database ran on, and by having it seperate we had a much clearer overview of it.  
+
+Later in the project we were told to expand the model into a lower coupled system, the requirements was to have atleast 3 different systems, which we had at the time, but this prompted a response in our design that changed the architecture model into the following picture.
+![](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Componentdiagram2.png)
+many of the systems are the same, but 1 key note is the seperation of the API into 2 different ones, our logic was to reduce the delay even further on the API that the teachers simulator program would be communicating with, so we added a identical API with minor tweaks that handled the user interaction from the website. The 2 subsystems that handled the transaction from RabbitMQ to Database got merged into one singular system, with the idea that we would be able to run as many of this subsystem as needed if the transfer rate was suboptimal.  
+
+Present time:
 
 #### Software design
 ```
