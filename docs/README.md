@@ -92,9 +92,10 @@ We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker
 We felt very equipped to monitor their system from the start.
 We quickly headed over to the system to look for issues to report.
 Our team reported in total around 20 issues. The issues were related to the system as a whole. Both requirements in the use cases that were missing and reporting when monitoring systems went down.
+We also talked to the development team directly saying that we thought some Use Cases weren't implemented and agreed that we would give them some time to implement those.
 The development team was very quick most of the time and polite answering us and indicating that they took our reported issues seriously.
 The communication with the team has been easy both face to face and via email and social media.
-Sometimes the development team notified us in advance if there were some issues we need to know about.
+A couple of times the development team notified us in advance if there were some issues we need to know about.
 
 #### Service-level agreement
 Daniel
