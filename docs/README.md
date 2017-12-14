@@ -27,6 +27,7 @@ The system had to handle multiple users posting stories and comments at the same
 
 #### Development process
 Kristian - We delegated reponsability. The roles
+[comment]: <> (I don't know if it's relevant but we used Trello as project management system but went away from that)
 ```
 In this part you should show off by telling us all you know about software development processes  
 and describe which concepts you used to structure your development.
