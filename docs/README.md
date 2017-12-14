@@ -28,6 +28,7 @@ The system had to handle multiple users posting stories and comments at the same
 #### Development process
 Kristian - We delegated reponsability. The roles
 [comment]: <> (I don't know if it's relevant but we used Trello as project management system but went away from that)
+
 ```
 In this part you should show off by telling us all you know about software development processes  
 and describe which concepts you used to structure your development.
@@ -87,6 +88,13 @@ In this part, you should describe the hand-over of the system you were operating
 Specifically you should comment on the quality of the documentation you received  
 and whether you felt well equipped to maintaining the system.
 ```
+We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker-news/wiki) we got was very adequate, well documented in a simple way, easy to read but still content full.
+We felt very equipped to monitor their system from the start.
+We quickly headed over to the system to look for issues to report.
+Our team reported in total around 20 issues. The issues were related to the system as a whole. Both requirements in the use cases that were missing and reporting when monitoring systems went down.
+The development team was very quick most of the time and polite answering us and indicating that they took our reported issues seriously.
+The communication with the team has been easy both face to face and via email and social media.
+Sometimes the development team notified us in advance if there were some issues we need to know about.
 
 #### Service-level agreement
 Daniel
