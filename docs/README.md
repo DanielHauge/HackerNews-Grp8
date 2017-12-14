@@ -26,8 +26,7 @@ The system was a minimal functional clone of the original Hackernews website, wh
 The system had to handle multiple users posting stories and comments at the same time, while also having a minimum 95% uptime even while part of the system was down for upgrading. The system had to allow users to make a program that can simulate user interaction that creates stories and comments using a REST API, also to query the latest ingested story. likewise the users should also be able to do these actions using a web browser as well.
 
 #### Development process
-Kristian - We delegated reponsability. The roles
-[comment]: <> (I don't know if it's relevant but we used Trello as project management system but went away from that)
+Kristian - We delegated responsibility. The roles
 
 ```
 In this part you should show off by telling us all you know about software development processes  
