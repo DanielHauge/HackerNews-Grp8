@@ -110,11 +110,13 @@ A couple of times the development team notified us in advance if there were some
 We made a service level agreement with another group acting as operators. The full SLA can be found [Here](https://github.com/DanielHauge/HackerNews-Grp8/wiki/Service-Level-Agreement) in the github wiki section.
 
 But to summerize a few parts of the SLA, here are some agreements:
+
 Availability:
 - Meeting Uptimes for Core API (+95% uptime)
 - Meeting Uptimes for all systems (+90% uptime)
 - Email support: Monitored 12:00 to 20:00 Tuesday - Thursday
 - Emails received outside of available hours will be collected, however no action can be guaranteed until the next working day
+
 Service requests:
 - 24 hours (during non workdays: Tuesday-Thursday) for issues classified as High priority.
 - Within 48 hours for issues classified as Medium priority.
