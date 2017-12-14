@@ -3,17 +3,21 @@
 [Report Description](https://github.com/datsoftlyngby/soft2017fall-lsd-teaching-material/blob/master/assignments/08-Project_report.md)
 
 ## Abstract
+Daniel
 - Small conceise (presice) description of the whole
 
 ## Table of Content
+Daniel
 TOC
 
 ## Requirements, architecture, design and process
+Kristian
 ```
 This section describes the requirements of the project, the architecture that you have chosen,  
 the design of the actual components and the process you undertook to build them in the end.
 ```
 #### System requirements
+Kristian
 ```
 This section should contain an elaborate description of the requirements for the project.  
 This includes the scope of the Hackernews clone (what should it be able to do / what should it not be able to do).
@@ -22,6 +26,7 @@ The system was a minimal functional clone of the original Hackernews website, wh
 The system had to handle multiple users posting stories and comments at the same time, while also having a minimum 95% uptime even while part of the system was down for upgrading. The system had to allow users to make a program that can simulate user interaction that creates stories and comments using a REST API, also to query the latest ingested story. likewise the users should also be able to do these actions using a web browser as well.
 
 #### Development process
+Kristian - We delegated reponsability. The roles
 ```
 In this part you should show off by telling us all you know about software development processes  
 and describe which concepts you used to structure your development.
@@ -30,6 +35,7 @@ Our choice for structuring our development process was greatly affected by our t
 we could have gone with the waterfall model, but since our lectures would give new information on a weekly basis that we had to implement into the project this model wouldn't allow for such implementation and was discarded, likewise the Unified process also discarded but not for the same reason, the unified process does allow for iterative development, but at the time we started the project we weren't comepletly familliar with that development process, and we wouldn't get the lecture until 3 days after we passed on the project for remote testing by another group, this made us choose scrum as it allowed us to keep ourself up to date on a day to day basis, and realocate resources depending on the ever changing enviorment, consisting of different courses and lecture material.
 
 #### Software architecture
+Kristian
 ```
 In this section you illustrate and describe the architecture of your Hackernews clone.  
 That is, you describe how your system is structured and how the different  
@@ -48,6 +54,7 @@ many of the systems are the same, but 1 key note is the seperation of the API in
 Present time:
 
 #### Software design
+Daniel
 ```
 Here you should sketch your thoughts on the software design before you started  
 implementing the system. This includes describing the technical concerns you had  
@@ -56,6 +63,7 @@ components you came up with to fix these concerns and meet the requirements.
 ```
 
 #### Software implementation
+Emmely
 ```
 This section should describe your actual implementation. Mainly how well you  
 followed the requirements, process and software design you began with. If your  
@@ -64,6 +72,7 @@ events/problems and explain how you solved them.
 ```
 
 ## Maintenance and SLA status
+Daniel
 ```
 This section describes the process of maintaining the software over time,  
 starting from the hand-over to the shutting down of your system. The section  
@@ -79,6 +88,7 @@ and whether you felt well equipped to maintaining the system.
 ```
 
 #### Service-level agreement
+Daniel
 ```
 Here you should include the service level agreement you entered together with the group  
 you were operating, including the metric itself and the threshold you agreed upon for  
@@ -87,6 +97,7 @@ explain how you found an agreement.
 ```
 
 #### Maintenance and reliability
+Daniel
 ```
 This part should contain a description on how you experienced the actual operation.  
 Explain how you actually monitored the system to ensure that the SLA was upheld, and  
@@ -102,6 +113,7 @@ system was overall.
 ```
 
 #### Technical discussion
+Kristian
 ```
 This part summarises both the first and second part of the report by giving an overview  
 of the good and bad parts of the whole semester project. Be critical and honest.
