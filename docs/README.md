@@ -7,8 +7,19 @@ Daniel
 - Small conceise (presice) description of the whole
 
 ## Table of Content
-Daniel
-TOC
+- [Requirements, architecture, design and process](#requirements-architecture-design-and-process)
+>- [System requirements](#system-requirements)
+>- [Development process](#development-process)
+>- [Software architecture](#software-architecture)
+>- [Software design](#software-design)
+>- [Software implementation](#software-implementaion)
+- [Maintenance and SLA status](#maintenance-and-sla-status)
+>- [Hand-over](#hand-over)
+>- [Service-level-agreement](#service-level-agreement)
+>- [Maintenance and reliability](#maintenance-and-reliability)
+- [Discussion](#discussion)
+>- [Technical Discussion](#technical-discussion)
+>- [Group work reflection & Lessons learned](#group-work-reflection--lessons-learned)
 
 ## Requirements, architecture, design and process
 Kristian
