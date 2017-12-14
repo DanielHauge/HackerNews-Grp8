@@ -3,8 +3,7 @@
 [Report Description](https://github.com/datsoftlyngby/soft2017fall-lsd-teaching-material/blob/master/assignments/08-Project_report.md)
 
 ## Abstract
-Daniel
-- Small conceise (presice) description of the whole
+How to development large systems. We set out to find out. We underwent a project spanning approximatly 9 weeks of development and 6 weeks of maintenence. Here in, topics such as: Scaling, monitoring, development colaboration, security, Continius delivery / Dev ops, logging, deployment strategies and more is touched to accomplice the goal of developing and maintaining large systems. The project was based on a description, which was to make a clone of an existing service, Hackernews. We were tasked with requirements suchs as 95% uptime and not to loose any content from a simulator and more. We managed to do this task, with satisfied results according to self evaluation. 
 
 ## Table of Content
 - [Requirements, architecture, design and process](#requirements-architecture-design-and-process)
