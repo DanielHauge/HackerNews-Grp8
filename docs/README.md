@@ -82,37 +82,53 @@ followed the requirements, process and software design you began with. If your
 system changed during this phase you should summarise the unexpected  
 events/problems and explain how you solved them.
 ```
+Our system consists of the following software:
+
 ###### Front end software
 
 **Web application** - written in Angular2+ . 
+
 [Documentation]()
-[Source code]()
+[Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/Angular)
 
 ###### Backend
 
 **Core REST API** - written in Go
-[REST API documentation]()
-[Source code]()
+
+[Documentation](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoAPI%20-%20Core%20-%20Simulator)
+
+[Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoAPI%20-%20Core%20-%20Simulator)
 
 **Web REST API**  - written in Go
-[REST API documentation]()
-[Source code]() 
+
+[Documentation]()
+
+[Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoApi%20-%20Website) 
+
 **DBInsert slave** - written in Go
+
 [Documentation]()
-[Source code]()
+
+[Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/DB_Inserter_Slave)
+
 **DBInsert slave for Invalid Messages Channel** - written in Java
+
 [Documentation]()
-[Source code]()
+
+[Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/Java-ErrorInserter)
 
 ##### How well did we follow the requirements we began with?
+
 Our group but the requirement very low from the start. We got the feedback from Helge from our first hand-in of the Requirements and Analysis Document, RAD, that we should not invent requirements and this was something we took to our heart.
 For this reason we have put only the minimum and the requirements were fully implemented from the hand-in on November 2.
+
+
 ##### How well did we followed the process we began with
-In the beg
-[comment]: <> (I don't know if it's relevant but we used Trello as project management system but went away from that)
-[comment]: <> What process?
+
+What process?
 
 ##### How well did we followed the software design we began with
+
 Or design was to build a REST API, Messaging Queue, Database and Web Application.
 During what we could call elaboration phase we decided to divide up the REST API for two task. 
 We incorporated this idea into the design. One handling the Web Application and one handling the Simulator program.
@@ -122,19 +138,26 @@ When we handed in, handed in the system to the stake holder fulfilling all the r
 We had developed the system as we designed it. With continues delivery 
 
 ##### System changed during the maintenance phase
+
 ###### Front end software
 
 **Web application** - written in Angular2+ . 
 Very few changes were made after the hand-in and in November 2.
 - Small bugg with element
 - Implementing front end monitoring/logging with rollbar. But not a great tool.
+
 ###### Backend
 
 **Core REST API** - written in Go
 
+?
+
 **Web REST API**  - written in Go
+
+?
  
 **DBInsert slave** - written in Go
+
 The DBInserter software were written initially in C#. 
 The DBInserter is responsible for handling the messages(request) in the queue and inserting them into the database. 
 Because we were using a Relational Database (without foreign keys) the DBInserter quickly (after just a few days with the simulator running) became our bottleneck.
@@ -143,6 +166,7 @@ But after spending too much time on this issue we replaced it with a new softwar
 By buffering up the insertions into one insert query.
  
 **DBInsert slave for Invalid Messages Channel** - written in Java
+
 This program came to live after a few weeks into the project.
 We started to notice that the simulator send messages that our system couldn't handle and that this often lead to a crash of our system.
 For this we needed to create a new Inserter that could insert those invalid messages. The way it works .......
