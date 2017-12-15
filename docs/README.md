@@ -79,6 +79,80 @@ followed the requirements, process and software design you began with. If your
 system changed during this phase you should summarise the unexpected  
 events/problems and explain how you solved them.
 ```
+###### Front end software
+
+**Web application** - written in Angular2+ . 
+[Documentation]()
+[Source code]()
+
+###### Backend
+
+**Core REST API** - written in Go
+[REST API documentation]()
+[Source code]()
+
+**Web REST API**  - written in Go
+[REST API documentation]()
+[Source code]() 
+**DBInsert slave** - written in Go
+[Documentation]()
+[Source code]()
+**DBInsert slave for Invalid Messages Channel** - written in Java
+[Documentation]()
+[Source code]()
+
+##### How well did we follow the requirements we began with?
+Our group but the requirement very low from the start. We got the feedback from Helge from our first hand-in of the Requirements and Analysis Document, RAD, that we should not invent requirements and this was something we took to our heart.
+For this reason we have put only the minimum and the requirements were fully implemented from the hand-in on November 2.
+##### How well did we followed the process we began with
+In the beg
+[comment]: <> (I don't know if it's relevant but we used Trello as project management system but went away from that)
+[comment]: <> What process?
+
+##### How well did we followed the software design we began with
+Or design was to build a REST API, Messaging Queue, Database and Web Application.
+During what we could call elaboration phase we decided to divide up the REST API for two task. 
+We incorporated this idea into the design. One handling the Web Application and one handling the Simulator program.
+In retrospect this was a good idea. For the simulator we wanted to get a story but for the Web Application request we wanted more information around those stories such as number of posts and time etc.
+Those calculations were a lot heavier. So in the Web API we did heavier calculation to serve a more user friendly website.
+When we handed in, handed in the system to the stake holder fulfilling all the requires. 
+We had developed the system as we designed it. With continues delivery 
+
+##### System changed during the maintenance phase
+###### Front end software
+
+**Web application** - written in Angular2+ . 
+Very few changes were made after the hand-in and in November 2.
+- Small bugg with element
+- Implementing front end monitoring/logging with rollbar. But not a great tool.
+###### Backend
+
+**Core REST API** - written in Go
+
+**Web REST API**  - written in Go
+ 
+**DBInsert slave** - written in Go
+The DBInserter software were written initially in C#. 
+The DBInserter is responsible for handling the messages(request) in the queue and inserting them into the database. 
+Because we were using a Relational Database (without foreign keys) the DBInserter quickly (after just a few days with the simulator running) became our bottleneck.
+We made a few tweaks to the software to update it. 
+But after spending too much time on this issue we replaced it with a new software written in Go that handles the insertions differently.
+By buffering up the insertions into one insert query.
+ 
+**DBInsert slave for Invalid Messages Channel** - written in Java
+This program came to live after a few weeks into the project.
+We started to notice that the simulator send messages that our system couldn't handle and that this often lead to a crash of our system.
+For this we needed to create a new Inserter that could insert those invalid messages. The way it works .......
+
+
+##### Unexpected events/problems & Solution to the unexpected events/problems (a summarise)
+
+##### Conclusion
+The software fontend is not depending on how large the system is. 
+If we would have gotten a large number of request to the frontend the way we have would designed it would stay the same. 
+The software could not optimise however the server/servers serving the Web Application for hat but our servers. 
+Using docker swarm would need to instantiate more servers handling the load. 
+There are other factors that determined how to write. 
 
 ## Maintenance and SLA status
 Daniel
