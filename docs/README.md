@@ -63,13 +63,16 @@ For handling the messages in the RabbitMQ buffer we implemented a database inser
 Lastly we have the database, which is a mySQL database on a seperate ubuntu server hosted on digital ocean.
 
 #### Software design
-Daniel
-```
-Here you should sketch your thoughts on the software design before you started  
-implementing the system. This includes describing the technical concerns you had  
-about the system before you started development, together with all the technical  
-components you came up with to fix these concerns and meet the requirements.
-```
+
+We made some basic diagrams to agree upon the systems operations.
+- API: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/GoOverview.png)
+- Architecture: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Componentdiagram1.png)
+- Data flow: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Viewthread.png)
+- Gui-Prototype: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Web%20UI%20prototype.png)
+
+Before we started developing, we had some concerns about the 2 different users who needed to interact with the system concurrently. 1 type of user is the human user, they were not restricting us in any way. We can decide what ID,s those users posts, comments etc. has, but for the other type of user, the simulator. The simulator wanted to decide what ID, "Harnest_ID" and "Post_parrent". This would cause a problem, if per say, the website user posted a comment and would occupy that ID, then an error would occur because the simulator insists upon deciding that ID. This was a integration challenge we needed to figure out. How should we fix the issue, that 2 different users where one of them would like to decide identifier beforehand.
+
+The fix to this specific issue was to make 2 different interfaces. We made and decided upon the ID,s that we will be using. We made one interface for the website users, and made one interface (API) that would translate the simulators ID,s into our own ID,s and Thread/Comment-ID,s. This way, we threat the data the same even for 2 different ways of interacting with the system.
 
 #### Software implementation
 Emmely
