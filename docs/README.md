@@ -86,7 +86,7 @@ Our system consists of the following software:
 
 ###### Front end software
 
-**Web application** - written in Angular2+ . 
+**Web application** - written in type script. The framework is Angular2+ . 
 
 [Documentation]()
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/Angular)
