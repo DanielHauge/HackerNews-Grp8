@@ -182,22 +182,17 @@ The communication with the team has been easy both face to face and via email an
 A couple of times the development team notified us in advance if there were some issues we need to know about.
 
 #### Service-level agreement
-We made a service level agreement with another group acting as operators. The full SLA can be found [Here](https://github.com/DanielHauge/HackerNews-Grp8/wiki/Service-Level-Agreement) in the github wiki section.
+We made a service level agreement with another group (Group I) acting as operators. The full SLA can be found [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA) in the github wiki section.
 
 But to summerize a few parts of the SLA, here are some agreements:
 
 Availability:
-- Meeting Uptimes for Core API (+95% uptime)
-- Meeting Uptimes for all systems (+90% uptime)
-- Email support: Monitored 12:00 to 20:00 Tuesday - Thursday
-- Emails received outside of available hours will be collected, however no action can be guaranteed until the next working day
+- Minimum expected 95% per month.
 
-Service requests:
-- 24 hours (during non workdays: Tuesday-Thursday) for issues classified as High priority.
-- Within 48 hours for issues classified as Medium priority.
-- Within 5 working days for issues classified as Low priority.
+Responsetime:
+- maximum responsetime of service is 60 milliseconds.
 
-To delve deeper into the SLA, it is advised to read the full version: [Here](https://github.com/DanielHauge/HackerNews-Grp8/wiki/Service-Level-Agreement)
+To delve deeper into the SLA, it is advised to read the full version: [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA)
 
 Other than that, there were no disagreement from the first itteration of the SLA, and was signed at first proposal.
 
