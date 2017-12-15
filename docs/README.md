@@ -194,6 +194,48 @@ This section describes the process of maintaining the software over time,
 starting from the hand-over to the shutting down of your system. The section  
 should be written from the viewpoint of the operator, not the developers.
 ```
+
+#### Hand-over
+Emmelys comment. I can write about this
+```
+In this part, you should describe the hand-over of the system you were operating.  
+Specifically you should comment on the quality of the documentation you received  
+and whether you felt well equipped to maintaining the system.
+```
+We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker-news/wiki) we got was very adequate, well documented in a simple way, easy to read but still content full.
+We felt very equipped to monitor their system from the start.
+We quickly headed over to the system to look for issues to report.
+Our team reported in total around 20 issues. The issues were related to the system as a whole. Both requirements in the use cases that were missing and reporting when monitoring systems went down.
+We also talked to the development team directly saying that we thought some Use Cases weren't implemented and agreed that we would give them some time to implement those.
+The development team was very quick most of the time and polite answering us and indicating that they took our reported issues seriously.
+The communication with the team has been easy both face to face and via email and social media.
+A couple of times the development team notified us in advance if there were some issues we need to know about.
+
+#### Service-level agreement
+We made a service level agreement with another group (Group I) acting as operators. The full SLA can be found [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA) in the github wiki section.
+
+But to summerize a few parts of the SLA, here are some agreements:
+
+Availability:
+- Minimum expected 95% per month.
+
+Responsetime:
+- maximum responsetime of service is 60 milliseconds.
+
+To delve deeper into the SLA, it is advised to read the full version: [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA)
+
+Other than that, there were no disagreement from the first itteration of the SLA, and was signed at first proposal.
+
+#### Maintenance and reliability
+Daniel
+```
+This part should contain a description on how you experienced the actual operation.  
+Explain how you actually monitored the system to ensure that the SLA was upheld, and  
+describe any incidents you experienced that broke (or could potentially break) the SLA.  
+Remember to include documentation for each incident! Finally you should conclude  
+how well the developers responded to your issues and conclude on how reliable the  
+system was overall.
+```
 Both us as operators and the developers of the system, was initially confused about how much access we were suppose to have access to, but the developers was quick both in written format and personal meetings, allowing for communication with us operators, this allowed for quick and responsive reactions to every incident that happened, doing the time we as operators where tasked to monitor the system.  
 We implemented alerts for when the system would go down, but our primary way of operation was to actively passive monitor, as in we would on regular occasions take a look on the passive monitor system Grafana, allowing us to catch abnormalities that would happen without our or the developers knowledge.  
 Although some incidents havn't been reported in written format, as we in many cases reported breaches of the Service level agreement in person, we will show the following cases we did write down and explain each case individually.  
@@ -276,48 +318,6 @@ last reported issue although not the last grafana crash.
 
 Concluding on the developers cooperation.  
 The group we were operators for where actively discussing and reacting in a very consistent and fast manner, their reaction time and positive feedback to our reports both written or verbal where fast, and their grafana system proclaims 94.964% however it doesn't showcases the general uptime from the lost data in the earlier stages, which was above 95% active state.  
-
-#### Hand-over
-Emmelys comment. I can write about this
-```
-In this part, you should describe the hand-over of the system you were operating.  
-Specifically you should comment on the quality of the documentation you received  
-and whether you felt well equipped to maintaining the system.
-```
-We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker-news/wiki) we got was very adequate, well documented in a simple way, easy to read but still content full.
-We felt very equipped to monitor their system from the start.
-We quickly headed over to the system to look for issues to report.
-Our team reported in total around 20 issues. The issues were related to the system as a whole. Both requirements in the use cases that were missing and reporting when monitoring systems went down.
-We also talked to the development team directly saying that we thought some Use Cases weren't implemented and agreed that we would give them some time to implement those.
-The development team was very quick most of the time and polite answering us and indicating that they took our reported issues seriously.
-The communication with the team has been easy both face to face and via email and social media.
-A couple of times the development team notified us in advance if there were some issues we need to know about.
-
-#### Service-level agreement
-We made a service level agreement with another group (Group I) acting as operators. The full SLA can be found [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA) in the github wiki section.
-
-But to summerize a few parts of the SLA, here are some agreements:
-
-Availability:
-- Minimum expected 95% per month.
-
-Responsetime:
-- maximum responsetime of service is 60 milliseconds.
-
-To delve deeper into the SLA, it is advised to read the full version: [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA)
-
-Other than that, there were no disagreement from the first itteration of the SLA, and was signed at first proposal.
-
-#### Maintenance and reliability
-Daniel
-```
-This part should contain a description on how you experienced the actual operation.  
-Explain how you actually monitored the system to ensure that the SLA was upheld, and  
-describe any incidents you experienced that broke (or could potentially break) the SLA.  
-Remember to include documentation for each incident! Finally you should conclude  
-how well the developers responded to your issues and conclude on how reliable the  
-system was overall.
-```
 
 ## Discussion
 ```
