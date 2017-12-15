@@ -66,7 +66,7 @@ Lastly we have the database, which is a mySQL database on a seperate ubuntu serv
 
 We made some basic diagrams to agree upon the systems operations.
 - API: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/GoOverview.png)
-- Architecture: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Systemoverview.png)
+- Architecture: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Componentdiagram1.png)
 - Data flow: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Viewthread.png)
 - Gui-Prototype: [Here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Web%20UI%20prototype.png)
 
