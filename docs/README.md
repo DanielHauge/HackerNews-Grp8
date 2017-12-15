@@ -89,9 +89,11 @@ Our system consists of the following software:
 **Web application** - written in type script. The framework is Angular2+ . 
 
 [Documentation]()
+
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/Angular)
 
 ###### Backend
+
 
 **Core REST API** - written in Go
 
@@ -99,11 +101,13 @@ Our system consists of the following software:
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoAPI%20-%20Core%20-%20Simulator)
 
+
 **Web REST API**  - written in Go
 
 [Documentation]()
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoApi%20-%20Website) 
+
 
 **DBInsert slave** - written in Go
 
@@ -111,11 +115,13 @@ Our system consists of the following software:
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/DB_Inserter_Slave)
 
+
 **DBInsert slave for Invalid Messages Channel** - written in Java
 
 [Documentation]()
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/Java-ErrorInserter)
+
 
 ##### How well did we follow the requirements we began with?
 
