@@ -125,8 +125,8 @@ A: The system responds by going back to the previous page the user was on. New l
 We agreed upon having a project management system for our team where we would set up the task that needs to be done.
 ZenHub was a free online tool that we set up. It reminded of Atlassian JIRA. A project management one of the group members had good experience of.
 Unfortunately, we found out that the system had some bugs so we could not use it.
-We went over to Trello which had same functionality. This tool us to set up stories of functionality and overall tasked need to be done to implement the system
-This was also where we delegated tasked for in areas we felt confident.
+We went over to Trello which had same functionality. This tool allowed us to set up stories of functionality and overall taskes that need to be done to implement the system
+This was also where we delegated tasked in areas we felt confident.
 A delegation of backend and frontend tasks and responsibility was made due to the different areas we felt comfortable in. 
 After a few weeks with Trello, we felt it didn't give us enough overview of which tasks were worked on and who's doing what.
 We didn't set up a notification system so we all need to go the online project management page.
@@ -135,7 +135,7 @@ We discussed that we could drop the idea of project management system and use Di
 We use Discord to pin important messages, voice chat for meetings, saving credentials and direct chat communication.
 
 In retrospect, we can attribute much of our project success to a good communication tool and our dedication to it.
-The downside by dividing up task according to areas where we were comfortable with. This didn't force us outside our comfort zone.
+Another aspect of our process was the dividing up task according to areas where we were comfortable with. This didn't force us outside our comfort zone.
 
 *This graph shows our activity on Discord by total massages per date:*
 
