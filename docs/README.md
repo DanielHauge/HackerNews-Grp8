@@ -21,43 +21,25 @@ How to development large systems. We set out to find out. We underwent a project
 >- [Group work reflection & Lessons learned](#group-work-reflection--lessons-learned)
 
 ## Requirements, architecture, design and process
-Kristian
-```
-This section describes the requirements of the project, the architecture that you have chosen,  
-the design of the actual components and the process you undertook to build them in the end.
-```
+
 #### System requirements
-Kristian
-```
-This section should contain an elaborate description of the requirements for the project.  
-This includes the scope of the Hackernews clone (what should it be able to do / what should it not be able to do).
-```
+
 The system was a minimal functional clone of the original Hackernews website, which was a system that allowed users to share and discuss stories with a focus on programming and information systems, the system allows self regulation by allowing users to increase the visibility of some discussions, and for long time users to decrease the visibilty of others.  
 The system had to handle multiple users posting stories and comments at the same time, while also having a minimum 95% uptime even while part of the system was down for upgrading. The system had to allow users to make a program that can simulate user interaction that creates stories and comments using a REST API, also to query the latest ingested story. likewise the users should also be able to do these actions using a web browser as well.
 
 #### Development process
-Kristian - We delegated responsibility. The roles
 
-```
-In this part you should show off by telling us all you know about software development processes  
-and describe which concepts you used to structure your development.
-```
 Our choice for structuring our development process was greatly affected by our team size, as a 3 member team we had to pull more than the average 4-5 man team we were suppose to be in, but we took the challenge to better ourself as we had to be more invovled with all parts of the system. We choose to run a mutated version of Scrum as the short development time and iterative development process was needed for a project with this short development cycle.  
 we could have gone with the waterfall model, but since our lectures would give new information on a weekly basis that we had to implement into the project this model wouldn't allow for such implementation and was discarded, likewise the Unified process also discarded but not for the same reason, the unified process does allow for iterative development, but at the time we started the project we weren't comepletly familliar with that development process, and we wouldn't get the lecture until 3 days after we passed on the project for remote testing by another group, this made us choose scrum as it allowed us to keep ourself up to date on a day to day basis, and realocate resources depending on the ever changing enviorment, consisting of different courses and lecture material.
 
 #### Software architecture
-Kristian
-```
-In this section you illustrate and describe the architecture of your Hackernews clone.  
-That is, you describe how your system is structured and how the different  
-parts interact and communicate with each other.
-```
+
 To give a better overview while reading about the Architecture, we'll introduce the system in a short connected manner, with picture reference to help you reader to better navigate this system.  
 The system consist of 1 Core API that handles all activity from our teachers simulation program, it's connected to a RabbitMQ that acts as a message buffer and the database which it only pulls data from. We also have a Angular website, which does all it's backend interaction through another API dedicated for website activity, which also connects to the RabbitMQ and only pull data from the database. Our Database Inserter connects to the RabbitMQ and the Database and acts as our message handler logic and database inserter. The database runs seperate from the other systems on another server and acts as a database.
 ![](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Componentdiagram2.png)
 
 The architecture is located on a Ubuntu server hosted on the digital ocean service, it's main component is a REST API, which was designed to handle the specific commands our teachers simulator program would use, the REST API takes all messages that it receives and send them over to a RabbitMQ message broker channel, it then returns 200 response to the teachers program to conclude the transaction. this was done to reduce the amount of commands that the REST API handles, which allowed us to improve the overall performance of the REST API. The REST API also connects to the database to get the information our teachers request, as they would request the latest harnest ID.  
-One requirement was to never lose any messages that was recieved, even when the database goes down, to avoid this we implemented our recently gained knowledge of message brokers from the System Intergration course, and designated a MSMQ service called RabbitMQ to handle the messages. Our REST API quickly sends the message into the specified channel, where the RabbitMQ acts as a buffer between getting the message and inserting the message, messages will never go into the database if it's down, but we can still receive messages, we wont loose the messages in the buffer if the database is down and the REST API goes down aswell, since the messages are in the RabbitMQ.  
+One requirement was to never lose any messages that was recieved, even when the database goes down, to avoid this we implemented our recently gained knowledge of message brokers from the System Intergration course, and designated a message broker service called RabbitMQ to handle the messages in channels. Our REST API quickly sends the message into the specified channel, where the RabbitMQ acts as a buffer between getting the message and inserting the message, messages will never go into the database if it's down, but we can still receive messages, we wont loose the messages in the buffer if the database is down and the REST API goes down aswell, since the messages are in the RabbitMQ.  
 We also have a seperate REST API that handles all Web based communication, the choice for seperating the communication of the website and the teachers simulator program was to further spread the load, since we wanted no interference with our teachers simulator and our digestion of the simulation. The web API is connected to a angular website, and has all the features of the other API, so the Angular website uses the same commands, but present a graphical user interface for all web browser users.  
 For handling the messages in the RabbitMQ buffer we implemented a database inserter named "DB Inserter slave", it tries to take the first message in the message brokers channel, and process the information so it can insert it into the database, if the message is faulty it sends it to a dead end channel on the message broker, otherwise it'll insert the data into the database as fast as possible.  
 Lastly we have the database, which is a mySQL database on a seperate ubuntu server hosted on digital ocean.
@@ -75,13 +57,7 @@ Before we started developing, we had some concerns about the 2 different users w
 The fix to this specific issue was to make 2 different interfaces. We made and decided upon the ID,s that we will be using. We made one interface for the website users, and made one interface (API) that would translate the simulators ID,s into our own ID,s and Thread/Comment-ID,s. This way, we threat the data the same even for 2 different ways of interacting with the system.
 
 #### Software implementation
-Emmely
-```
-This section should describe your actual implementation. Mainly how well you followed the requirements,
-process and software design you began with. If your  
-system changed during this phase you should summarise the unexpected  
-events/problems and explain how you solved them.
-```
+
 Our system consists of the following software:
 
 ###### Front end software
@@ -193,20 +169,9 @@ For this, we needed to create a new Inserter that could insert those invalid mes
 
 
 ## Maintenance and SLA status
-Daniel
-```
-This section describes the process of maintaining the software over time,  
-starting from the hand-over to the shutting down of your system. The section  
-should be written from the viewpoint of the operator, not the developers.
-```
 
 #### Hand-over
-Emmelys comment. I can write about this
-```
-In this part, you should describe the hand-over of the system you were operating.  
-Specifically you should comment on the quality of the documentation you received  
-and whether you felt well equipped to maintaining the system.
-```
+
 Group I gave us a link to their GitHub repository with a Wiki page, e-mailaddress and where to look for Grafana, their monitoring of the system. 
 We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker-news/wiki) we got was very adequate, well documented in a simple way, easy to read but still content full.
 We felt very equipped to operate and monitor their system from the start.
@@ -227,109 +192,20 @@ To delve deeper into the SLA, it is advised to read the full version: [Here](htt
 Other than that, there were no disagreement from the first itteration of the SLA, and was signed at first proposal.
 
 #### Maintenance and reliability
-Daniel
-```
-This part should contain a description on how you experienced the actual operation.  
-Explain how you actually monitored the system to ensure that the SLA was upheld, and  
-describe any incidents you experienced that broke (or could potentially break) the SLA.  
-Remember to include documentation for each incident! Finally you should conclude  
-how well the developers responded to your issues and conclude on how reliable the  
-system was overall.
-```
+
 Both us as operators and the developers of the system, was initially confused about how much access we were suppose to have access to, but the developers was quick both in written format and personal meetings, allowing for communication with us operators, this allowed for quick and responsive reactions to every incident that happened, doing the time we as operators where tasked to monitor the system.  
 We implemented alerts for when the system would go down, but our primary way of operation was to actively passive monitor, as in we would on regular occasions take a look on the passive monitor system Grafana, allowing us to catch abnormalities that would happen without our or the developers knowledge.  
 Although some incidents havn't been reported in written format, as we in many cases reported breaches of the Service level agreement in person, we will show the following cases we did write down and explain each case individually.  
 
-3th November Antivirus issue  
-![](https://i.gyazo.com/941c6c9ad87b7dbc48c50a5f0f5dc28c.png)  
-the first major issue wasn't part of the system level agreement, but the way they setup thier web interface for user interaction of their system had a issue, the issue was they redirected the web client to thier backend to get their real user interface, this is generally known as a malicious action, a website could redirect the user to a http call that would download virus or malware, it took a long time to fix this issue, as it was a direct result of their initial architecture so it required extensive remodelling to solve this case.  
-
-8th November users without password  
-![](https://i.gyazo.com/bf869551b151e64cc5fc15dc8f583831.png)  
-this issue we spottet was a user creation error, the problem was the user could register without a password, login without a password and do all actions as a verified user, this is generally a issue of verification both on creation and login, since if a user doesn't need password it might be possible to login on another user as the password might be irrelevant.  
-
-8th November no feedback on user creation  
-![](https://i.gyazo.com/d11d36f4d274e39077424ba2aa1570bc.png)  
-this issue was a minor feedback problem, where you wouldn't know if your request for account creation was succesful or not.  
-
-8th November 404 refresh error  
-![](https://i.gyazo.com/a98092f6ceee0da0a6452b8a5d003f41.png)  
-Doing a refresh when attempting to login would result in a 404, this problem existed because of their initial architecture, which didn't redirect to sub domains doing each action in the webpage navigation.  
-
-10th November Grafana information confusion  
-![](https://i.gyazo.com/fa29b6b5aaa1e53a95c0b4807d3ce97e.png)  
-One information graph on their grafana confused us as it showed alot more "request" than we observed the teachers had sent, turns out this graph showed all actions of all systems, resulting in the higher than expected request counter.  
-
-11th November database update  
-![](https://i.gyazo.com/b610f0333b9c2982af7f7feebba92e84.png)  
-this was a error on our side as operators, as we observed actively at the time and presumed the abnormal activity to be a crash, turned out to be a database upgrade, we would have known it was this if we had checked http://46.101.28.25:8080/status  
-
-12th November website not showing stories  
-![](https://i.gyazo.com/6e1603e01b80ffee6020f89dfe09a8cb.png)  
-This issue spawned from the previous days database upgrade.  
-
-12th November Service crash  
-![](https://i.gyazo.com/664e9a43d11e87a32ff4ab26cc1a6e01.png)  
-Further issues from the 11th November update resulted in major changes to their system, which made us notice many crashes and abnormalities.  
-
-13th November Prometheus crash  
-![](https://i.gyazo.com/00c37644baade9d88f9f12c22de14bee.png)  
-unrelated to the previous days development, this issue happened multiple times doing the semester where we monitored their system, we now know afterwards these crashes where related to running prometheus on a docker container, which they later implemented a volume for.  
-
-13th November Intentional stress test  
-![](https://i.gyazo.com/31bde7c8b7b372aca9f5003204a19457.png)  
-this issue was part of a assignment for the developers to attempt to break their system and for us as operators to observe and report it, the issue came from them using a simulation that posted as fast as it could to their service, resulting in a abnormal request spike.  
-
-14th November missing features comments 
-![](https://i.gyazo.com/8c796c22d5dc0f33a4a4a9ebeea1cddb.png)  
-this issue was at the time of reporting it not implemented, this was fixed later down the line.  
-
-14th November missing feature logout  
-![](https://i.gyazo.com/bd984487ef196ac8ea760ba69a28fbb2.png)  
-this issue was at the time of reporting it not implemented, this was fixed later down the line.  
-
-14th November missing feature update user  
-![](https://i.gyazo.com/0e483304c6f9c9ba3335bf7c397a0f43.png)  
-this issue was at the time of reporting it not implemented, this was fixed later down the line.  
-
-15th November temporary downtime  
-![](https://i.gyazo.com/1d6386ba66942b3f0efe8a5abde1b9b7.png)  
-this was a minor hiccup on the serverside, documentation seems to indicate it was temporary and no developer actions where needed.  
-
-16th November Invalid stories  
-![](https://i.gyazo.com/e07fa55a9ce08a34d27d94eed613f29a.png)  
-Due to a error in implementation on the developers side, the system would display the stories that had it's content deleted, resulting in showcases of invalid stories.  
-
-16th November Grafana crash  
-![](https://i.gyazo.com/6ae549bf31b4a930353bff64bed75535.png)  
-one of the reported grafana crashes.  
-
-24th November Grafana crash  
-![](https://i.gyazo.com/cfb20c983c2f513e87bfc90d1e7c4e39.png)  
-This crash wasn't found out by our alerts, at the time of writing this report it seems we forgot to fix our grafana alerts after the previous developments, as it's possible we didn't have alerts from this point onwards.  
-
-29th November OWTF testing  
-![](https://i.gyazo.com/d4ee34b6b0c9cc81afa2389c0ec37e3b.png)  
-as assignment we had to test our designated system we operated on, so to alert the developers what time we would be doing the testing, we discussed aproximately when we do this and report the beginning and end of the testing, as to allow them to respond in time incase of system failure from the OWTF stress testing.  
-
-11th december Grafana crash  
-![](https://i.gyazo.com/48559583616ee590d6b65e6e99e226f8.png)  
-last reported issue although not the last grafana crash.  
+to save space in the report you can read about all 19 written issues [here](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/docs/Issue%20appendix.md)
 
 Concluding on the developers cooperation.  
 The group we were operators for where actively discussing and reacting in a very consistent and fast manner, their reaction time and positive feedback to our reports both written or verbal where fast, and their grafana system proclaims 94.964% however it doesn't showcases the general uptime from the lost data in the earlier stages, which was above 95% active state.  
 
 ## Discussion
-```
-...
-```
 
 #### Technical discussion
-Kristian
-```
-This part summarises both the first and second part of the report by giving an overview  
-of the good and bad parts of the whole semester project. Be critical and honest.
-```
+
 ###### First part: the good
 Angular. < need help here  
 Doing our initial design phase we were contemplating upon how much we would focus, since we did feel confident in how much we could achieve due to our combined enthusiasm, but when we we presented our early version of our RAD (requirements analyses document) to our teacher for feedback, we were told to tone down our expectation, which lead to a minimalistic approach to the requirements, this was absolutely a good direction as we were only 3 in the group where it was expected we were 4-5.  
@@ -339,31 +215,16 @@ Software tools like Git and jenkins also helped immensely, as they allowed us to
 
 ###### First part: the bad
 We promised to have everyone in the group touch every part of the project, so that we all could improve our skills in all subject matters, since we were 3 member team, each member needed to know how the project worked, and we wanted everyone to specifically be able to recreate the system single handedly. Time restraint trashed that dream, we were unable to delegate the varied task doing our development of the project, as the time contraints and the 3 man size couldn't keep up with the expected 4-5 man development performance.  
-Our limited experience with databases and specifically relational database, was a huge problem for us doing the development, we where overestimated how much trouble the database would give us, and we didn't know how to implement it correctly, lacking forign keys and relations in a relational database, resulted in extreme expenses on hosting the database on a digital ocean service, while also proving quite a challenge in making temporary solutions to persistent problems, that we struggled with troughout the entire projects lifespawn.  
+Our limited experience with databases and specifically relational database, was a huge problem for us doing the development, we where underestimated how much trouble the database would give us, and we didn't know how to implement it correctly, lacking forign keys and relations in a relational database, resulted in extreme expenses on hosting the database on a digital ocean service, while also proving quite a challenge in making temporary solutions to persistent problems, that we struggled with troughout the entire projects lifespawn.  
 
 ###### Second part:the good
 Our initial introduction to the group we would be monitoring was fantastic, they were both friendly and intend on a high level communication level throughout the projects lifespawn.  
-SLA < need help  
 Their monitoring systems setup had a great overview, which gave a excellent view of their systems performance, allowing us the needed tools to monitor and alert them when needed. Thier response rate to all issues we presented both oral and written was fast, and their communication on each issues was informative, which helped the positive and constructive mood between them as developers and us as operators.  
 
 ###### Second part: the bad
 When we recieved thier project and the system level agreement, their project wasn't excatly finished, and they did break their system level agreement a few times due to these issues.  
 
-###### Important lessons
+#### Group work reflection & Lessons learned
 Maintenance is crucial for large systems, both for developers peace of mind and productivity, and also to maintain a contract between developer and customer. Quality of the product is highly affected by it's performance, and generally the most cost of a product comes from maintaining it after launch, this can be reduced by implementing a strong foundation for monitoring the systems performance.  
 System intergration is very powerful for product flexibility, as it allows ongoing improvement and replacement of components after launch, this has great cost initially for it's implementation, but pays back immensly in the maintenance stage of a product.  
-Reckless implementation or use of tools and features can cripple products, although time constraints might force these scenarios, it's important to focus on studying the tools, so that you can either replace or improve them before they do damage to the product.  
-
-
-#### Group work reflection & Lessons learned
-```
-Give a short reflection on what were the three most important things you learned  
-during the project. The lessons learned are with regards to both, what worked well  
-and what worked not well. These reflections can cover anything from the sections  
-above. That is, development process, architectural and design decisions,  
-implementation, maintenance, etc. If you chose to use roles (project manager,  
-architect, devops etc.) you should use those to reflect on whether they  
-improved the process or not.
-
-Additionally, focus on both, your work as developers as well as operators.
-```
+Reckless implementation or use of tools and features can cripple products, although time constraints might force these scenarios, it's important to focus on studying the tools, so that you can either replace or improve them before they do damage to the product. 
