@@ -135,7 +135,7 @@ We discussed that we could drop the idea of project management system and use Di
 We use Discord to pin important messages, voice chat for meetings, saving credentials and direct chat communication.
 
 In retrospect, we can attribute much of our project success to a good communication tool and our dedication to it.
-The downside by dividing up task according to areas we are comfortable with didn't force us outside our comfort zone.
+The downside by dividing up task according to areas where we were comfortable with. This didn't force us outside our comfort zone.
 
 *This graph shows our activity on Discord by total massages per date:*
 
