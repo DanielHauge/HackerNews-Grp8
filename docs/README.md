@@ -77,8 +77,8 @@ The fix to this specific issue was to make 2 different interfaces. We made and d
 #### Software implementation
 Emmely
 ```
-This section should describe your actual implementation. Mainly how well you  
-followed the requirements, process and software design you began with. If your  
+This section should describe your actual implementation. Mainly how well you followed the requirements,
+process and software design you began with. If your  
 system changed during this phase you should summarise the unexpected  
 events/problems and explain how you solved them.
 ```
@@ -88,7 +88,7 @@ Our system consists of the following software:
 
 **Web application** - written in TypeScript. The framework is Angular2+. 
 
-[Documentation]()
+[Documentation](https://github.com/DanielHauge/HackerNews-Grp8/wiki/Angular-Web-Application)
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/Angular)
 
@@ -97,21 +97,22 @@ Our system consists of the following software:
 
 **Core REST API** - written in Go
 
-[Documentation](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoAPI%20-%20Core%20-%20Simulator)
+[Documentation](https://github.com/DanielHauge/HackerNews-Grp8/wiki/Core-API)
+[Documentation](https://github.com/DanielHauge/HackerNews-Grp8/wiki/Go-API%27s)
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoAPI%20-%20Core%20-%20Simulator)
 
 
 **Web REST API**  - written in Go
 
-[Documentation]()
+[Documentation](https://github.com/DanielHauge/HackerNews-Grp8/wiki/Web-API)
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/GoApi%20-%20Website) 
 
 
 **DBInsert slave** - written in Go
 
-[Documentation]()
+[Documentation](https://github.com/DanielHauge/HackerNews-Grp8/wiki/DB-Inserter-Slave)
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/DB_Inserter_Slave)
 
@@ -126,37 +127,39 @@ Our system consists of the following software:
 ##### How well did we follow the requirements we began with?
 
 For the feedback we got from Helge from our first hand-in of the Requirements and Analysis Document, RAD, we should not invent requirements and this was something we took to our heart.
-For this reason we have put only the minimum and the requirements were fully implemented from the hand-in on November 2.
-
+For this reason, we have put only the minimum and the requirements were fully implemented from the hand-in on November 2.
 
 ##### How well did we followed the process we began with
 
-We agreed opon having a project management system. For the team where we would set up task that need to be done.
+
+We agreed upon having a project management system. For the team where we would set up the task that needs to be done.
 ZenHub was a free online tool that we set up. It reminded of Atlassian JIRA. A project management one of the group members had good experience of.
-Unfortunately we found out that the system had some bugs so we could not use.
-We went over to Trello. In this tool we set up the functionality and overall tasked need to be implemented to implement the system.
+Unfortunately, we found out that the system had some bugs so we could not use.
+We went over to Trello. In this tool, we set up the functionality and overall tasked need to be implemented to implement the system.
 This was also where we delegated tasked for in areas we felt confident.
-A division in backen and frontend responsibility was because we had different areas we felt we where good in. 
-After a few weeks with Trello we felt it didn't give us enough overview of which which tasks were worked on and whos doing what.
+A division of backend and frontend responsibility was because we had different areas we felt we were good in. 
+After a few weeks with Trello, we felt it didn't give us enough overview of which tasks were worked on and whos doing what.
 We didn't set up a notification system so we all went to the project management system manually.
-During the whole project and semester our group have been using Discord.
+During the whole project and semester, our group has been using Discord.
 We went over to using only Discord. We were three group members that use good communication as a project management tool.
 We even use Discord to pin important messages, Voice chat, saving credentials and direct communication (during all hours of the day).
 
-In retrospect we can attribute much of our project success to a good communication tool and our dedication to it.
-The downside by dividing up task according to areas we are comfortable with didn't force us outside out comfort zone.
+In retrospect, we can attribute much of our project success to a good communication tool and our dedication to it.
+The downside by dividing up task according to areas we are comfortable with didn't force us outside our comfort zone.
 
 [Emmely TODO Make statistics of Discord]
 
 ##### How well did we followed the software design we began with
 
 Or design was to build a REST API, Messaging Queue, Database and Web Application.
-During what we could call elaboration phase we decided to divide up the REST API for two task. 
+During what we could call elaboration phase we decided to divide up the REST API into two task. 
 We incorporated this idea into the design. One handling the Web Application and one handling the Simulator program.
-In retrospect this was a good idea. For the simulator we wanted to get a story but for the Web Application request we wanted more information around those stories such as number of posts and time etc.
-Those calculations were a lot heavier. So in the Web API we did heavier calculation to serve a more user friendly website.
-When we handed in, handed in the system to the stake holder fulfilling all the requires. 
-We had developed the system as we designed it. With continues delivery 
+In retrospect, this was a good idea. For the simulator, we wanted to get a story but for the Web Application request, we wanted more information around those stories such as the number of comments, karma and time in "minutes ago" etc.
+Those calculations were a lot heavier. So in the Web API we did the heavier calculation to serve a more user-friendly website.
+When we handed in, hand in the system to the stakeholder fulfilling all the requirements. 
+
+##### Unexpected events/problems & Solution to the unexpected events/problems (a summarise)
+
 
 ##### System changed during the maintenance phase
 
@@ -164,41 +167,30 @@ We had developed the system as we designed it. With continues delivery
 
 **Web application** - written in Angular2+ . 
 Very few changes were made after the hand-in and in November 2.
-- Small bugg with element
-- Implementing front end monitoring/logging with rollbar. But not a great tool.
+- A test with implementing front end monitoring/logging with Rollbar.
 
 ###### Backend
 
+**Web REST API and Core REST API**  - written in Go
+- We added functionality exposing metrics endpoints for Prometheus.
+- Added our own way of [logging](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/ProjectFolders/GoApi%20-%20Website/Logger.go).
 
-
-**Web REST API**  - written in Go
-- Added little more
-- We adeed monitoring and logging to it.
- 
 **DBInsert slave** - written in Go
 
-The DBInserter software were written initially in C#. 
+The DBInserter software was written initially in C#. 
 The DBInserter is responsible for handling the messages(request) in the queue and inserting them into the database. 
-Because we were using a Relational Database (without foreign keys) the DBInserter quickly (after just a few days with the simulator running) became our bottleneck.
+Because we were using a Relational Database (without foreign keys) the DB inserter quickly (after just a few days with the simulator running) became our bottleneck.
 We made a few tweaks to the software to update it. 
 But after spending too much time on this issue we replaced it with a new software written in Go that handles the insertions differently.
-By buffering up the insertions into one insert query.
- 
+The Go program hold the Database in memory so that insertions can be done directly without joins.
+
 **DBInsert slave for Invalid Messages Channel** - written in Java
 
 This program came to live after a few weeks into the project.
 We started to notice that the simulator send messages that our system couldn't handle and that this often lead to a crash of our system.
-For this we needed to create a new Inserter that could insert those invalid messages. The way it works .......
+For this, we needed to create a new Inserter that could insert those invalid messages in a separate table in the database. We wanted to persist them even though they were invalid.
 
 
-##### Unexpected events/problems & Solution to the unexpected events/problems (a summarise)
-
-##### Conclusion
-The software fontend is not depending on how large the system is. 
-If we would have gotten a large number of request to the frontend the way we have would designed it would stay the same. 
-The software could not optimise however the server/servers serving the Web Application for hat but our servers. 
-Using docker swarm would need to instantiate more servers handling the load. 
-There are other factors that determined how to write. 
 
 ## Maintenance and SLA status
 Daniel
@@ -215,14 +207,9 @@ In this part, you should describe the hand-over of the system you were operating
 Specifically you should comment on the quality of the documentation you received  
 and whether you felt well equipped to maintaining the system.
 ```
+Group I gave us a link to their GitHub repository with a Wiki page, e-mailaddress and where to look for Grafana, their monitoring of the system. 
 We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker-news/wiki) we got was very adequate, well documented in a simple way, easy to read but still content full.
 We felt very equipped to monitor their system from the start.
-We quickly headed over to the system to look for issues to report.
-Our team reported in total around 20 issues. The issues were related to the system as a whole. Both requirements in the use cases that were missing and reporting when monitoring systems went down.
-We also talked to the development team directly saying that we thought some Use Cases weren't implemented and agreed that we would give them some time to implement those.
-The development team was very quick most of the time and polite answering us and indicating that they took our reported issues seriously.
-The communication with the team has been easy both face to face and via email and social media.
-A couple of times the development team notified us in advance if there were some issues we need to know about.
 
 #### Service-level agreement
 We made a service level agreement with another group (Group I) acting as operators. The full SLA can be found [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA) in the github wiki section.
