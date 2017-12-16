@@ -21,37 +21,19 @@ How to development large systems. We set out to find out. We underwent a project
 >- [Group work reflection & Lessons learned](#group-work-reflection--lessons-learned)
 
 ## Requirements, architecture, design and process
-Kristian
-```
-This section describes the requirements of the project, the architecture that you have chosen,  
-the design of the actual components and the process you undertook to build them in the end.
-```
+
 #### System requirements
-Kristian
-```
-This section should contain an elaborate description of the requirements for the project.  
-This includes the scope of the Hackernews clone (what should it be able to do / what should it not be able to do).
-```
+
 The system was a minimal functional clone of the original Hackernews website, which was a system that allowed users to share and discuss stories with a focus on programming and information systems, the system allows self regulation by allowing users to increase the visibility of some discussions, and for long time users to decrease the visibilty of others.  
 The system had to handle multiple users posting stories and comments at the same time, while also having a minimum 95% uptime even while part of the system was down for upgrading. The system had to allow users to make a program that can simulate user interaction that creates stories and comments using a REST API, also to query the latest ingested story. likewise the users should also be able to do these actions using a web browser as well.
 
 #### Development process
-Kristian - We delegated responsibility. The roles
 
-```
-In this part you should show off by telling us all you know about software development processes  
-and describe which concepts you used to structure your development.
-```
 Our choice for structuring our development process was greatly affected by our team size, as a 3 member team we had to pull more than the average 4-5 man team we were suppose to be in, but we took the challenge to better ourself as we had to be more invovled with all parts of the system. We choose to run a mutated version of Scrum as the short development time and iterative development process was needed for a project with this short development cycle.  
 we could have gone with the waterfall model, but since our lectures would give new information on a weekly basis that we had to implement into the project this model wouldn't allow for such implementation and was discarded, likewise the Unified process also discarded but not for the same reason, the unified process does allow for iterative development, but at the time we started the project we weren't comepletly familliar with that development process, and we wouldn't get the lecture until 3 days after we passed on the project for remote testing by another group, this made us choose scrum as it allowed us to keep ourself up to date on a day to day basis, and realocate resources depending on the ever changing enviorment, consisting of different courses and lecture material.
 
 #### Software architecture
-Kristian
-```
-In this section you illustrate and describe the architecture of your Hackernews clone.  
-That is, you describe how your system is structured and how the different  
-parts interact and communicate with each other.
-```
+
 To give a better overview while reading about the Architecture, we'll introduce the system in a short connected manner, with picture reference to help you reader to better navigate this system.  
 The system consist of 1 Core API that handles all activity from our teachers simulation program, it's connected to a RabbitMQ that acts as a message buffer and the database which it only pulls data from. We also have a Angular website, which does all it's backend interaction through another API dedicated for website activity, which also connects to the RabbitMQ and only pull data from the database. Our Database Inserter connects to the RabbitMQ and the Database and acts as our message handler logic and database inserter. The database runs seperate from the other systems on another server and acts as a database.
 ![](https://github.com/DanielHauge/HackerNews-Grp8/blob/master/Documentation/Componentdiagram2.png)
@@ -75,13 +57,7 @@ Before we started developing, we had some concerns about the 2 different users w
 The fix to this specific issue was to make 2 different interfaces. We made and decided upon the ID,s that we will be using. We made one interface for the website users, and made one interface (API) that would translate the simulators ID,s into our own ID,s and Thread/Comment-ID,s. This way, we threat the data the same even for 2 different ways of interacting with the system.
 
 #### Software implementation
-Emmely
-```
-This section should describe your actual implementation. Mainly how well you followed the requirements,
-process and software design you began with. If your  
-system changed during this phase you should summarise the unexpected  
-events/problems and explain how you solved them.
-```
+
 Our system consists of the following software:
 
 ###### Front end software
@@ -193,20 +169,9 @@ For this, we needed to create a new Inserter that could insert those invalid mes
 
 
 ## Maintenance and SLA status
-Daniel
-```
-This section describes the process of maintaining the software over time,  
-starting from the hand-over to the shutting down of your system. The section  
-should be written from the viewpoint of the operator, not the developers.
-```
 
 #### Hand-over
-Emmelys comment. I can write about this
-```
-In this part, you should describe the hand-over of the system you were operating.  
-Specifically you should comment on the quality of the documentation you received  
-and whether you felt well equipped to maintaining the system.
-```
+
 Group I gave us a link to their GitHub repository with a Wiki page, e-mailaddress and where to look for Grafana, their monitoring of the system. 
 We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker-news/wiki) we got was very adequate, well documented in a simple way, easy to read but still content full.
 We felt very equipped to monitor their system from the start.
@@ -227,15 +192,7 @@ To delve deeper into the SLA, it is advised to read the full version: [Here](htt
 Other than that, there were no disagreement from the first itteration of the SLA, and was signed at first proposal.
 
 #### Maintenance and reliability
-Daniel
-```
-This part should contain a description on how you experienced the actual operation.  
-Explain how you actually monitored the system to ensure that the SLA was upheld, and  
-describe any incidents you experienced that broke (or could potentially break) the SLA.  
-Remember to include documentation for each incident! Finally you should conclude  
-how well the developers responded to your issues and conclude on how reliable the  
-system was overall.
-```
+
 Both us as operators and the developers of the system, was initially confused about how much access we were suppose to have access to, but the developers was quick both in written format and personal meetings, allowing for communication with us operators, this allowed for quick and responsive reactions to every incident that happened, doing the time we as operators where tasked to monitor the system.  
 We implemented alerts for when the system would go down, but our primary way of operation was to actively passive monitor, as in we would on regular occasions take a look on the passive monitor system Grafana, allowing us to catch abnormalities that would happen without our or the developers knowledge.  
 Although some incidents havn't been reported in written format, as we in many cases reported breaches of the Service level agreement in person, we will show the following cases we did write down and explain each case individually.  
@@ -320,16 +277,9 @@ Concluding on the developers cooperation.
 The group we were operators for where actively discussing and reacting in a very consistent and fast manner, their reaction time and positive feedback to our reports both written or verbal where fast, and their grafana system proclaims 94.964% however it doesn't showcases the general uptime from the lost data in the earlier stages, which was above 95% active state.  
 
 ## Discussion
-```
-...
-```
 
 #### Technical discussion
-Kristian
-```
-This part summarises both the first and second part of the report by giving an overview  
-of the good and bad parts of the whole semester project. Be critical and honest.
-```
+
 ###### First part: the good
 Angular. < need help here  
 Doing our initial design phase we were contemplating upon how much we would focus, since we did feel confident in how much we could achieve due to our combined enthusiasm, but when we we presented our early version of our RAD (requirements analyses document) to our teacher for feedback, we were told to tone down our expectation, which lead to a minimalistic approach to the requirements, this was absolutely a good direction as we were only 3 in the group where it was expected we were 4-5.  
@@ -349,21 +299,7 @@ Their monitoring systems setup had a great overview, which gave a excellent view
 ###### Second part: the bad
 When we recieved thier project and the system level agreement, their project wasn't excatly finished, and they did break their system level agreement a few times due to these issues.  
 
-###### Important lessons
+#### Group work reflection & Lessons learned
 Maintenance is crucial for large systems, both for developers peace of mind and productivity, and also to maintain a contract between developer and customer. Quality of the product is highly affected by it's performance, and generally the most cost of a product comes from maintaining it after launch, this can be reduced by implementing a strong foundation for monitoring the systems performance.  
 System intergration is very powerful for product flexibility, as it allows ongoing improvement and replacement of components after launch, this has great cost initially for it's implementation, but pays back immensly in the maintenance stage of a product.  
-Reckless implementation or use of tools and features can cripple products, although time constraints might force these scenarios, it's important to focus on studying the tools, so that you can either replace or improve them before they do damage to the product.  
-
-
-#### Group work reflection & Lessons learned
-```
-Give a short reflection on what were the three most important things you learned  
-during the project. The lessons learned are with regards to both, what worked well  
-and what worked not well. These reflections can cover anything from the sections  
-above. That is, development process, architectural and design decisions,  
-implementation, maintenance, etc. If you chose to use roles (project manager,  
-architect, devops etc.) you should use those to reflect on whether they  
-improved the process or not.
-
-Additionally, focus on both, your work as developers as well as operators.
-```
+Reckless implementation or use of tools and features can cripple products, although time constraints might force these scenarios, it's important to focus on studying the tools, so that you can either replace or improve them before they do damage to the product. 
