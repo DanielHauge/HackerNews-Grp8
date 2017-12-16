@@ -137,8 +137,6 @@ We use Discord to pin important messages, voice chat for meetings, saving creden
 In retrospect, we can attribute much of our project success to a good communication tool and our dedication to it.
 The downside by dividing up task according to areas we are comfortable with didn't force us outside our comfort zone.
 
-[Emmely TODO Make statistics of Discord]
-
 ##### How well did we followed the software design we began with
 
 Or design was to build a REST API, Messaging Queue, Database and Web Application.
