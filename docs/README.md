@@ -86,7 +86,7 @@ Our system consists of the following software:
 
 ###### Front end software
 
-**Web application** - written in type script. The framework is Angular2+ . 
+**Web application** - written in TypeScript. The framework is Angular2+. 
 
 [Documentation]()
 
@@ -125,13 +125,28 @@ Our system consists of the following software:
 
 ##### How well did we follow the requirements we began with?
 
-Our group but the requirement very low from the start. We got the feedback from Helge from our first hand-in of the Requirements and Analysis Document, RAD, that we should not invent requirements and this was something we took to our heart.
+For the feedback we got from Helge from our first hand-in of the Requirements and Analysis Document, RAD, we should not invent requirements and this was something we took to our heart.
 For this reason we have put only the minimum and the requirements were fully implemented from the hand-in on November 2.
 
 
 ##### How well did we followed the process we began with
 
-What process?
+We agreed opon having a project management system. For the team where we would set up task that need to be done.
+ZenHub was a free online tool that we set up. It reminded of Atlassian JIRA. A project management one of the group members had good experience of.
+Unfortunately we found out that the system had some bugs so we could not use.
+We went over to Trello. In this tool we set up the functionality and overall tasked need to be implemented to implement the system.
+This was also where we delegated tasked for in areas we felt confident.
+A division in backen and frontend responsibility was because we had different areas we felt we where good in. 
+After a few weeks with Trello we felt it didn't give us enough overview of which which tasks were worked on and whos doing what.
+We didn't set up a notification system so we all went to the project management system manually.
+During the whole project and semester our group have been using Discord.
+We went over to using only Discord. We were three group members that use good communication as a project management tool.
+We even use Discord to pin important messages, Voice chat, saving credentials and direct communication (during all hours of the day).
+
+In retrospect we can attribute much of our project success to a good communication tool and our dedication to it.
+The downside by dividing up task according to areas we are comfortable with didn't force us outside out comfort zone.
+
+[Emmely TODO Make statistics of Discord]
 
 ##### How well did we followed the software design we began with
 
@@ -154,13 +169,11 @@ Very few changes were made after the hand-in and in November 2.
 
 ###### Backend
 
-**Core REST API** - written in Go
 
-?
 
 **Web REST API**  - written in Go
-
-?
+- Added little more
+- We adeed monitoring and logging to it.
  
 **DBInsert slave** - written in Go
 
