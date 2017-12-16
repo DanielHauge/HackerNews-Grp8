@@ -330,6 +330,30 @@ Kristian
 This part summarises both the first and second part of the report by giving an overview  
 of the good and bad parts of the whole semester project. Be critical and honest.
 ```
+###### First part: the good
+Angular. < need help here  
+Doing our initial design phase we were contemplating upon how much we would focus, since we did feel confident in how much we could achieve due to our combined enthusiasm, but when we we presented our early version of our RAD (requirements analyses document) to our teacher for feedback, we were told to tone down our expectation, which lead to a minimalistic approach to the requirements, this was absolutely a good direction as we were only 3 in the group where it was expected we were 4-5.  
+From the very beginning we used a communication application called discord, the reasoning was for higher level connection even when we weren't at school, the application had both text and voice communication and allowed for us to take notes and share these. This was crucial to our success as a 3 man group, since the downtime between rapid changes and our mutated scrum model, allowed for rapid response to changes and continues discussion and development from the comfort of our homes.  
+Our architecture was made very solid from the start due to our lectures in System Intergration, the lessons in message brokers and low coupeling development, allowed for a very flexible development cycle, as we could and did change individual components doing the LSD projects lifespan, another benefit with low coupling, was our ability to implement multiple lanquagde from each members preference, this allowed our 3 man group to work at optimal levels doing the project.  
+Software tools like Git and jenkins also helped immensely, as they allowed us to structure and deploy changes, without having a single person dedicate too much time, which could have resulted in our workforce getting cut down to 2 members otherwise.  
+
+###### First part: the bad
+We promised to have everyone in the group touch every part of the project, so that we all could improve our skills in all subject matters, since we were 3 member team, each member needed to know how the project worked, and we wanted everyone to specifically be able to recreate the system single handedly. Time restraint trashed that dream, we were unable to delegate the varied task doing our development of the project, as the time contraints and the 3 man size couldn't keep up with the expected 4-5 man development performance.  
+Our limited experience with databases and specifically relational database, was a huge problem for us doing the development, we where overestimated how much trouble the database would give us, and we didn't know how to implement it correctly, lacking forign keys and relations in a relational database, resulted in extreme expenses on hosting the database on a digital ocean service, while also proving quite a challenge in making temporary solutions to persistent problems, that we struggled with troughout the entire projects lifespawn.  
+
+###### Second part:the good
+Our initial introduction to the group we would be monitoring was fantastic, they were both friendly and intend on a high level communication level throughout the projects lifespawn.  
+SLA < need help  
+Their monitoring systems setup had a great overview, which gave a excellent view of their systems performance, allowing us the needed tools to monitor and alert them when needed. Thier response rate to all issues we presented both oral and written was fast, and their communication on each issues was informative, which helped the positive and constructive mood between them as developers and us as operators.  
+
+###### Second part: the bad
+When we recieved thier project and the system level agreement, their project wasn't excatly finished, and they did break their system level agreement a few times due to these issues.  
+
+###### Important lessons
+Maintenance is crucial for large systems, both for developers peace of mind and productivity, and also to maintain a contract between developer and customer. Quality of the product is highly affected by it's performance, and generally the most cost of a product comes from maintaining it after launch, this can be reduced by implementing a strong foundation for monitoring the systems performance.  
+System intergration is very powerful for product flexibility, as it allows ongoing improvement and replacement of components after launch, this has great cost initially for it's implementation, but pays back immensly in the maintenance stage of a product.  
+Reckless implementation or use of tools and features can cripple products, although time constraints might force these scenarios, it's important to focus on studying the tools, so that you can either replace or improve them before they do damage to the product.  
+
 
 #### Group work reflection & Lessons learned
 ```
