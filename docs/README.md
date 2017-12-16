@@ -102,8 +102,22 @@ Our system consists of the following software:
 
 ##### How well did we follow the requirements we began with?
 
-From the feedback we got from the teachers for our first hand-in of the Requirements and Analysis Document, RAD, we should not invent requirements and this was something we took to our heart.
-For this reason, we have put only the minimum and the requirements were fully implemented from the hand-in on November 2.
+From the feedback we got from the teachers for our first hand-in of the [Requirements and Analysis Document](https://github.com/DanielHauge/CPHBusiness_Papers/blob/master/Requirements_Analysis_Document.md#c-nonfunctional-requirements), RAD, we should not invent requirements and this was something we took to our heart.
+For this reason, we have put only the minimum and the requirements were almost fully implemented from the hand-in on November 2.
+
+As we stated in the RAD document *We will not put too much effort into the usability of the system since the main purpose, is that the system should be used via the API / Simulation program. Therefore the use of the web application will not be required to be exactly the same as hacker news.*.
+
+###### We have not implemented: 
+
+UC1 - Create New Account.
+
+Post condtion B: User is prompted that the user name has been taken.
+
+UC2 - Login.
+
+Exit condition:
+
+A: The system responds by going back to the previous page the user was on. New links are added to the menu, links for an introduction to HN, threads and edit profile information.
 
 ##### How well did we followed the process we began with
 
