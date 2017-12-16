@@ -153,6 +153,11 @@ When we handed in, hand in the system to the stakeholder fulfilling all the requ
 
 ##### Unexpected events/problems & Solution to the unexpected events/problems (a summarise)
 
+The unexpected problems we faced as the number of request increased what that the database queries took to long time due to a unideal database design without foreign keys.
+There were some tables where we were unable to implement foreign keys.
+The original Database Inserter software were replaced with a new one that handles the insert in a different way with consideration to the slow database.
+
+Another issue we also ran in to was invalid messages that crashed the system. This was fixed by a new component the DBInsert slave for Invalid Messages Channel.
 
 ##### System changed during the maintenance phase
 
