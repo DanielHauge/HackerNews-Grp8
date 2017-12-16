@@ -111,13 +111,13 @@ As we stated in the RAD document *We will not put too much effort into the usabi
 
 UC1 - Create New Account.
 
-Post condtion B: User is prompted that the user name has been taken.
+*Post condtion B: User is prompted that the user name has been taken.* - Not implemented
 
 UC2 - Login.
 
 Exit condition:
 
-A: The system responds by going back to the previous page the user was on. New links are added to the menu, links for an introduction to HN, threads and edit profile information.
+*A: The system responds by going back to the previous page the user was on. New links are added to the menu, links for an introduction to HN, threads and edit profile information.* - Not implemented
 
 ##### How well did we followed the process we began with
 
@@ -145,11 +145,11 @@ Another aspect of our process was the dividing up task according to areas where 
 ##### How well did we followed the software design we began with
 
 Or design was to build a REST API, Messaging Queue, Database and Web Application.
-During what we could call elaboration phase we decided to divide up the REST API into two task. 
-We incorporated this idea into the design. One handling the Web Application and one handling the Simulator program.
+During what we could call elaboration phase we decided to divide up the REST API into two concerns (separation of concern). 
+We incorporated this idea into the design. One API handling the Web Application and one handling the Simulator program.
 In retrospect, this was a good idea. For the simulator, we wanted to get a story but for the Web Application request, we wanted more information around those stories such as the number of comments, karma and time in "minutes ago" etc.
 Those calculations were a lot heavier. So in the Web API, we did the heavier calculation to serve a more user-friendly website.
-When we handed in, hand in the system to the stakeholder fulfilling all the requirements. 
+ 
 
 ##### Unexpected events/problems & Solution to the unexpected events/problems (a summarise)
 
@@ -157,15 +157,17 @@ The unexpected problems we faced as the number of request increased what that th
 There were some tables where we were unable to implement foreign keys.
 The original Database Inserter software were replaced with a new one that handles the insert in a different way with consideration to the slow database.
 
-Another issue we also ran in to was invalid messages that crashed the system. This was fixed by a new component the DBInsert slave for Invalid Messages Channel.
+Another issue we also ran in to was invalid messages that crashed the system. This was fixed by a new component the DBInsert slave for Invalid Messages Channel that handle invalid messages.
 
 ##### System changed during the maintenance phase
 
 ###### Front end software
 
 **Web application** - written in Angular2+ . 
+
 Very few changes were made after the hand-in and on November 2.
 - A test with implementing front-end monitoring/logging with Rollbar.
+- Updates in the API that need to be addressed.
 
 ###### Backend
 
