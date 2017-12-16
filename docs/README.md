@@ -209,7 +209,7 @@ and whether you felt well equipped to maintaining the system.
 ```
 Group I gave us a link to their GitHub repository with a Wiki page, e-mailaddress and where to look for Grafana, their monitoring of the system. 
 We thought that the [documentation](https://github.com/HackerNews-lsd2017/hacker-news/wiki) we got was very adequate, well documented in a simple way, easy to read but still content full.
-We felt very equipped to monitor their system from the start.
+We felt very equipped to operate and monitor their system from the start.
 
 #### Service-level agreement
 We made a service level agreement with another group (Group I) acting as operators. The full SLA can be found [Here](https://github.com/HackerNews-lsd2017/hacker-news/wiki/SLA) in the github wiki section.
