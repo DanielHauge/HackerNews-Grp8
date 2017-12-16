@@ -95,7 +95,6 @@ Our system consists of the following software:
 
 **DBInsert slave for Invalid Messages Channel** - written in Java
 
-[Documentation]()
 
 [Source code](https://github.com/DanielHauge/HackerNews-Grp8/tree/master/ProjectFolders/Java-ErrorInserter)
 
