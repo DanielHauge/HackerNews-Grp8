@@ -102,23 +102,23 @@ Our system consists of the following software:
 
 ##### How well did we follow the requirements we began with?
 
-For the feedback we got from Helge from our first hand-in of the Requirements and Analysis Document, RAD, we should not invent requirements and this was something we took to our heart.
+From the feedback we got from the teachers for our first hand-in of the Requirements and Analysis Document, RAD, we should not invent requirements and this was something we took to our heart.
 For this reason, we have put only the minimum and the requirements were fully implemented from the hand-in on November 2.
 
 ##### How well did we followed the process we began with
 
 
-We agreed upon having a project management system. For the team where we would set up the task that needs to be done.
+We agreed upon having a project management system for our team where we would set up the task that needs to be done.
 ZenHub was a free online tool that we set up. It reminded of Atlassian JIRA. A project management one of the group members had good experience of.
-Unfortunately, we found out that the system had some bugs so we could not use.
-We went over to Trello. In this tool, we set up the functionality and overall tasked need to be implemented to implement the system.
+Unfortunately, we found out that the system had some bugs so we could not use it.
+We went over to Trello which had same functionality. This tool us to set up stories of functionality and overall tasked need to be done to implement the system
 This was also where we delegated tasked for in areas we felt confident.
-A division of backend and frontend responsibility was because we had different areas we felt we were good in. 
-After a few weeks with Trello, we felt it didn't give us enough overview of which tasks were worked on and whos doing what.
-We didn't set up a notification system so we all went to the project management system manually.
+A delegation of backend and frontend tasks and responsibility was made due to the different areas we felt comfortable in. 
+After a few weeks with Trello, we felt it didn't give us enough overview of which tasks were worked on and who's doing what.
+We didn't set up a notification system so we all need to go the online project management page.
 During the whole project and semester, our group has been using Discord.
-We went over to using only Discord. We were three group members that use good communication as a project management tool.
-We even use Discord to pin important messages, Voice chat, saving credentials and direct communication (during all hours of the day).
+We discussed that we could drop the idea of project management system and use Discord only to communicate. Discord became our tool to communicate and mange the system.
+We use Discord to pin important messages, voice chat for meetings, saving credentials and direct chat communication.
 
 In retrospect, we can attribute much of our project success to a good communication tool and our dedication to it.
 The downside by dividing up task according to areas we are comfortable with didn't force us outside our comfort zone.
