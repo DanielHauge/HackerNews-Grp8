@@ -262,6 +262,7 @@ func Login(w http.ResponseWriter, r *http.Request){
 	if err := r.Body.Close(); err != nil {
 		Error.Println(err)
 	}
+
 	if err := json.Unmarshal(body, &usr); err != nil {
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422)
@@ -327,6 +328,7 @@ func GetLatestStories(w http.ResponseWriter, r *http.Request){
 	AllStories = QueryLatestStories(req.Dex,req.DexTo)
 
 	msgs, err := json.Marshal(AllStories); if err != nil{ Error.Println(err) }
+
 	fmt.Fprint(w, string(msgs))
 } /// Used by website
 

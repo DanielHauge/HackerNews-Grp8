@@ -61,6 +61,7 @@ func main() {
 	}
 	DB = db;
 	Hannest_id = 0
+
 	go FindLatest()
 	go SetStatus()
 	go StartStatusTask()
